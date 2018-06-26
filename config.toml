@@ -1,0 +1,50 @@
+baseurl = "https://libert.xyz" # Hostname (and path) to the root.
+title = "libert.xyz" # Site title.
+theme = "coder" # Set the theme.
+languagecode = "en" # The site’s language code.
+
+paginate = 20 # Default number of pages per page in pagination.
+canonifyurls = true # Enable to turn relative URLs into absolute.
+
+pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
+pygmentscodefences = true # Enable code fence background highlighting.
+pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
+
+[params] # theme parameters
+    author = "Libert Schmidt" # Author's name.
+    info = "DevOps / Cloud / Python" # Author's job title or info.
+    description = "Libert Schmidt personal website" # Site description.
+    keywords = "blog,devops,libert" # Site keywords.
+
+    disqusShortname = "libertschmidt" # Enable or disable Disqus
+
+    # Whether you want to hide copyright and credits in the footer.
+    hideCredits = true
+    hideCopyright = false
+
+    # Custom CSS
+	custom_css = []
+
+# Social links
+[[params.social]]
+    name = "Github"
+    weight = 1
+    url = "https://github.com/rschmidtz"
+[[params.social]]
+    name = "Twitter"
+    weight = 2
+    url = "https://twitter.com/rschmidt_z"
+[[params.social]]
+    name = "LinkedIn"
+    weight = 3
+    url = "https://www.linkedin.com/in/rschmidtz"
+
+# Menu links
+[[menu.main]]
+    name = "Blog"
+    weight = 1
+    url  = "/posts/"
+[[menu.main]]
+    name = "About"
+    weight = 2
+    url = "/about/"
