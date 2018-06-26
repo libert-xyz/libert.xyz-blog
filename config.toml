@@ -12,15 +12,15 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
 
 [params] # theme parameters
     author = "Libert Schmidt" # Author's name.
-    info = "DevOps / Cloud / Python" # Author's job title or info.
-    description = "Libert Schmidt personal website" # Site description.
-    keywords = "blog,devops,libert" # Site keywords.
+    info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
+    description = "libert personal website" # Site description.
+    keywords = "blog,devops,libert,aws,python,linux,bash" # Site keywords.
 
     disqusShortname = "libertschmidt" # Enable or disable Disqus
 
     # Whether you want to hide copyright and credits in the footer.
     hideCredits = true
-    hideCopyright = false
+    hideCopyright = true
 
     # Custom CSS
 	custom_css = []
