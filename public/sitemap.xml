@@ -3,17 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://libert.xyz/about/</loc>
+    <lastmod>2018-06-26T12:10:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/posts/easiest-dockerfile/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
+    <loc>https://libert.xyz/tags/docker/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/categories/docker/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/tags/dockerfile/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/posts/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/tags/</loc>
+    <lastmod>2015-09-01T11:59:37-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/</loc>
+    <lastmod>2018-06-26T12:10:58-04:00</lastmod>
     <priority>0</priority>
   </url>
   

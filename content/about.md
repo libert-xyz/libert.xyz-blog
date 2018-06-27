@@ -5,16 +5,14 @@ title = "About"
 slug = "about"
 +++
 
-# New Document
-
-#### Hey there, I’m Libert,
+##### Hey there, I’m Libert,
 
 and I work as a consultant that specializes in introducing a DevOps culture in teams and building cost effective Cloud Computing solutions.
 
 
-  Software controls the world we live in, from the moment that we order our favorite coffee to the moment that we take a plane, I'm really exited to be part of this revolution and help future companies to build new solutions to traditional problems.
+Software controls the world we live in, from the moment that we order our favorite coffee to the moment that we take a plane, I'm really exited to be part of this revolution and help future companies to build new solutions to traditional problems.
 
-## Skills
+### Skills
 
 
 + Programming Languages  
@@ -33,7 +31,8 @@ and I work as a consultant that specializes in introducing a DevOps culture in t
 
 
 
-## Certifications
+### Certifications
+
 
 ![logo]
 

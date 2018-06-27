@@ -1,25 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>libert.xyz</title>
-    <link>https://libert.xyz/</link>
-    <description>Recent content on libert.xyz</description>
+    <title>Docker on libert.xyz</title>
+    <link>https://libert.xyz/categories/docker/</link>
+    <description>Recent content in Docker on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Jun 2018 12:10:58 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 01 Sep 2015 11:59:37 -0400</lastBuildDate>
     
-	<atom:link href="https://libert.xyz/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://libert.xyz/categories/docker/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>About</title>
-      <link>https://libert.xyz/about/</link>
-      <pubDate>Tue, 26 Jun 2018 12:10:58 -0400</pubDate>
-      
-      <guid>https://libert.xyz/about/</guid>
-      <description>Hey there, I’m Libert, and I work as a consultant that specializes in introducing a DevOps culture in teams and building cost effective Cloud Computing solutions.
-Software controls the world we live in, from the moment that we order our favorite coffee to the moment that we take a plane, I&amp;rsquo;m really exited to be part of this revolution and help future companies to build new solutions to traditional problems.</description>
-    </item>
     
     <item>
       <title>Easiest dockerfile</title>
