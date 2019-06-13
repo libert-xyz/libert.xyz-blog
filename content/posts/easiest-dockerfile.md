@@ -2,9 +2,7 @@
 date = 2015-09-01T11:59:37-04:00
 title = "Easiest dockerfile"
 slug = "easiest-dockerfile"
-tags = ["docker",
-"dockerfile"]
-categories = ["docker"]
+tags = ["docker","dockerfile"]
 +++
 
 We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.

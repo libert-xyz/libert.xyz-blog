@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kubernetes on libert.xyz</title>
+    <link>https://libert.xyz/tags/kubernetes/</link>
+    <description>Recent content in kubernetes on libert.xyz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 12 May 2019 13:34:45 -0400</lastBuildDate>
+    
+	<atom:link href="https://libert.xyz/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Kubernetes Internals Deep Dive Summary</title>
+      <link>https://libert.xyz/posts/kubernetes-internals/</link>
+      <pubDate>Sun, 12 May 2019 13:34:45 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/kubernetes-internals/</guid>
+      <description>Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary In a nutshell, k8 has two components
+1. Control Plane (master node)
+ API Server Scheduler Control Manager etcd (key-value storage)  2.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Libert Schmidt">
+    <meta name="description" content="libert personal website">
+    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Kubernetes Internals Deep Dive Summary"/>
+<meta name="twitter:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary In a nutshell, k8 has two components
+1. Control Plane (master node)
+ API Server Scheduler Control Manager etcd (key-value storage)  2."/>
+
+    <meta property="og:title" content="Kubernetes Internals Deep Dive Summary" />
+<meta property="og:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary In a nutshell, k8 has two components
+1. Control Plane (master node)
+ API Server Scheduler Control Manager etcd (key-value storage)  2." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://libert.xyz/posts/kubernetes-internals/" />
+<meta property="article:published_time" content="2019-05-12T13:34:45-04:00"/>
+<meta property="article:modified_time" content="2019-05-12T13:34:45-04:00"/>
+
+
+    
+      <base href="https://libert.xyz/posts/kubernetes-internals/">
+    
+    <title>
+  Kubernetes Internals Deep Dive Summary · libert.xyz
+</title>
+
+    
+      <link rel="canonical" href="https://libert.xyz/posts/kubernetes-internals/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://libert.xyz">
+      libert.xyz
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/tags/">#HashTags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Kubernetes Internals Deep Dive Summary</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-05-12T13:34:45-04:00'>
+                May 12, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://libert.xyz/tags/docker/">docker</a>
+      <span class="separator">•</span>
+    <a href="https://libert.xyz/tags/k8/">k8</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<p>Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.</p>
+
+<p>Most of the references come from blogs like <a href="https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/">Julia Evans</a>,  Kubernetes Documentation and this awesome book called <a href="https://www.manning.com/books/kubernetes-in-action">Kubernetes in Action</a></p>
+
+<h2 id="k8-architecture-summary">K8 Architecture Summary</h2>
+
+<p>In a nutshell, k8 has two components</p>
+
+<p><strong>1. Control Plane (master node)</strong></p>
+
+<ul>
+<li>API Server</li>
+<li>Scheduler</li>
+<li>Control Manager</li>
+<li>etcd (key-value storage)</li>
+</ul>
+
+<p><strong>2. The (worker) Nodes</strong></p>
+
+<ul>
+<li>Kubelet</li>
+<li>Kube Proxy</li>
+<li>Container Runtime (docker or others)</li>
+<li>add-ons</li>
+</ul>
+
+<p><img src="https://libert.xyz/images/1k8.png" alt="1k8" title="k8 architecture" /></p>
+
+<h3 id="how-these-components-communicate">How these components communicate?</h3>
+
+<p>To summarize:</p>
+
+<ul>
+<li>All components communicate with the <em>API server</em>.</li>
+<li>They don&rsquo;t talk to each other directly.</li>
+<li>Only the API server communicates with etcd.</li>
+<li>Communication between the API server and the other components are initiated by the components, except when we run <code>kubectl</code> to get logs , <code>kubectl attach</code>  to connect to a running container. In those cases the API Server connects to the kubelet.</li>
+</ul>
+
+<h3 id="how-components-are-run">How components are run</h3>
+
+<p>The <em>kubelet</em> is one of the most interesting components of the system because is the only one that <strong>always</strong> runs as a regular system processes.
+All the other components in the Control plane and Worker nodes can run as pods or system process.
+The <em>kubelet</em> is also deployed to the Master node to run the Control Plane components as pods.</p>
+
+<h3 id="etcd-knows-everything-about-your-cluster">etcd knows everything about your cluster</h3>
+
+<p>All objects configurations are stored in <strong>etcd</strong>.
+For instance, all the operations for retrieving information about the cluster such as <code>kubectl get nodes</code>, <code>kubectl get pods</code>, etc. starts with a call to the <em>API Server</em> and then the <em>API Server</em> reads the information from <em>etcd</em>.</p>
+
+<p>The same happens when we make a change in the cluster like adding a new pod <code>kubectl create -f new-pod.yaml</code>. The <em>API Server</em> is called and this interacts with <em>etcd</em> to write the new state of the cluster.</p>
+
+<h3 id="the-api-server-talks-with-everyone">The API Server talks with everyone</h3>
+
+<p>It is basically a <em>CRUD</em> system (create, read, update, delete) with a RESTful API endpoint and his database is the <em>etcd</em> service.</p>
+
+<p>It also validates the objects before storing to <em>etcd</em>. It uses <em>Optimistic Locking</em> to ensure that two clients don&rsquo;t update objects at the same time.</p>
+
+<p>The API Server uses <em>Authentication plugins</em> to authenticate the user, after the plugin identifies the user, extracts the userid and group, this data is used by the <em>Authorization Plugin</em> to identify if the user can perform the action on the requested resource. After the plugin says that the user can perform the action a request is sent to the <em>Admision Control Plugin</em>.
+In Summary:</p>
+
+<p><em>Authentication Plugin</em> &ndash;&gt; <em>Authorization Plugin</em> &ndash;&gt; <em>Adminision Control Plugin</em></p>
+
+<p>After all this process the <em>API Server</em> validates the object and stores the state in <em>etcd</em> and returns a response to the client.</p>
+
+<h3 id="the-scheduler-is-always-watching-the-api-server">The Scheduler is always watching the API Server</h3>
+
+<p>The Scheduler has a watch mechanism and waits for newly created pods through the <em>API Server</em>, then assign the new pod to a node.
+The Scheduler does not communicate with the node server or <em>kubelet</em>, all the <em>Scheduler</em> does is update the pod definition  through the <em>API Server</em>.</p>
+
+<p>So far seems like a simple task if the Scheduler just picks a random node to schedule the <em>pod</em> but actually, the Scheduler uses algorithms to pick the best node.</p>
+
+<p>Algorithm flow:</p>
+
+<ul>
+<li>Filter nodes to obtain the acceptable nodes.</li>
+<li>Chose the best one based on the highest score, if all have the same score, round-robin is used.</li>
+</ul>
+
+<p>Acceptable Nodes Questions:</p>
+
+<ul>
+<li>Can the Node fulfill the pod request for Hardware resources?</li>
+<li>If the pod request to run in a particular node, is this the node?</li>
+<li>If the pod request to mount a volume, can this volume be mounted in this node?</li>
+<li>Does the pod tolerate the taints of the node?</li>
+</ul>
+
+<p>Pods belonging to the same <em>Service</em> or <em>ReplicaSet</em> are spread across multiple nodes by default, but this is not guaranteed.  We can force the pods to be spread across the cluster or kept together by defining <em>pod affinity</em> rules.</p>
+
+<h3 id="the-control-manager-has-multiple-controllers">The Control Manager has multiple controllers</h3>
+
+<p>There is a controller for almost every resource you can create.
+The list of these controllers include:</p>
+
+<ul>
+<li>Replication manager</li>
+<li>ReplicaSet, DaemonSet and Job controllers</li>
+<li>Deployment controller</li>
+<li>StatefulSet controller</li>
+<li>Node controller</li>
+<li>Service controller</li>
+<li>NameSpace controller</li>
+<li>PersistentVolume controller</li>
+<li>Others</li>
+</ul>
+
+<p><em>What they do and how they do it?</em></p>
+
+<p>Controllers watch the <em>API Server</em> for changes in resources (Deployments, Services, etc) and perform operations for each change.
+They don&rsquo;t communicate with the <em>kubelet</em> directly or issue any instructions to them, <strong>they just update a resource in the API Server</strong></p>
+
+<p><img src="https://libert.xyz/images/2k8.png" alt="2k8" title="Controllers" /></p>
+
+<h3 id="the-kubelet-is-not-a-pod-but-creates-multiple-ones">The Kubelet is not a pod but creates multiple ones</h3>
+
+<ul>
+<li>Its initial job is to register the node where is running by creating a Job Resource in the <em>API Server</em>.</li>
+<li>Then monitor the <em>API Server</em> for Pods that have been scheduled in the node, and start the pod container (container runtime).</li>
+<li>Constantly monitors running containers and report their status to the <em>API Server</em></li>
+</ul>
+
+<p><em>Running static pods</em> without talking to the <em>API Server</em> is also possible. Actually, this is how the master nodes run the control plane pods.
+in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API Server</em> and a local file directory (Kubelet manifest Directory).</p>
+
+<p><img src="https://libert.xyz/images/3k8.png" alt="3k8" title="Kubelet" /></p>
+
+<h3 id="kube-proxy-does-networking">Kube-Proxy does Networking</h3>
+
+<p>The kube-proxy makes sure connections to the service IP and ports are routed to the right pod. When the service has multiple pods, <em>kube-proxy</em> performs load balancing across those pods.</p>
+
+<p>Two proxy modes:</p>
+
+<ul>
+<li><em>userspace</em> proxy mode</li>
+</ul>
+
+<p><img src="https://libert.xyz/images/4k8.png" alt="4k8" title="Proxy Mode" /></p>
+
+<ul>
+<li><em>iptables</em> proxy mode (better performance)</li>
+</ul>
+
+<p><img src="https://libert.xyz/images/5k8.png" alt="5k8" title="Proxy Mode" /></p>
+
+<h3 id="and-finally-we-have-the-add-ons">And finally, we have the add-ons</h3>
+
+<p>Extra features like the Kubernetes Dashboard and DNS lookup for Services.</p>
+
+      </div>
+
+      <footer>
+        
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

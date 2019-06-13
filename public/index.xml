@@ -6,10 +6,23 @@
     <description>Recent content on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 26 Jun 2018 12:10:58 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 12 May 2019 13:34:45 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Internals Deep Dive Summary</title>
+      <link>https://libert.xyz/posts/kubernetes-internals/</link>
+      <pubDate>Sun, 12 May 2019 13:34:45 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/kubernetes-internals/</guid>
+      <description>Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary In a nutshell, k8 has two components
+1. Control Plane (master node)
+ API Server Scheduler Control Manager etcd (key-value storage)  2.</description>
+    </item>
     
     <item>
       <title>About</title>
@@ -29,7 +42,7 @@ Software controls the world we live in, from the moment that we order our favori
       <guid>https://libert.xyz/posts/easiest-dockerfile/</guid>
       <description>We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.
 In the following example we write a Dockerfile in the /root directory
-## Dockerfile that modifies centos:latest  FROM centos:latest MAINTAINER User Name &amp;lt;username@domain.com&amp;gt; ## Update the server OS  RUN yum -y upgrade ## Install Apache Web Server  RUN yum -y install httpd ## Install OpenSSH-Server  RUN yum -y install openssh-server ## Expose the SSH and Web Ports for attachment  EXPOSE 22 80 Now we execute the build command</description>
+## Dockerfile that modifies centos:latest FROM centos:latest MAINTAINER User Name &amp;lt;username@domain.com&amp;gt; ## Update the server OS RUN yum -y upgrade ## Install Apache Web Server RUN yum -y install httpd ## Install OpenSSH-Server RUN yum -y install openssh-server ## Expose the SSH and Web Ports for attachment EXPOSE 22 80 Now we execute the build command</description>
     </item>
     
   </channel>

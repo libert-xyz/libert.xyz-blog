@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dockerfile on libert.xyz</title>
+    <title>dockerfile on libert.xyz</title>
     <link>https://libert.xyz/tags/dockerfile/</link>
-    <description>Recent content in Dockerfile on libert.xyz</description>
+    <description>Recent content in dockerfile on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 01 Sep 2015 11:59:37 -0400</lastBuildDate>
@@ -19,7 +19,7 @@
       <guid>https://libert.xyz/posts/easiest-dockerfile/</guid>
       <description>We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.
 In the following example we write a Dockerfile in the /root directory
-## Dockerfile that modifies centos:latest  FROM centos:latest MAINTAINER User Name &amp;lt;username@domain.com&amp;gt; ## Update the server OS  RUN yum -y upgrade ## Install Apache Web Server  RUN yum -y install httpd ## Install OpenSSH-Server  RUN yum -y install openssh-server ## Expose the SSH and Web Ports for attachment  EXPOSE 22 80 Now we execute the build command</description>
+## Dockerfile that modifies centos:latest FROM centos:latest MAINTAINER User Name &amp;lt;username@domain.com&amp;gt; ## Update the server OS RUN yum -y upgrade ## Install Apache Web Server RUN yum -y install httpd ## Install OpenSSH-Server RUN yum -y install openssh-server ## Expose the SSH and Web Ports for attachment EXPOSE 22 80 Now we execute the build command</description>
     </item>
     
   </channel>

@@ -10,32 +10,62 @@ pygmentsstyle = "b2" # Color-theme or style for syntax highlighting.
 pygmentscodefences = true # Enable code fence background highlighting.
 pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
 
+#disqusShortname = "libertschmidt" # Enable or disable Disqus
+
+
 [params] # theme parameters
     author = "Libert Schmidt" # Author's name.
     info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
     description = "libert personal website" # Site description.
     keywords = "blog,devops,libert,aws,python,linux,bash" # Site keywords.
 
-    disqusShortname = "libertschmidt" # Enable or disable Disqus
+    ##avatarurl = "images/avatar.jpg"
+
+    #footercontent = "Enter a text here."
+
+    dateformat = "January 2, 2006"
 
     # Whether you want to hide copyright and credits in the footer.
     hideCredits = true
     hideCopyright = true
 
+
+    # Use inverted colors
+    inverted = false
+
+    # Series see also post count
+    maxSeeAlsoItems = 5
+
     # Custom CSS
-	custom_css = []
+	  custom_css = []
+    rtl = false
+    math = true
+
+[taxonomies]
+  category = "categories"
+  series = "series"
+  tag = "tags"
+
 
 # Social links
 [[params.social]]
     name = "Github"
+    icon = "fab fa-github fa-2x"
     weight = 1
     url = "https://github.com/rschmidtz"
 [[params.social]]
+    name = "Gitlab"
+    icon = "fab fa-gitlab fa-2x"
+    weight = 1
+    url = "https://gitlab.com/rschmidtz"
+[[params.social]]
     name = "Twitter"
+    icon = "fab fa-twitter fa-2x"
     weight = 2
     url = "https://twitter.com/rschmidt_z"
 [[params.social]]
     name = "LinkedIn"
+    icon = "fab fa-linkedin fa-2x"
     weight = 3
     url = "https://www.linkedin.com/in/rschmidtz"
 
@@ -44,6 +74,15 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
     name = "Blog"
     weight = 1
     url  = "/posts/"
+
+# [[menu.main]]
+#     name = "Projects"
+#     weight = 2
+#     url = "/projects/"
+[[menu.main]]
+    name = "#HashTags"
+    weight = 2
+    url = "/tags/"
 [[menu.main]]
     name = "About"
     weight = 2
