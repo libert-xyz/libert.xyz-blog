@@ -16,14 +16,18 @@ Software controls the world we live in, from the moment that we order our favori
 
 
 + Programming Languages  
+
   * python
   * bash
   * go
+
 + OS
+
   * Linux
   * Unix
 
 + CI/CD Tools
+
    * Jenkins
    * Ansible
    * Chef
