@@ -1,7 +1,7 @@
 +++
 date = 2019-05-12T13:34:45-04:00
-title = "Kubernetes Internals Deep Dive Summary"
-slug = "kubernetes-internals"
+title = "Kubernetes Internals Deep Dive Summary Pt1"
+slug = "kubernetes-internals-p1"
 tags = ["kubernetes","docker","k8"]
 +++
 
