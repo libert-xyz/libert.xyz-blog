@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Libert Schmidt">
+    <meta name="description" content="libert personal website">
+    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Diving deeper into pod networking"/>
+<meta name="twitter:description" content="Inter-pod networking Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.
+ Each pod gets its own unique IP address. Each pod can communicate with all other pods through a flat, NATless network.  How Kubernetes does it? The networking is set up by the System Administrator or by a Container Network Interace (CNI) plugin."/>
+
+    <meta property="og:title" content="Diving deeper into pod networking" />
+<meta property="og:description" content="Inter-pod networking Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.
+ Each pod gets its own unique IP address. Each pod can communicate with all other pods through a flat, NATless network.  How Kubernetes does it? The networking is set up by the System Administrator or by a Container Network Interace (CNI) plugin." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://libert.xyz/posts/pod-networking/" />
+<meta property="article:published_time" content="2019-06-02T15:37:05-04:00"/>
+<meta property="article:modified_time" content="2019-06-02T15:37:05-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p2/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p1/" />
+
+
+
+
+    
+      <base href="https://libert.xyz/posts/pod-networking/">
+    
+    <title>
+  Diving deeper into pod networking · libert.xyz
+</title>
+
+    
+      <link rel="canonical" href="https://libert.xyz/posts/pod-networking/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://libert.xyz">
+      libert.xyz
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/tags/">#HashTags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Diving deeper into pod networking</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-06-02T15:37:05-04:00'>
+                June 2, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://libert.xyz/tags/docker/">docker</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<hr />
+
+<h2 id="inter-pod-networking">Inter-pod networking</h2>
+
+<p>Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.</p>
+
+<ol>
+<li>Each pod gets its own unique IP address.</li>
+<li>Each pod can communicate with all other pods through a flat, NATless network.</li>
+</ol>
+
+<h3 id="how-kubernetes-does-it">How Kubernetes does it?</h3>
+
+<p>The networking is set up by the System Administrator or by a <em>Container Network Interace (CNI)</em> plugin.</p>
+
+<p>Anyone can develop their own <em>CNI</em> plugin, the only conditions are the ones listed above.</p>
+
+<h3 id="no-nat">No NAT</h3>
+
+<p><img src="https://libert.xyz/images/k8-net-1.png" alt="k8-net-1" title="No Nat" /></p>
+
+<p>In the image above <em>pod A</em> sends a network package to <em>pod B</em>, the package sent by <em>pod A</em> must reach <em>pod B</em> with source and destination address unchanged.</p>
+
+<p>By doing this, applications running in <em>pods</em> think that they are connected in the same plain network connected to the same network switch.</p>
+
+<p>The only case when the <em>pod</em> source ip is changed is when it communicates with services on the internet, in this case, the source IP is changed to the host worker node IP address.</p>
+
+<h3 id="even-deeper-into-networking">Even deeper into networking</h3>
+
+<h4 id="1-communication-between-containers-in-the-same-node">1. Communication between containers in the same node</h4>
+
+<p>The network namespace is set up by the <em>Infrastructure Container (pause container)</em> .</p>
+
+<p>Pods on a node are connected to the same bridge through virtual Ethernet interfaces.
+If you run <code>ifconfig</code> in a node you will see a <code>vethxxx</code> listed.
+The interface in the container namespace is renamed to <code>eth0</code></p>
+
+<p><img src="https://libert.xyz/images/k8-net-2.png" alt="k8-net-2" title="Virtual Ethernet" /></p>
+
+<ol>
+<li>The interface in the host&rsquo;s network namespace is attached to a networking bridge.</li>
+<li>the <em>eth0</em> interface in the container is assigned an IP from the bridge IP range.</li>
+<li>All containers in a node are connected to the same bridge.</li>
+</ol>
+
+<h4 id="2-communication-between-containers-in-different-nodes">2. Communication between containers in different nodes</h4>
+
+<p>To enable communication between containers in different nodes, the birdges on those nodes need to be connected.</p>
+
+<p>The node physical network needs to be connected with the virtual bridge as well.</p>
+
+<p>Routing tables on node A need to be added to all packets destined for <code>10.1.2.0/24</code> are routed to node B, and node B routing tables need to be added so packets sent to <code>10.1.1.0/24</code> are routed to node A.</p>
+
+<p><img src="https://libert.xyz/images/k8-net-3.png" alt="k8-net-3" title="Different nodes pods" /></p>
+
+<hr />
+
+      </div>
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3>See also in kubernetes</h3>
+      <nav>
+        <ul>
+        
+        
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/kubernetes-internals-p2/">Kubernetes Internals Deep Dive Summary Pt2</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/kubernetes-internals-p1/">Kubernetes Internals Deep Dive Summary Pt1</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

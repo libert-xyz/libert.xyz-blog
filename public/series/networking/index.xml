@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>networking on libert.xyz</title>
+    <link>https://libert.xyz/series/networking/</link>
+    <description>Recent content in networking on libert.xyz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
+    
+	<atom:link href="https://libert.xyz/series/networking/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Diving deeper into pod networking</title>
+      <link>https://libert.xyz/posts/pod-networking/</link>
+      <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pod-networking/</guid>
+      <description>Inter-pod networking Networking is one of the most complex pieces in Kubernetes, let&amp;rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.
+ Each pod gets its own unique IP address. Each pod can communicate with all other pods through a flat, NATless network.  How Kubernetes does it? The networking is set up by the System Administrator or by a Container Network Interace (CNI) plugin.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -6,7 +6,7 @@
     <description>Recent content in Tags on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Jun 2019 17:17:33 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,25 +14,16 @@
     <item>
       <title>docker</title>
       <link>https://libert.xyz/tags/docker/</link>
-      <pubDate>Sat, 15 Jun 2019 17:17:33 -0400</pubDate>
+      <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
       
       <guid>https://libert.xyz/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>k8</title>
-      <link>https://libert.xyz/tags/k8/</link>
-      <pubDate>Sat, 15 Jun 2019 17:17:33 -0400</pubDate>
-      
-      <guid>https://libert.xyz/tags/k8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>kubernetes</title>
       <link>https://libert.xyz/tags/kubernetes/</link>
-      <pubDate>Sat, 15 Jun 2019 17:17:33 -0400</pubDate>
+      <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
       
       <guid>https://libert.xyz/tags/kubernetes/</guid>
       <description></description>

@@ -6,9 +6,28 @@
     <description>Recent content in Series on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
+    <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/series/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>kubernetes</title>
+      <link>https://libert.xyz/series/kubernetes/</link>
+      <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
+      
+      <guid>https://libert.xyz/series/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>networking</title>
+      <link>https://libert.xyz/series/networking/</link>
+      <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
+      
+      <guid>https://libert.xyz/series/networking/</guid>
+      <description></description>
+    </item>
     
   </channel>
 </rss>

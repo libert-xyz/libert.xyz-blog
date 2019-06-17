@@ -2,8 +2,10 @@
 date = 2019-05-12T13:34:45-04:00
 title = "Kubernetes Internals Deep Dive Summary Pt1"
 slug = "kubernetes-internals-p1"
-tags = ["kubernetes","docker","k8"]
+tags = ["kubernetes","docker"]
+series = ["kubernetes"]
 +++
+***
 
 Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
 
@@ -13,6 +15,7 @@ Most of the references come from blogs like [Julia Evans](https://jvns.ca/blog/2
 
 K8 Architecture Summary
 ---
+
 
 In a nutshell, k8 has two components
 
@@ -167,3 +170,5 @@ Two proxy modes:
 ### And finally, we have the add-ons
 
 Extra features like the Kubernetes Dashboard and DNS lookup for Services.
+
+***

@@ -1,10 +1,11 @@
 +++
-date = 2019-06-15T17:17:33-04:00
+date = 2019-05-24T17:17:33-04:00
 title = "Kubernetes Internals Deep Dive Summary Pt2"
 slug = "kubernetes-internals-p2"
-tags = ["kubernetes","docker","k8"]
+tags = ["kubernetes","docker"]
+series = ["kubernetes"]
 +++
-
+***
 
 
 
@@ -73,3 +74,5 @@ All containers in the pod share the same network and Linux namespaces, the *Pod 
 
 [k8-p2-4]: https://libert.xyz/images/k8-p2-4.png
  "Pod Infrastructure Container"
+
+***

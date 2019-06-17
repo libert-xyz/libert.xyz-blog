@@ -3,44 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://libert.xyz/posts/kubernetes-internals-p2/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <loc>https://libert.xyz/posts/pod-networking/</loc>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://libert.xyz/posts/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/</loc>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/tags/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/tags/docker/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://libert.xyz/tags/k8/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/tags/kubernetes/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/kubernetes/</loc>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/</loc>
-    <lastmod>2019-06-15T17:17:33-04:00</lastmod>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/networking/</loc>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/posts/kubernetes-internals-p2/</loc>
+    <lastmod>2019-05-24T17:17:33-04:00</lastmod>
   </url>
   
   <url>
@@ -66,11 +83,6 @@
   
   <url>
     <loc>https://libert.xyz/categories/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://libert.xyz/series/</loc>
     <priority>0</priority>
   </url>
   

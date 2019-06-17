@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on libert.xyz</title>
-    <link>https://libert.xyz/posts/</link>
-    <description>Recent content in Posts on libert.xyz</description>
+    <title>kubernetes on libert.xyz</title>
+    <link>https://libert.xyz/series/kubernetes/</link>
+    <description>Recent content in kubernetes on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
     
-	<atom:link href="https://libert.xyz/posts/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://libert.xyz/series/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -44,17 +44,6 @@ Most of the references come from blogs like Julia Evans, Kubernetes Documentatio
 K8 Architecture Summary In a nutshell, k8 has two components
 1. Control Plane (master node)
  API Server Scheduler Control Manager etcd (key-value storage)  2.</description>
-    </item>
-    
-    <item>
-      <title>Easiest dockerfile</title>
-      <link>https://libert.xyz/posts/easiest-dockerfile/</link>
-      <pubDate>Tue, 01 Sep 2015 11:59:37 -0400</pubDate>
-      
-      <guid>https://libert.xyz/posts/easiest-dockerfile/</guid>
-      <description>We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.
-In the following example we write a Dockerfile in the /root directory
-## Dockerfile that modifies centos:latest FROM centos:latest MAINTAINER User Name &amp;lt;username@domain.com&amp;gt; ## Update the server OS RUN yum -y upgrade ## Install Apache Web Server RUN yum -y install httpd ## Install OpenSSH-Server RUN yum -y install openssh-server ## Expose the SSH and Web Ports for attachment EXPOSE 22 80 Now we execute the build command</description>
     </item>
     
   </channel>
