@@ -10,30 +10,32 @@
     <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Diving deeper into pod networking"/>
-<meta name="twitter:description" content="Inter-pod networking Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.
- Each pod gets its own unique IP address. Each pod can communicate with all other pods through a flat, NATless network.  How Kubernetes does it? The networking is set up by the System Administrator or by a Container Network Interace (CNI) plugin."/>
+<meta name="twitter:title" content="Kubernetes Services insights"/>
+<meta name="twitter:description" content="Kubernetes Services The kube-proxy manages everything related to services.
+In summary, a service has the following characteristics
+ Each service gets its own stable IP address and port. Clients and pods connect to the service ip address and port. The IP address is virtual The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node."/>
 
-    <meta property="og:title" content="Diving deeper into pod networking" />
-<meta property="og:description" content="Inter-pod networking Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.
- Each pod gets its own unique IP address. Each pod can communicate with all other pods through a flat, NATless network.  How Kubernetes does it? The networking is set up by the System Administrator or by a Container Network Interace (CNI) plugin." />
+    <meta property="og:title" content="Kubernetes Services insights" />
+<meta property="og:description" content="Kubernetes Services The kube-proxy manages everything related to services.
+In summary, a service has the following characteristics
+ Each service gets its own stable IP address and port. Clients and pods connect to the service ip address and port. The IP address is virtual The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://libert.xyz/posts/pod-networking/" />
-<meta property="article:published_time" content="2019-06-02T15:37:05-04:00"/>
-<meta property="article:modified_time" content="2019-06-02T15:37:05-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p2/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p1/" />
-<meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" />
+<meta property="og:url" content="https://libert.xyz/posts/pod-services/" />
+<meta property="article:published_time" content="2019-06-05T14:53:00-04:00"/>
+<meta property="article:modified_time" content="2019-06-05T14:53:00-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p2/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-internals-p1/" />
+<meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
 
 
 
     
-      <base href="https://libert.xyz/posts/pod-networking/">
+      <base href="https://libert.xyz/posts/pod-services/">
     
     <title>
-  Diving deeper into pod networking · libert.xyz
+  Kubernetes Services insights · libert.xyz
 </title>
 
     
-      <link rel="canonical" href="https://libert.xyz/posts/pod-networking/">
+      <link rel="canonical" href="https://libert.xyz/posts/pod-services/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -97,14 +99,14 @@
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Diving deeper into pod networking</h1>
+          <h1 class="title">Kubernetes Services insights</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-06-02T15:37:05-04:00'>
-                June 2, 2019
+              <time datetime='2019-06-05T14:53:00-04:00'>
+                June 5, 2019
               </time>
             </span>
             <span class="reading-time">
@@ -127,58 +129,42 @@
 
 <hr />
 
-<h2 id="inter-pod-networking">Inter-pod networking</h2>
+<h2 id="kubernetes-services">Kubernetes Services</h2>
 
-<p>Networking is one of the most complex pieces in Kubernetes, let&rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.</p>
+<p>The <em>kube-proxy</em> manages everything related to services.</p>
 
-<ol>
-<li>Each pod gets its own unique IP address.</li>
-<li>Each pod can communicate with all other pods through a flat, NATless network.</li>
-</ol>
+<p>In summary, a service has the following characteristics</p>
 
-<h3 id="how-kubernetes-does-it">How Kubernetes does it?</h3>
+<ul>
+<li>Each service gets its own stable IP address and port.</li>
+<li>Clients and pods connect to the service ip address and port.</li>
+<li>The IP address is virtual</li>
+<li>The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node.</li>
+<li>You can&rsquo;t ping the service IP.</li>
+</ul>
 
-<p>The networking is set up by the System Administrator or by a <em>Container Network Interace (CNI)</em> plugin.</p>
+<h3 id="kube-proxy-and-iptables">kube-proxy and iptables</h3>
 
-<p>Anyone can develop their own <em>CNI</em> plugin, the only conditions are the ones listed above.</p>
+<p>When a service is created, <code>kubectl create -f sevice.yaml</code>, the following happens:</p>
 
-<h3 id="no-nat">No NAT</h3>
+<ul>
+<li>The virtual IP is created.</li>
+<li>The <em>API Server</em> notifies <em>kube-proxy</em> agents in each node that a new service has been created.</li>
+<li><em>kube-proxy</em> creates iptables rules to route traffic from the virtual IP/port to the pods behind the service.</li>
+</ul>
 
-<p><img src="https://libert.xyz/images/k8-net-1.png" alt="k8-net-1" title="No Nat" /></p>
-
-<p>In the image above <em>pod A</em> sends a network package to <em>pod B</em>, the package sent by <em>pod A</em> must reach <em>pod B</em> with source and destination address unchanged.</p>
-
-<p>By doing this, applications running in <em>pods</em> think that they are connected in the same plain network connected to the same network switch.</p>
-
-<p>The only case when the <em>pod</em> source ip is changed is when it communicates with services on the internet, in this case, the source IP is changed to the host worker node IP address.</p>
-
-<h3 id="even-deeper-into-networking">Even deeper into networking</h3>
-
-<h4 id="1-communication-between-containers-in-the-same-node">1. Communication between containers in the same node</h4>
-
-<p>The network namespace is set up by the <em>Infrastructure Container (pause container)</em> .</p>
-
-<p>Pods on a node are connected to the same bridge through virtual Ethernet interfaces.
-If you run <code>ifconfig</code> in a node you will see a <code>vethxxx</code> listed.
-The interface in the container namespace is renamed to <code>eth0</code></p>
-
-<p><img src="https://libert.xyz/images/k8-net-2.png" alt="k8-net-2" title="Virtual Ethernet" /></p>
+<p>In the following figure, we can see a pod try to reach another pod backing up by a service.</p>
 
 <ol>
-<li>The interface in the host&rsquo;s network namespace is attached to a networking bridge.</li>
-<li>the <em>eth0</em> interface in the container is assigned an IP from the bridge IP range.</li>
-<li>All containers in a node are connected to the same bridge.</li>
+<li>The packet destination is initially set to the IP/port of the service (<code>172.30.0.1:80</code>)</li>
+<li>The packet is handled by the <em>iptables</em> rules on the node.</li>
+<li>The <em>iptables</em> rules check if there is any match.</li>
+<li>One of the rules is: <em>if the packet destination equals to <code>172.30.0.1</code></em> and equals to port <code>80</code>, replace the IP/port destination with the IP/port of a pod (the target pod specified in the Service spec).</li>
+<li>From here,  it’s exactly as if the client pod had sent the packet
+to pod B directly instead of through the service.</li>
 </ol>
 
-<h4 id="2-communication-between-containers-in-different-nodes">2. Communication between containers in different nodes</h4>
-
-<p>To enable communication between containers in different nodes, the birdges on those nodes need to be connected.</p>
-
-<p>The node physical network needs to be connected with the virtual bridge as well.</p>
-
-<p>Routing tables on node A need to be added to all packets destined for <code>10.1.2.0/24</code> are routed to node B, and node B routing tables need to be added so packets sent to <code>10.1.1.0/24</code> are routed to node A.</p>
-
-<p><img src="https://libert.xyz/images/k8-net-3.png" alt="k8-net-3" title="Different nodes pods" /></p>
+<p><img src="https://libert.xyz/images/k8-services-1.png" alt="k8-services-1" title="Services/iptables" /></p>
 
 <hr />
 
@@ -198,11 +184,11 @@ The interface in the container namespace is renamed to <code>eth0</code></p>
         
         
           
-            <li>
-              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
-            </li>
-          
         
+          
+            <li>
+              <a href="https://libert.xyz/posts/pod-networking/">Diving deeper into pod networking</a>
+            </li>
           
         
           
@@ -230,11 +216,11 @@ The interface in the container namespace is renamed to <code>eth0</code></p>
         
         
           
-            <li>
-              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
-            </li>
-          
         
+          
+            <li>
+              <a href="https://libert.xyz/posts/pod-networking/">Diving deeper into pod networking</a>
+            </li>
           
         
         </ul>

@@ -6,10 +6,21 @@
     <description>Recent content in kubernetes on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 05 Jun 2019 14:53:00 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/series/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Services insights</title>
+      <link>https://libert.xyz/posts/pod-services/</link>
+      <pubDate>Wed, 05 Jun 2019 14:53:00 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pod-services/</guid>
+      <description>Kubernetes Services The kube-proxy manages everything related to services.
+In summary, a service has the following characteristics
+ Each service gets its own stable IP address and port. Clients and pods connect to the service ip address and port. The IP address is virtual The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node.</description>
+    </item>
     
     <item>
       <title>Diving deeper into pod networking</title>
