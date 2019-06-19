@@ -6,10 +6,21 @@
     <description>Recent content in kubernetes on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Jun 2019 14:53:00 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 10 Jun 2019 14:43:55 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Highly Available Kubernetes Cluster</title>
+      <link>https://libert.xyz/posts/kubernetes-ha/</link>
+      <pubDate>Mon, 10 Jun 2019 14:43:55 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/kubernetes-ha/</guid>
+      <description>HA Kubernetes One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.
+Out of the box, Kubernetes and all the components are ready meant to be HA. In this post, we are going to explore the best ways to achieve HA in Kubernetes.
+Making your apps Highly Available Making your apps HA is simple when using Kubernetes.</description>
+    </item>
     
     <item>
       <title>Kubernetes Services insights</title>
