@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Libert Schmidt">
+    <meta name="description" content="libert personal website">
+    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Containers &amp; Docker Images"/>
+<meta name="twitter:description" content="Containers are getting more popular year by year and more companies are adopting containers as their default development environment.
+One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host. Another reason is the mass adoption of Microservices Architectures.
+A Hello World container The busybox images contain the basic UNIX tools like echo, ls and so on."/>
+
+    <meta property="og:title" content="Containers &amp; Docker Images" />
+<meta property="og:description" content="Containers are getting more popular year by year and more companies are adopting containers as their default development environment.
+One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host. Another reason is the mass adoption of Microservices Architectures.
+A Hello World container The busybox images contain the basic UNIX tools like echo, ls and so on." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://libert.xyz/posts/containers-docker/" />
+<meta property="article:published_time" content="2018-11-10T14:53:00-04:00"/>
+<meta property="article:modified_time" content="2018-11-10T14:53:00-04:00"/>
+
+
+
+    
+      <base href="https://libert.xyz/posts/containers-docker/">
+    
+    <title>
+  Containers &amp; Docker Images · libert.xyz
+</title>
+
+    
+      <link rel="canonical" href="https://libert.xyz/posts/containers-docker/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://libert.xyz">
+      libert.xyz
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/tags/">#HashTags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Containers &amp; Docker Images</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-11-10T14:53:00-04:00'>
+                November 10, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://libert.xyz/tags/docker/">docker</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<hr />
+
+<p>Containers are getting more popular year by year and more companies are adopting containers as their default development environment.</p>
+
+<p>One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host.  Another reason is the mass adoption of <em>Microservices Architectures</em>.</p>
+
+<p><img src="https://libert.xyz/images/docker-1.png" alt="docker-1" title="Containers" /></p>
+
+<h3 id="a-hello-world-container">A Hello World container</h3>
+
+<p>The <em>busybox</em> images contain the basic <em>UNIX</em> tools like <code>echo</code>, <code>ls</code> and so on.</p>
+
+<p><img src="https://libert.xyz/images/docker-2.png" alt="docker-2" title="busybox" /></p>
+
+<h4 id="behind-the-scenes">Behind the scenes</h4>
+
+<ul>
+<li>Docker checked if the <em>busybox:latest</em> image was present in your local computer.</li>
+<li>If not, docker pulled the image from the <em>Docker Hub</em> registry (docker.io).</li>
+<li>After the image was got downloaded, <em>Docker</em> created a container from that image and ran the command <code>echo Hello World</code> inside it.</li>
+<li>The echo command sends the text to <em>STDOUT</em>, the process terminated and the container stopped.</li>
+</ul>
+
+<p><img src="https://libert.xyz/images/docker-3.png" alt="docker-3" title="Docker Hub" /></p>
+
+<h4 id="creating-a-python-server">Creating a python server</h4>
+
+<p>The following code creates a simple socket listening in port 8000</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#60a0b0;font-style:italic">#!/usr/bin/python</span>
+
+<span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">SimpleHTTPServer</span>
+<span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">SocketServer</span>
+
+PORT <span style="color:#666">=</span> <span style="color:#40a070">8000</span>
+
+Handler <span style="color:#666">=</span> SimpleHTTPServer<span style="color:#666">.</span>SimpleHTTPRequestHandler
+
+httpd <span style="color:#666">=</span> SocketServer<span style="color:#666">.</span>TCPServer((<span style="color:#4070a0">&#34;&#34;</span>, PORT), Handler)
+
+<span style="color:#007020;font-weight:bold">print</span> <span style="color:#4070a0">&#34;serving at port&#34;</span>, PORT
+httpd<span style="color:#666">.</span>serve_forever()</code></pre></div>
+<p>Next, we need to dockerize the code using a Dockerfile</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">FROM python:2.7-alpine
+ADD server.py /server.py
+ENTRYPOINT [&#34;python&#34;,&#34;server.py&#34;]</pre></div>
+<h4 id="building-the-container-image">Building the container image</h4>
+
+<p><img src="https://libert.xyz/images/docker-4.png" alt="docker-4" title="docker build" /></p>
+
+<p><em>Build Process</em></p>
+
+<p><img src="https://libert.xyz/images/docker-5.png" alt="docker-5" title="docker build" /></p>
+
+<h4 id="how-the-image-is-built">How  the image is built?</h4>
+
+<p>The build process is not performed by the <em>Docker</em> client, instead is performed by the <code>Docker daemon</code></p>
+
+<ul>
+<li>The <em>client</em> and the <em>daemon</em> don&rsquo;t need to be in the same machine</li>
+<li>If you are running Docker in a non-Linux OS, the docker client runs n your host OS and the <em>docker daemon</em> runs in a <em>VM</em>.</li>
+</ul>
+
+<h4 id="image-layers">Image layers</h4>
+
+<p>A docker image is composed of multiple layers.
+When building an image, a new layer is created for each individual command in the <em>Dockerfile</em></p>
+
+<h4 id="running-the-container-and-accessing-the-app">Running the container and accessing the app</h4>
+
+<p>Once the image is build, we can run the container</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p <span style="color:#40a070">8000</span>:8000 -d pyserv</code></pre></div>
+<p>To verify that the container is running <code>docker ps</code></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">CONTAINER ID        IMAGE               COMMAND              CREATED             STATUS              PORTS                    NAMES
+434339134cc8        pyserv              &#34;python server.py&#34;   30 seconds ago       Up 31 seconds        0.0.0.0:8000-&gt;8000/tcp   focused_benz</pre></div>
+<h4 id="shell-inside-the-container">Shell inside the container</h4>
+
+<p>To get inside the container we can run <code>docker exec -it focused_benz sh</code></p>
+
+<p>The process <code>sh</code> process will have the same <em>Linux namespace</em> as the main container.</p>
+
+<p>Now that we are inside the container we can explore the process running <code>ps aux</code></p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">/ # ps aux
+PID   USER     TIME  COMMAND
+    1 root      0:00 python server.py
+   16 root      0:00 sh
+   27 root      0:00 ps aux</pre></div>
+<p>If you feel curious and open another terminal in your host OS, you will see the process running in the container.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">libert &gt;&gt;  ps -aux | grep server.py
+root     21799  0.0  0.1  13908 12344 ?        Ss   19:47   0:00 python server.py</pre></div>
+<p>This proves that the process running in the container is also running in the host OS, but the process has a different <em>PID</em> . This is because the container is running in his own <em>Linux Namespace</em> and has his own <em>PID</em> tree.
+The container filesystem is also isolated from the host OS.</p>
+
+<hr />
+
+<p>*** References - <a href="https://www.manning.com/books/kubernetes-in-action">Kubernetes in Action</a></p>
+
+      </div>
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

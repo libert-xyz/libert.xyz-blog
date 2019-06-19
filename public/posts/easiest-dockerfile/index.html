@@ -126,21 +126,21 @@ In the following example we write a Dockerfile in the /root directory
         <p>We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.</p>
 
 <p>In the following example we write a Dockerfile in the /root directory</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#007f7f">## Dockerfile that modifies centos:latest</span>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#60a0b0;font-style:italic">## Dockerfile that modifies centos:latest</span>
  FROM centos:latest
  MAINTAINER User Name &lt;username@domain.com&gt;
-<span style="color:#007f7f">## Update the server OS</span>
+<span style="color:#60a0b0;font-style:italic">## Update the server OS</span>
  RUN yum -y upgrade
-<span style="color:#007f7f">## Install Apache Web Server</span>
+<span style="color:#60a0b0;font-style:italic">## Install Apache Web Server</span>
  RUN yum -y install httpd
-<span style="color:#007f7f">## Install OpenSSH-Server</span>
+<span style="color:#60a0b0;font-style:italic">## Install OpenSSH-Server</span>
  RUN yum -y install openssh-server
-<span style="color:#007f7f">## Expose the SSH and Web Ports for attachment</span>
- EXPOSE <span style="color:#ff0;font-weight:bold">22</span> <span style="color:#ff0;font-weight:bold">80</span></code></pre></div>
+<span style="color:#60a0b0;font-style:italic">## Expose the SSH and Web Ports for attachment</span>
+ EXPOSE <span style="color:#40a070">22</span> <span style="color:#40a070">80</span></code></pre></div>
 <p>Now we execute the build command</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mycustomimg/withservices:v1 /root</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker build -t mycustomimg/withservices:v1 /root</code></pre></div>
 <p>Once the image is build we verify that the image is in our list.</p>
-<div class="highlight"><pre style="color:#e5e5e5;background-color:#000;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images</code></pre></div>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker images</code></pre></div>
       </div>
 
       <footer>
