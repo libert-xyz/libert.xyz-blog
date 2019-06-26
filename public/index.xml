@@ -90,6 +90,18 @@ Software controls the world we live in, from the moment that we order our favori
     </item>
     
     <item>
+      <title>AWS/Amazon Global Network - Re:Invent 2016</title>
+      <link>https://libert.xyz/posts/aws-vpc-deep/</link>
+      <pubDate>Mon, 10 Oct 2016 14:43:55 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/aws-vpc-deep/</guid>
+      <description>AWS rarely gives us insights about how they manage their data centers, there is no too much information about what kind of hardware they use and how they can scale quickly.
+This is because I found the talk AWS re:Invent 2016 called Amazon Global Network Overview really enjoyable.
+James Hamilton (Vice President and Distinguished Engineer) gives us an amazing overview of how the magic happens behind AWS datacenters.
+With 14 regions across the world.</description>
+    </item>
+    
+    <item>
       <title>Easiest dockerfile</title>
       <link>https://libert.xyz/posts/easiest-dockerfile/</link>
       <pubDate>Tue, 01 Sep 2015 11:59:37 -0400</pubDate>
