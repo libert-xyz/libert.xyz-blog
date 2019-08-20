@@ -32,7 +32,7 @@ The *busybox* images contain the basic *UNIX* tools like `echo`, `ls` and so on.
 
 * Docker checked if the *busybox:latest* image was present in your local computer.
 * If not, docker pulled the image from the *Docker Hub* registry (docker.io).
-* After the image was got downloaded, *Docker* created a container from that image and ran the command `echo Hello World` inside it.
+* After the image was downloaded, *Docker* created a container from that image and ran the command `echo Hello World` inside it.
 * The echo command sends the text to *STDOUT*, the process terminated and the container stopped.
 
 
@@ -44,7 +44,7 @@ The *busybox* images contain the basic *UNIX* tools like `echo`, `ls` and so on.
 #### Creating a python server
 
 
-The following code creates a simple socket listening in port 8000
+The following code creates a simple socket listening in the port 8000
 
 ```python
 #!/usr/bin/python
@@ -98,7 +98,7 @@ The build process is not performed by the *Docker* client, instead is performed 
 
 
 * The *client* and the *daemon* don't need to be in the same machine
-* If you are running Docker in a non-Linux OS, the docker client runs n your host OS and the *docker daemon* runs in a *VM*.
+* If you are running Docker in a non-Linux OS, the docker client runs in your host OS and the *docker daemon* runs in a *VM*.
 
 
 

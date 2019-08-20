@@ -13,6 +13,8 @@ hugo -v
 
 # Copy over pages - not static js/img/css/downloads
 aws s3 sync --profile ${PROFILE} --acl "public-read" --sse "AES256" public/ s3://${BUCKET_NAME}/ --exclude 'images' --exclude 'less' --exclude 'js' --exclude 'downloads' --exclude 'css' --exclude 'post'
+#aws s3 sync --profile ${PROFILE} --acl "public-read" --sse "AES256" public/ s3://${BUCKET_NAME}/
+
 
 # Ensure static files are set to cache forever - cache for a month --cache-control "max-age=2592000"
 aws s3 sync --profile ${PROFILE} --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/images/ s3://${BUCKET_NAME}/images/

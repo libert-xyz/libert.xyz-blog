@@ -143,7 +143,7 @@ A Hello World container The busybox images contain the basic UNIX tools like ech
 <ul>
 <li>Docker checked if the <em>busybox:latest</em> image was present in your local computer.</li>
 <li>If not, docker pulled the image from the <em>Docker Hub</em> registry (docker.io).</li>
-<li>After the image was got downloaded, <em>Docker</em> created a container from that image and ran the command <code>echo Hello World</code> inside it.</li>
+<li>After the image was downloaded, <em>Docker</em> created a container from that image and ran the command <code>echo Hello World</code> inside it.</li>
 <li>The echo command sends the text to <em>STDOUT</em>, the process terminated and the container stopped.</li>
 </ul>
 
@@ -151,7 +151,7 @@ A Hello World container The busybox images contain the basic UNIX tools like ech
 
 <h4 id="creating-a-python-server">Creating a python server</h4>
 
-<p>The following code creates a simple socket listening in port 8000</p>
+<p>The following code creates a simple socket listening in the port 8000</p>
 <div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#60a0b0;font-style:italic">#!/usr/bin/python</span>
 
 <span style="color:#007020;font-weight:bold">import</span> <span style="color:#0e84b5;font-weight:bold">SimpleHTTPServer</span>
@@ -183,7 +183,7 @@ ENTRYPOINT [&#34;python&#34;,&#34;server.py&#34;]</pre></div>
 
 <ul>
 <li>The <em>client</em> and the <em>daemon</em> don&rsquo;t need to be in the same machine</li>
-<li>If you are running Docker in a non-Linux OS, the docker client runs n your host OS and the <em>docker daemon</em> runs in a <em>VM</em>.</li>
+<li>If you are running Docker in a non-Linux OS, the docker client runs in your host OS and the <em>docker daemon</em> runs in a <em>VM</em>.</li>
 </ul>
 
 <h4 id="image-layers">Image layers</h4>
