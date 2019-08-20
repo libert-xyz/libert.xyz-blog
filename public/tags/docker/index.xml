@@ -6,10 +6,22 @@
     <description>Recent content in docker on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Jun 2019 14:53:00 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 12 Jun 2019 15:12:45 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RUN or CMD or ENTRYPOINT</title>
+      <link>https://libert.xyz/posts/run-cmd-entrypoint/</link>
+      <pubDate>Wed, 12 Jun 2019 15:12:45 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/run-cmd-entrypoint/</guid>
+      <description>One of the most confusing parts of a Dockerfile for me it has always been the part where we execute or initiate the application.
+In Summary  RUN executes command(s) in a new layer on top of the current image. Often used to install packages and dependencies.
+ CMD sets default command and/or parameters, can be overwritten from the command line when docker container runs.
+ ENTRYPOINT Allows you to configure a container to run as an executable.</description>
+    </item>
     
     <item>
       <title>Kubernetes Services insights</title>
