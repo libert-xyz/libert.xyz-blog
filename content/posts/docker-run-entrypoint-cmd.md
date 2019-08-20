@@ -10,20 +10,23 @@ series = ["docker"]
 One of the most confusing parts of a *Dockerfile* for me it has always been the part where
 we execute or initiate the application.
 
+![docker-1]
+
+[docker-1]: https://libert.xyz/images/Docker_docs.jpeg
+ "Containers"
+
 ### In Summary
 
 * **RUN** executes command(s) in a new layer on top of the current image.
    Often used to install packages and dependencies.
 
-* **CMD** sets default command and/or parameters, can be overwritten from the command line when docker container runs.
+* **CMD** sets default command and/or parameters, can be     overwritten from the command line when docker container runs.
+
+* **ENTRYPOINT** Allows you to configure a container to run as an executable.
 
 
 
- * **ENTRYPOINT** Allows you to configure a container to run as an executable.
-
-
-
- ### Difference between **RUN** and **CMD**
+##### Difference between **RUN** and **CMD**
 
  Don't confuse **RUN** and **CMD**. **RUN** runs a command; **CMD** does not execute/run anything  at build time, only specifies the command for the image.
 
@@ -249,7 +252,9 @@ The table below shows what command is executed for different ENTRYPOINT / CMD co
 
 
 Sources:
+
 https://docs.docker.com/engine/reference/builder/#run
+
 https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/
 
 ***

@@ -26,13 +26,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/docker/</loc>
+    <loc>https://libert.xyz/tags/docker/</loc>
     <lastmod>2019-06-12T15:12:45-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/docker/</loc>
+    <loc>https://libert.xyz/series/docker/</loc>
     <lastmod>2019-06-12T15:12:45-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -49,13 +49,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/kubernetes/</loc>
+    <loc>https://libert.xyz/tags/kubernetes/</loc>
     <lastmod>2019-06-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/kubernetes/</loc>
+    <loc>https://libert.xyz/series/kubernetes/</loc>
     <lastmod>2019-06-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -102,13 +102,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/aws/</loc>
+    <loc>https://libert.xyz/tags/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/aws/</loc>
+    <loc>https://libert.xyz/series/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>

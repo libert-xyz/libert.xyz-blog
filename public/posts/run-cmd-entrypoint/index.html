@@ -131,20 +131,20 @@ In Summary  RUN executes command(s) in a new layer on top of the current image. 
 <p>One of the most confusing parts of a <em>Dockerfile</em> for me it has always been the part where
 we execute or initiate the application.</p>
 
+<p><img src="https://libert.xyz/images/Docker_docs.jpeg" alt="docker-1" title="Containers" /></p>
+
 <h3 id="in-summary">In Summary</h3>
 
 <ul>
 <li><p><strong>RUN</strong> executes command(s) in a new layer on top of the current image.
 Often used to install packages and dependencies.</p></li>
 
-<li><p><strong>CMD</strong> sets default command and/or parameters, can be overwritten from the command line when docker container runs.</p>
+<li><p><strong>CMD</strong> sets default command and/or parameters, can be     overwritten from the command line when docker container runs.</p></li>
 
-<ul>
-<li><strong>ENTRYPOINT</strong> Allows you to configure a container to run as an executable.</li>
-</ul></li>
+<li><p><strong>ENTRYPOINT</strong> Allows you to configure a container to run as an executable.</p></li>
 </ul>
 
-<p>### Difference between <strong>RUN</strong> and <strong>CMD</strong></p>
+<h5 id="difference-between-run-and-cmd">Difference between <strong>RUN</strong> and <strong>CMD</strong></h5>
 
 <p>Don&rsquo;t confuse <strong>RUN</strong> and <strong>CMD</strong>. <strong>RUN</strong> runs a command; <strong>CMD</strong> does not execute/run anything  at build time, only specifies the command for the image.</p>
 
@@ -363,9 +363,11 @@ CMD [&#34;from CMD&#34;]</pre></div>
 </tbody>
 </table>
 
-<p>Sources:
-<a href="https://docs.docker.com/engine/reference/builder/#run">https://docs.docker.com/engine/reference/builder/#run</a>
-<a href="https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/">https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/</a></p>
+<p>Sources:</p>
+
+<p><a href="https://docs.docker.com/engine/reference/builder/#run">https://docs.docker.com/engine/reference/builder/#run</a></p>
+
+<p><a href="https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/">https://goinbigdata.com/docker-run-vs-cmd-vs-entrypoint/</a></p>
 
 <hr />
 
