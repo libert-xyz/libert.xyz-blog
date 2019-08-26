@@ -6,10 +6,22 @@
     <description>Recent content on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Jun 2019 15:12:45 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 13:15:19 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pods Requests &amp; Limits</title>
+      <link>https://libert.xyz/posts/pods-requests-limits/</link>
+      <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pods-requests-limits/</guid>
+      <description>When creating a pod we can specify the amount of CPU and memory that a container needs. If a POD has more than one container requests and limits are specified individually for each container.
+E.g.
+If you don&amp;rsquo;t specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you. In the worst-case scenario, the container may not get any CPU at all.
+Understanding CPU Units The CPU resource is measured in CPU units.</description>
+    </item>
     
     <item>
       <title>RUN or CMD or ENTRYPOINT</title>
