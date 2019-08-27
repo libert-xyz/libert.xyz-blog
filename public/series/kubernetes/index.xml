@@ -6,13 +6,23 @@
     <description>Recent content in kubernetes on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 13:15:19 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 26 Aug 2019 18:47:59 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/series/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Pods Requests &amp; Limits</title>
+      <title>PODS QoS</title>
+      <link>https://libert.xyz/posts/pods-qos/</link>
+      <pubDate>Mon, 26 Aug 2019 18:47:59 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pods-qos/</guid>
+      <description>There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
+QoS Classes  BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don&amp;rsquo;t)  Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.</description>
+    </item>
+    
+    <item>
+      <title>PODS Requests &amp; Limits</title>
       <link>https://libert.xyz/posts/pods-requests-limits/</link>
       <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
       

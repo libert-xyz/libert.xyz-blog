@@ -1,6 +1,6 @@
 +++
 date = 2019-08-26T13:15:19-04:00
-title = "Pods Requests & Limits"
+title = "PODS Requests & Limits"
 slug = "pods-requests-limits"
 tags = ["kubernetes","docker"]
 series = ["kubernetes"]
@@ -109,5 +109,9 @@ CPU use is **throttled** when reaching the limits. Is not the same case with mem
 Even if we set the limit on how much memory is available to a container, the container is not aware of this limit.
 This has a negative effect on any application that looks up the amount of memory available on the system and uses that information to decide how much memory to use.
 
+
+Sources:
+
+https://www.manning.com/books/kubernetes-in-action
 
 ***
