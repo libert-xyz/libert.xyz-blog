@@ -6,7 +6,7 @@
     <description>Recent content in docker on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 18:47:59 -0400</lastBuildDate>
+    <lastBuildDate>Tue, 27 Aug 2019 18:47:59 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>PODS QoS</title>
       <link>https://libert.xyz/posts/pods-qos/</link>
-      <pubDate>Mon, 26 Aug 2019 18:47:59 -0400</pubDate>
+      <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
       
       <guid>https://libert.xyz/posts/pods-qos/</guid>
       <description>There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.

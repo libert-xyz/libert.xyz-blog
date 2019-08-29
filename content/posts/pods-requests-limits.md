@@ -3,7 +3,7 @@ date = 2019-08-26T13:15:19-04:00
 title = "PODS Requests & Limits"
 slug = "pods-requests-limits"
 tags = ["kubernetes","docker"]
-series = ["kubernetes"]
+series = ["kubernetes","QoS"]
 +++
 ***
 

@@ -6,15 +6,26 @@
     <description>Recent content in kubernetes on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 26 Aug 2019 18:47:59 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 28 Aug 2019 16:06:55 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Namespaces resources quotas</title>
+      <link>https://libert.xyz/posts/namespaces-quotas/</link>
+      <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/namespaces-quotas/</guid>
+      <description>The Limits and Requests are set for each container, what about if we want to apply Limits to namespaces?
+LimitRange Object The LimitRange resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.
+LimitRange use case A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&amp;rsquo;s resources in the cluster.</description>
+    </item>
+    
+    <item>
       <title>PODS QoS</title>
       <link>https://libert.xyz/posts/pods-qos/</link>
-      <pubDate>Mon, 26 Aug 2019 18:47:59 -0400</pubDate>
+      <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
       
       <guid>https://libert.xyz/posts/pods-qos/</guid>
       <description>There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.

@@ -3,7 +3,7 @@ date = 2019-08-27T18:47:59-04:00
 title = "PODS QoS"
 slug = "pods-qos"
 tags = ["kubernetes","docker"]
-series = ["kubernetes"]
+series = ["kubernetes","QoS"]
 +++
 ***
 
@@ -69,6 +69,7 @@ If at least one container has a different class, the pod’s QoS class is *Burst
 
 The QoS classes determine which container gets killed first.
 Killing order by QoS class:
+
 1. *BestEffort*
 2. *Burstable*
 3. *Guaranteed*

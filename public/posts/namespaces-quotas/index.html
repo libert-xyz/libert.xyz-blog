@@ -10,33 +10,31 @@
     <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernetes Internals Deep Dive Summary Pt2"/>
-<meta name="twitter:description" content="If you haven&rsquo;t yet, check the first part here K8 Architecture Summary Pt2 What happens when we submit a pod manifest to the API server? Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo;watching mode&rdquo; waiting for a new event for their respective resources types in the API Server
-Deployment manifest created Now you executed the command kubectl create -f deployment.yaml
-This happens next:
- The API Server verifies the Deployment specifications Stores it in etcd Returns a response to kubectl  After the following chain of events takes place"/>
+<meta name="twitter:title" content="Namespaces resources quotas"/>
+<meta name="twitter:description" content="The Limits and Requests are set for each container, what about if we want to apply Limits to namespaces?
+LimitRange Object The LimitRange resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.
+LimitRange use case A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&rsquo;s resources in the cluster."/>
 
-    <meta property="og:title" content="Kubernetes Internals Deep Dive Summary Pt2" />
-<meta property="og:description" content="If you haven&rsquo;t yet, check the first part here K8 Architecture Summary Pt2 What happens when we submit a pod manifest to the API server? Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo;watching mode&rdquo; waiting for a new event for their respective resources types in the API Server
-Deployment manifest created Now you executed the command kubectl create -f deployment.yaml
-This happens next:
- The API Server verifies the Deployment specifications Stores it in etcd Returns a response to kubectl  After the following chain of events takes place" />
+    <meta property="og:title" content="Namespaces resources quotas" />
+<meta property="og:description" content="The Limits and Requests are set for each container, what about if we want to apply Limits to namespaces?
+LimitRange Object The LimitRange resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.
+LimitRange use case A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&rsquo;s resources in the cluster." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://libert.xyz/posts/kubernetes-internals-p2/" />
-<meta property="article:published_time" content="2019-05-24T17:17:33-04:00"/>
-<meta property="article:modified_time" content="2019-05-24T17:17:33-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
+<meta property="og:url" content="https://libert.xyz/posts/namespaces-quotas/" />
+<meta property="article:published_time" content="2019-08-28T16:06:55-04:00"/>
+<meta property="article:modified_time" content="2019-08-28T16:06:55-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
 
 
 
     
-      <base href="https://libert.xyz/posts/kubernetes-internals-p2/">
+      <base href="https://libert.xyz/posts/namespaces-quotas/">
     
     <title>
-  Kubernetes Internals Deep Dive Summary Pt2 · libert.xyz
+  Namespaces resources quotas · libert.xyz
 </title>
 
     
-      <link rel="canonical" href="https://libert.xyz/posts/kubernetes-internals-p2/">
+      <link rel="canonical" href="https://libert.xyz/posts/namespaces-quotas/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
@@ -100,27 +98,25 @@ This happens next:
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Kubernetes Internals Deep Dive Summary Pt2</h1>
+          <h1 class="title">Namespaces resources quotas</h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
               <i class="fas fa-calendar"></i>
-              <time datetime='2019-05-24T17:17:33-04:00'>
-                May 24, 2019
+              <time datetime='2019-08-28T16:06:55-04:00'>
+                August 28, 2019
               </time>
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              One minute read
+              2 minutes read
             </span>
           </div>
           
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a>
-      <span class="separator">•</span>
-    <a href="https://libert.xyz/tags/docker/">docker</a></div>
+    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a></div>
 
         </div>
       </header>
@@ -130,49 +126,47 @@ This happens next:
 
 <hr />
 
-<h5 id="if-you-haven-t-yet-check-the-first-part-here-https-libert-xyz-posts-kubernetes-internals">If you haven&rsquo;t yet, check the first part <a href="https://libert.xyz/posts/kubernetes-internals/">here</a></h5>
+<p>The <strong>Limits</strong> and <strong>Requests</strong> are set for each container, what about
+if we want to apply Limits to namespaces?</p>
 
-<h2 id="k8-architecture-summary-pt2">K8 Architecture Summary Pt2</h2>
+<h3 id="limitrange-object"><em>LimitRange</em> Object</h3>
 
-<h3 id="what-happens-when-we-submit-a-pod-manifest-to-the-api-server">What happens when we submit a pod manifest to the API server?</h3>
+<p>The <em>LimitRange</em> resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.</p>
 
-<p>Before any event, the <em>Controler Manager</em>, <em>Scheduler</em> and the <em>Kubelet</em> are in &ldquo;watching mode&rdquo; waiting for a new event for their respective resources types in the <em>API Server</em></p>
+<p><img src="https://libert.xyz/images/lim1.png" alt="k8-p2-1" title="limitrange" /></p>
 
-<p><img src="https://libert.xyz/images/k8-p2-1.png" alt="k8-p2-1" title="Watching Mode" /></p>
+<h3 id="limitrange-use-case"><em>LimitRange</em> use case</h3>
 
-<h3 id="deployment-manifest-created">Deployment manifest created</h3>
+<p>A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&rsquo;s resources in the cluster. Without LimitRange the <em>API Server</em> will accept the pod but never schedule it.</p>
 
-<p>Now you executed the command <code>kubectl create -f deployment.yaml</code></p>
+<p><img src="https://libert.xyz/images/lim2.png" alt="k8-p2-2" title="object" /></p>
 
-<p>This happens next:</p>
+<h3 id="limiting-total-resources-in-a-namespace">Limiting total resources in a namespace</h3>
 
-<ol>
-<li>The <em>API Server</em> verifies the Deployment specifications</li>
-<li>Stores it in <em>etcd</em></li>
-<li>Returns a response to <code>kubectl</code></li>
-</ol>
+<p><em>LimitRange</em> only apply to individual pods, we can limit total resources by namespace with the object <em>ResourceQuota</em>.</p>
 
-<p>After the following chain of events takes place</p>
+<p><img src="https://libert.xyz/images/lim3.png" alt="k8-p2-3" title="resource quota" /></p>
 
-<p><img src="https://libert.xyz/images/k8-p2-2.png" alt="k8-p2-2" title="Events" /></p>
+<p><em>ResourceQuota</em> sets the maximum amount of CPU pods in the namespace
+can request to 400 millicores. The maximum total CPU limits in the namespace are
+set to 600 millicores. For memory, the maximum total requests are set to 200 MiB,
+whereas the limits are set to 500 MiB.</p>
 
-<h3 id="what-a-running-pod-is">What a running pod is?</h3>
+<p><img src="https://libert.xyz/images/lim4.png" alt="k8-p2-4" title="resource quota and limitrange" /></p>
 
-<p>When we run <code>kubectl run nginx --image=nginx</code> a few interesting things happens:</p>
+<h3 id="creating-limitrange-along-with-resourcequota">Creating LimitRange along with ResourceQuota</h3>
 
-<ol>
-<li>Nginx container Running</li>
-<li>Pod Infrastructure Container (<em>pause container</em>) running</li>
-</ol>
+<p>As a best practice, you should create both objects.
+When a quota for a specific resource (CPU or memory) is configured (request or
+limit), pods need to have the request or limit (respectively) set for that same resource.</p>
 
-<p><img src="https://libert.xyz/images/k8-p2-3.png" alt="k8-p2-3" title="Pause Container" /></p>
+<h3 id="limiting-the-number-of-objects-that-can-be-created">Limiting the number of objects that can be created</h3>
 
-<h4 id="the-pause-container"><em>The Pause Container</em></h4>
+<p><em>ResourceQuota</em> can also be configured to limit objects in a namespaces</p>
 
-<p>The <em>pause container</em> is the container that holds all containers in the pod together.
-All containers in the pod share the same network and Linux namespaces, the <em>Pod Infrastructure Container</em> holds all these namespaces.</p>
+<p><img src="https://libert.xyz/images/lim5.png" alt="k8-p2-5" title="quota objects" /></p>
 
-<p><img src="https://libert.xyz/images/k8-p2-4.png" alt="k8-p2-4" title="Pod Infrastructure Container" /></p>
+<p>The ResourceQuota in this listing allows users to create at most 10 Pods in the namespace, regardless if they’re created manually or by a ReplicationController, ReplicaSet or DaemonSet.</p>
 
 <hr />
 
@@ -191,10 +185,6 @@ All containers in the pod share the same network and Linux namespaces, the <em>P
         <ul>
         
         
-          
-            <li>
-              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
-            </li>
           
         
           
