@@ -14,6 +14,12 @@
   </url>
   
   <url>
+    <loc>https://libert.xyz/series/qos/</loc>
+    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/series/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
@@ -26,13 +32,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/kubernetes/</loc>
+    <loc>https://libert.xyz/series/kubernetes/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/kubernetes/</loc>
+    <loc>https://libert.xyz/tags/kubernetes/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -92,6 +98,12 @@
   </url>
   
   <url>
+    <loc>https://libert.xyz/tags/networking/</loc>
+    <lastmod>2019-06-02T15:37:05-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/posts/kubernetes-internals-p2/</loc>
     <lastmod>2019-05-24T17:17:33-04:00</lastmod>
   </url>
@@ -99,6 +111,17 @@
   <url>
     <loc>https://libert.xyz/posts/kubernetes-internals-p1/</loc>
     <lastmod>2019-05-12T13:34:45-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/posts/rbac-authorization/</loc>
+    <lastmod>2019-04-13T15:25:21-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/security/</loc>
+    <lastmod>2019-04-13T15:25:21-04:00</lastmod>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -117,13 +140,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/aws/</loc>
+    <loc>https://libert.xyz/series/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/aws/</loc>
+    <loc>https://libert.xyz/tags/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>

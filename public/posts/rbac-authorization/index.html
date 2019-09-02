@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Libert Schmidt">
+    <meta name="description" content="libert personal website">
+    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Service accounts &amp; RBAC Authorization"/>
+<meta name="twitter:description" content="When a request is received by the API Server (kubectl) it goes through a list of authentication plugins. The plugins examine the request and determine who is sending the request.
+An authentication plugin returns the username and group of the authenticated user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether the user is authorized to perform an action or not.
+Users Kind of clients connecting the API Server:"/>
+
+    <meta property="og:title" content="Service accounts &amp; RBAC Authorization" />
+<meta property="og:description" content="When a request is received by the API Server (kubectl) it goes through a list of authentication plugins. The plugins examine the request and determine who is sending the request.
+An authentication plugin returns the username and group of the authenticated user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether the user is authorized to perform an action or not.
+Users Kind of clients connecting the API Server:" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://libert.xyz/posts/rbac-authorization/" />
+<meta property="article:published_time" content="2019-04-13T15:25:21-04:00"/>
+<meta property="article:modified_time" content="2019-04-13T15:25:21-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
+
+
+
+
+    
+      <base href="https://libert.xyz/posts/rbac-authorization/">
+    
+    <title>
+  Service accounts &amp; RBAC Authorization · libert.xyz
+</title>
+
+    
+      <link rel="canonical" href="https://libert.xyz/posts/rbac-authorization/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://libert.xyz">
+      libert.xyz
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/tags/">#HashTags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Service accounts &amp; RBAC Authorization</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-04-13T15:25:21-04:00'>
+                April 13, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              2 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<hr />
+
+<p>When a request is received by the <em>API Server</em> (kubectl) it goes through a list of
+authentication plugins.
+The plugins examine the request and determine who is sending the request.</p>
+
+<p>An authentication plugin returns the username and group of the authenticated
+user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether
+the user is authorized to perform an action or not.</p>
+
+<h3 id="users">Users</h3>
+
+<p>Kind of clients connecting the <em>API Server</em>:</p>
+
+<ul>
+<li>Humans (users)</li>
+<li>Pods (applications running in them)</li>
+</ul>
+
+<h3 id="groups">Groups</h3>
+
+<p>Human and <em>ServiceAccounts</em> can belong to multiple groups.</p>
+
+<h3 id="serviceaccounts">ServiceAccounts</h3>
+
+<p>Every <em>POD</em> is associated with a <em>ServiceAccount</em> which represents the identity of the application running in the <em>POD</em>.</p>
+
+<p>A <em>POD</em> authenticates with the <em>API Server</em> by sending the file <code>var/run/secrets/kubernetes.io/serviceaccount/token</code>, which is mounted in into each container file system through a secret volume.</p>
+
+<p><em>ServiceAccount</em> usernames are formatted like this:</p>
+
+<p><code>system:serviceaccount:&lt;namespace&gt;:&lt;service account name&gt;</code></p>
+
+<h3 id="serviceaccount-resource">ServiceAccount resource</h3>
+
+<p><em>ServiceAccount</em> is yet another object in Kubernetes like Pods, ConfigMaps and so on, is also associated with namespaces.</p>
+
+<p>Each pod is associated with a single ServiceAccount in the pod’s namespace.</p>
+
+<p><img src="https://libert.xyz/images/ser1.png" alt="k8-p2-1" title="ServiceAcct" /></p>
+
+<h3 id="create-service-serviceaccounts">Create service ServiceAccounts</h3>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create serviceaccount foo</code></pre></div>
+<p><img src="https://libert.xyz/images/ser2.png" alt="k8-p2-2" title="create ServiceAcct" /></p>
+
+<p>A custom token Secret has been created and associated with the
+ ServiceAccount.
+ The authentication tokens used in ServiceAccounts are JWT (JSON Web Tokens)</p>
+
+<h3 id="rbac-authorization-plugin">RBAC Authorization plugin</h3>
+
+<p>RBAC determines if a user may perform an action or not.
+The API server exposes a REST interface, users perform actions by sending HTTP
+requests to the server. Users authenticate themselves by including credentials in the request (authentication token, username and password, or a client certificate).</p>
+
+<table>
+<thead>
+<tr>
+<th>HTTP Method</th>
+<th>Single Resource</th>
+<th>Multiple Resources</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>GET</td>
+<td>get (watch)</td>
+<td>list (and watch)</td>
+</tr>
+
+<tr>
+<td>POST</td>
+<td>create</td>
+<td>n/a</td>
+</tr>
+
+<tr>
+<td>PUT</td>
+<td>update</td>
+<td>n/a</td>
+</tr>
+
+<tr>
+<td>PATCH</td>
+<td>patch</td>
+<td>n/a</td>
+</tr>
+
+<tr>
+<td>DELETE</td>
+<td>delete</td>
+<td>n/a</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="rbac-resources">RBAC Resources</h3>
+
+<ul>
+<li>Roles and ClusterRoles</li>
+<li>RoleBindings and ClusterRoleBindings</li>
+</ul>
+
+<p>Roles define what can be done, while bindings define who can do it</p>
+
+<p><img src="https://libert.xyz/images/ser3.png" alt="k8-p2-3" title="roles" /></p>
+
+<p>The difference between Role and a ClusterRole, or between a RoleBinding and a
+ClusterRoleBinding, is that the Role and RoleBinding are namespaced resources,
+whereas the ClusterRole and ClusterRoleBinding are cluster-level resources</p>
+
+<p><img src="https://libert.xyz/images/ser4.png" alt="k8-p2-4" title="roles and cluster differences" /></p>
+
+<table>
+<thead>
+<tr>
+<th>For accessing</th>
+<th>Role type to use</th>
+<th>Binding type to use</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Cluster-level resources (Nodes, PersistentVolumes)</td>
+<td>ClusterRole</td>
+<td>ClusterRoleBinding</td>
+</tr>
+
+<tr>
+<td>Non-resource URLs (/api, /healthz)</td>
+<td>ClusterRole</td>
+<td>ClusterRoleBinding</td>
+</tr>
+
+<tr>
+<td>Namespaced resources in any namespace (and across all namespaces)</td>
+<td>ClusterRole</td>
+<td>ClusterRoleBinding</td>
+</tr>
+
+<tr>
+<td>Namespaced resources in a specific namespace (reusing the same ClusterRole in multiple namespaces)</td>
+<td>ClusterRole</td>
+<td>RoleBinding</td>
+</tr>
+
+<tr>
+<td>Namespaced resources in a specific namespace (Role must be defined in each namespace)</td>
+<td>Role</td>
+<td>RoleBinding</td>
+</tr>
+</tbody>
+</table>
+
+<p>Sources:</p>
+
+<p><a href="https://www.manning.com/books/kubernetes-in-action">https://www.manning.com/books/kubernetes-in-action</a></p>
+
+<hr />
+
+      </div>
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+      <h3>See also in kubernetes</h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/pods-qos/">PODS QoS</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/kubernetes-ha/">Highly Available Kubernetes Cluster</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
+            </li>
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/pod-networking/">Diving deeper into pod networking</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

@@ -24,6 +24,7 @@ QoS Classes  BestEffort class (no request and limits set) Guaranteed class (requ
 
 
 
+
     
       <base href="https://libert.xyz/posts/pods-qos/">
     
@@ -257,10 +258,13 @@ If at least one container has a different class, the pod’s QoS class is <em>Bu
 <h3 id="which-process-gets-killed-when-memory-is-low">Which process gets killed when memory is low?</h3>
 
 <p>The QoS classes determine which container gets killed first.
-Killing order by QoS class:
-1. <em>BestEffort</em>
-2. <em>Burstable</em>
-3. <em>Guaranteed</em></p>
+Killing order by QoS class:</p>
+
+<ol>
+<li><em>BestEffort</em></li>
+<li><em>Burstable</em></li>
+<li><em>Guaranteed</em></li>
+</ol>
 
 <p>When the node’s memory is already maxed out and one of the processes on the node tries to allocate more memory, the system will need to kill one of the processes.</p>
 
@@ -316,6 +320,32 @@ Killing order by QoS class:
           
             <li>
               <a href="https://libert.xyz/posts/pod-networking/">Diving deeper into pod networking</a>
+            </li>
+          
+        
+        </ul>
+      </nav>
+    
+  
+    
+    
+    
+      <h3>See also in QoS</h3>
+      <nav>
+        <ul>
+        
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+            </li>
+          
+        
+          
+        
+          
+            <li>
+              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
             </li>
           
         

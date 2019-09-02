@@ -12,6 +12,15 @@
     
     
     <item>
+      <title>QoS</title>
+      <link>https://libert.xyz/series/qos/</link>
+      <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
+      
+      <guid>https://libert.xyz/series/qos/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>kubernetes</title>
       <link>https://libert.xyz/series/kubernetes/</link>
       <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
@@ -35,6 +44,15 @@
       <pubDate>Wed, 05 Jun 2019 14:53:00 -0400</pubDate>
       
       <guid>https://libert.xyz/series/networking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>security</title>
+      <link>https://libert.xyz/series/security/</link>
+      <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
+      
+      <guid>https://libert.xyz/series/security/</guid>
       <description></description>
     </item>
     

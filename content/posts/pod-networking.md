@@ -2,7 +2,7 @@
 date = 2019-06-02T15:37:05-04:00
 title = "Diving deeper into pod networking"
 slug = "pod-networking"
-tags = ["kubernetes","docker"]
+tags = ["kubernetes","docker","networking"]
 series = ["kubernetes","networking"]
 +++
 ***

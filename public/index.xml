@@ -114,6 +114,17 @@ K8 Architecture Summary In a nutshell, k8 has two components
     </item>
     
     <item>
+      <title>Service accounts &amp; RBAC Authorization</title>
+      <link>https://libert.xyz/posts/rbac-authorization/</link>
+      <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/rbac-authorization/</guid>
+      <description>When a request is received by the API Server (kubectl) it goes through a list of authentication plugins. The plugins examine the request and determine who is sending the request.
+An authentication plugin returns the username and group of the authenticated user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether the user is authorized to perform an action or not.
+Users Kind of clients connecting the API Server:</description>
+    </item>
+    
+    <item>
       <title>Containers &amp; Docker Images</title>
       <link>https://libert.xyz/posts/containers-docker/</link>
       <pubDate>Sat, 10 Nov 2018 14:53:00 -0400</pubDate>

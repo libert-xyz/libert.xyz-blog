@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>QoS on libert.xyz</title>
+    <link>https://libert.xyz/series/qos/</link>
+    <description>Recent content in QoS on libert.xyz</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 28 Aug 2019 16:06:55 -0400</lastBuildDate>
+    
+	<atom:link href="https://libert.xyz/series/qos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Namespaces resources quotas</title>
+      <link>https://libert.xyz/posts/namespaces-quotas/</link>
+      <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/namespaces-quotas/</guid>
+      <description>The Limits and Requests are set for each container, what about if we want to apply Limits to namespaces?
+LimitRange Object The LimitRange resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.
+LimitRange use case A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&amp;rsquo;s resources in the cluster.</description>
+    </item>
+    
+    <item>
+      <title>PODS QoS</title>
+      <link>https://libert.xyz/posts/pods-qos/</link>
+      <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pods-qos/</guid>
+      <description>There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
+QoS Classes  BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don&amp;rsquo;t)  Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.</description>
+    </item>
+    
+    <item>
+      <title>PODS Requests &amp; Limits</title>
+      <link>https://libert.xyz/posts/pods-requests-limits/</link>
+      <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pods-requests-limits/</guid>
+      <description>When creating a pod we can specify the amount of CPU and memory that a container needs. If a POD has more than one container requests and limits are specified individually for each container.
+E.g.
+If you don&amp;rsquo;t specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you. In the worst-case scenario, the container may not get any CPU at all.
+Understanding CPU Units The CPU resource is measured in CPU units.</description>
+    </item>
+    
+  </channel>
+</rss>
