@@ -3,36 +3,53 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://libert.xyz/posts/namespaces-quotas/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <loc>https://libert.xyz/posts/deployment-types/</loc>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://libert.xyz/posts/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://libert.xyz/series/qos/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/series/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/tags/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/kubernetes/</loc>
+    <loc>https://libert.xyz/series/ci/cd/</loc>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/tags/devops/</loc>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/</loc>
+    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/posts/namespaces-quotas/</loc>
+    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/qos/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -44,7 +61,7 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/</loc>
+    <loc>https://libert.xyz/series/kubernetes/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -140,13 +157,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/aws/</loc>
+    <loc>https://libert.xyz/tags/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/aws/</loc>
+    <loc>https://libert.xyz/series/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>

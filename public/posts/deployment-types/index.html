@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="author" content="Libert Schmidt">
+    <meta name="description" content="libert personal website">
+    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Deployment Types"/>
+<meta name="twitter:description" content="Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.
+Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.
+Manual Deployment (copy and paste) This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server."/>
+
+    <meta property="og:title" content="Deployment Types" />
+<meta property="og:description" content="Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.
+Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.
+Manual Deployment (copy and paste) This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://libert.xyz/posts/deployment-types/" />
+<meta property="article:published_time" content="2019-09-25T12:16:40-04:00"/>
+<meta property="article:modified_time" content="2019-09-25T12:16:40-04:00"/>
+
+
+
+    
+      <base href="https://libert.xyz/posts/deployment-types/">
+    
+    <title>
+  Deployment Types · libert.xyz
+</title>
+
+    
+      <link rel="canonical" href="https://libert.xyz/posts/deployment-types/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+    
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.55.6" />
+  </head>
+
+  <body class=" ">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://libert.xyz">
+      libert.xyz
+    </a>
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/tags/">#HashTags</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
+          </li>
+        
+      
+      
+    </ul>
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Deployment Types</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2019-09-25T12:16:40-04:00'>
+                September 25, 2019
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3 minutes read
+            </span>
+          </div>
+          
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://libert.xyz/tags/devops/">devops</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+
+<hr />
+
+<p>Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.</p>
+
+<p>Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.</p>
+
+<h3 id="manual-deployment-copy-and-paste">Manual Deployment (copy and paste)</h3>
+
+<p><img src="https://libert.xyz/images/deploymentpost.png" alt="k8-p1-1" title="manual" /></p>
+
+<p>This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server.</p>
+
+<p>A typical workflow is:</p>
+
+<ul>
+<li>A developer commit and push changes to a repository</li>
+<li>Developer SSH into the server</li>
+<li>Developer git pull from the repository to the server</li>
+<li>Developer restart the webserver</li>
+</ul>
+
+<p>All the steps are manually executed by the developer. The only scenario where this approach makes sense is when a single developer starts building a prototype. In <strong>any</strong> other case this is not recommended.</p>
+
+<h3 id="big-bang-deployment-all-at-once">Big Bang Deployment (all at once)</h3>
+
+<p>This approach is not so different from the previous one because it deploys the application to a single server or multiple ones <strong>all at once</strong>.
+There is usually a tool that automates the deployment process but we are still lacking a deployment pipeline.
+If something goes wrong or a bug is introduced in the application users will experience downtime. Not recommended in a production environment but is a common way of deployment in a development environment where developers need to see code changes fast.</p>
+
+<p><strong>E.g.</strong></p>
+
+<p>Three servers deployed <em>all at once</em></p>
+
+<p><img src="https://libert.xyz/images/dep2.1.png" alt="k8-p2-2" title="all" /></p>
+
+<h3 id="rolling-deployment">Rolling Deployment</h3>
+
+<p>This the default deployment type of <em>Kubernetes</em> because of the versatility to gradually deploy our changes to production.
+During the deployment the new and old versions coexist without affecting functionality or user experience. This process makes it easier to roll back if something is not quite right.</p>
+
+<p><strong>E.g.</strong></p>
+
+<p>The following diagram shows three servers where blue represents a server with the current version of the code while green represents a server with the new version of the code.</p>
+
+<p><img src="https://libert.xyz/images/dep3.1.png" alt="k8-p2-3" title="rolling" /></p>
+
+<h3 id="blue-green-deployment">Blue/Green Deployment</h3>
+
+<p>This is one of the most popular ways to deploy in a production environment.
+Blue/Green deployment creates a clone from the current environment.
+Is in the new environment (green) where the new revision of the code is deployed, we can make tests without disturbing the current running environment (blue).
+Once we are happy with the results we can complete and route the traffic and make the green environment the default while deleting the blue environment.
+To succeed with this approach we need to rely heavily on automation.</p>
+
+<h6 id="advantages">Advantages</h6>
+
+<ul>
+<li>Zero downtime</li>
+<li>Quickly rollback if something goes wrong</li>
+<li>Testing in a live environment before releasing to the users</li>
+</ul>
+
+<h6 id="disadvantages">Disadvantages</h6>
+
+<ul>
+<li>hard to implement in a non-cloud platform</li>
+<li>Expensive</li>
+<li>Hard to implement if the green environment needs to write to the Database</li>
+</ul>
+
+<p><strong>E.g.</strong></p>
+
+<p><img src="https://libert.xyz/images/dep4.png" alt="k8-p2-4" title="bluegreen" /></p>
+
+<h3 id="canary-deployment">Canary Deployment</h3>
+
+<p>It has the same characteristics of Green/Deployment (cloning) but gradually sends user traffic to the green environment.</p>
+
+<h6 id="advantages-1">Advantages</h6>
+
+<p>All the benefits of Blue/Green plus:</p>
+
+<ul>
+<li>Use to test new features and make a gradual assessment of stability.</li>
+<li>Real time users feedback.</li>
+</ul>
+
+<h6 id="disadvantages-1">Disadvantages</h6>
+
+<ul>
+<li>Complexity</li>
+<li>Expensive if we leave both environments running for a long time.</li>
+</ul>
+
+<p><strong>E.g.</strong></p>
+
+<p><img src="https://libert.xyz/images/dep5.png" alt="k8-p2-5" title="canary" /></p>
+
+<hr />
+
+      </div>
+
+      <footer>
+        
+
+<section class="see-also">
+  
+    
+    
+    
+  
+</section>
+
+
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      <footer class="footer">
+  <section class="container">
+    
+    
+    
+    
+  </section>
+</footer>
+
+    </main>
+
+    
+
+  </body>
+
+</html>

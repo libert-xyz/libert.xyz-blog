@@ -6,10 +6,21 @@
     <description>Recent content on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 28 Aug 2019 16:06:55 -0400</lastBuildDate>
+    <lastBuildDate>Wed, 25 Sep 2019 12:16:40 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deployment Types</title>
+      <link>https://libert.xyz/posts/deployment-types/</link>
+      <pubDate>Wed, 25 Sep 2019 12:16:40 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/deployment-types/</guid>
+      <description>Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.
+Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.
+Manual Deployment (copy and paste) This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server.</description>
+    </item>
     
     <item>
       <title>Namespaces resources quotas</title>
