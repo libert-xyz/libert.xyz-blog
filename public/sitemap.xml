@@ -55,13 +55,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/kubernetes/</loc>
+    <loc>https://libert.xyz/series/kubernetes/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/kubernetes/</loc>
+    <loc>https://libert.xyz/tags/kubernetes/</loc>
     <lastmod>2019-08-28T16:06:55-04:00</lastmod>
     <priority>0</priority>
   </url>
@@ -142,6 +142,17 @@
   </url>
   
   <url>
+    <loc>https://libert.xyz/posts/what-is-devops/</loc>
+    <lastmod>2019-02-04T14:59:35-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/series/devops/</loc>
+    <lastmod>2019-02-04T14:59:35-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/posts/containers-docker/</loc>
     <lastmod>2018-11-10T14:53:00-04:00</lastmod>
   </url>
@@ -157,13 +168,13 @@
   </url>
   
   <url>
-    <loc>https://libert.xyz/tags/aws/</loc>
+    <loc>https://libert.xyz/series/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>https://libert.xyz/series/aws/</loc>
+    <loc>https://libert.xyz/tags/aws/</loc>
     <lastmod>2016-10-10T14:43:55-04:00</lastmod>
     <priority>0</priority>
   </url>

@@ -136,6 +136,17 @@ Users Kind of clients connecting the API Server:</description>
     </item>
     
     <item>
+      <title>What is DevOps</title>
+      <link>https://libert.xyz/posts/what-is-devops/</link>
+      <pubDate>Mon, 04 Feb 2019 14:59:35 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/what-is-devops/</guid>
+      <description>DevOps has many definitions and nobody seems to agree on a single term.
+It gets more confusing when looking for DevOps Engineers job descriptions, you don&amp;rsquo;t know if they are looking for a System Administrator or a Full-Stack Engineer.
+Developers like to build software and test things quickly, whereas System Administrators focus on stability and reliability. In my experience merging both roles in a single one is what a DevOps Engineer is.</description>
+    </item>
+    
+    <item>
       <title>Containers &amp; Docker Images</title>
       <link>https://libert.xyz/posts/containers-docker/</link>
       <pubDate>Sat, 10 Nov 2018 14:53:00 -0400</pubDate>
