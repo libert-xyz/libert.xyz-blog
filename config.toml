@@ -75,14 +75,15 @@ disqusShortname = "libertschmidt" # Enable or disable Disqus
     weight = 1
     url  = "/posts/"
 
-# [[menu.main]]
-#     name = "Projects"
-#     weight = 2
-#     url = "/projects/"
 [[menu.main]]
-    name = "#HashTags"
+    name = "Open Source Projects"
     weight = 2
-    url = "/tags/"
+    url = "/open-source/"
+
+#[[menu.main]]
+#    name = "#HashTags"
+#    weight = 2
+#    url = "/tags/"
 [[menu.main]]
     name = "About"
     weight = 2

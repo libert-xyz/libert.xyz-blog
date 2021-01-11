@@ -9,24 +9,25 @@ slug = "about"
 
 and I work as a consultant that specializes in introducing a DevOps culture in teams and building cost effective Cloud Computing solutions.
 
+I also love Software engineering (especially the server side) and I strive to be a better software engineer every day.
 
-Software controls the world we live in, from the moment that we order our favorite coffee to the moment that we take a plane, I'm really exited to be part of this revolution and help future companies to build new solutions to traditional problems.
+unix motto: "do one thing and do it well"
 
 ### Skills
 
 
-+ Programming Languages  
++ **Programming Languages**
 
   * python
   * bash
   * go
 
-+ OS
++ **OS**
 
   * Linux
   * Unix
 
-+ CI/CD Tools
++ **CI/CD Tools**
 
    * Jenkins
    * Ansible
@@ -37,18 +38,14 @@ Software controls the world we live in, from the moment that we order our favori
 
 ### Certifications
 
+**AWS DevOps Engineer - Professional**
 
-![logo]
+Validation Number: [FZNJS322FNBE1X3X](http://aws.amazon.com/verification)
 
-[logo]: https://s3.amazonaws.com/ilegalalien.com/visuals/AWS_Certified_Logo.png "AWS"
+**AWS Developer - Associate**
 
+Validation Number: [21RJ0CCCK14QQ5WL](http://aws.amazon.com/verification)
 
-![logo2]
+**AWS Certified Solutions Architect - Associate**
 
-[logo2]: https://s3.amazonaws.com/ilegalalien.com/visuals/AWS_Certified_Tag__SAA_294x230-Black.png
- "AWS"
-
- ![logo3]
-
-[logo3]: https://s3.amazonaws.com/ilegalalien.com/visuals/AWS_Certified_Tag__DVA_294x230-Black.png
- "AWS"
+Validation Number: [ZQTBT5C1CJR1QM32](http://aws.amazon.com/verification)
