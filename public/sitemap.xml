@@ -3,6 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://libert.xyz/open-source/</loc>
+    <lastmod>2020-12-29T12:18:58-04:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://libert.xyz/</loc>
+    <lastmod>2020-12-29T12:18:58-04:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://libert.xyz/posts/deployment-types/</loc>
     <lastmod>2019-09-25T12:16:40-04:00</lastmod>
   </url>
@@ -33,12 +44,6 @@
   
   <url>
     <loc>https://libert.xyz/tags/devops/</loc>
-    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>https://libert.xyz/</loc>
     <lastmod>2019-09-25T12:16:40-04:00</lastmod>
     <priority>0</priority>
   </url>

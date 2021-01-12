@@ -86,5 +86,5 @@ disqusShortname = "libertschmidt" # Enable or disable Disqus
 #    url = "/tags/"
 [[menu.main]]
     name = "About"
-    weight = 2
+    weight = 3
     url = "/about/"
