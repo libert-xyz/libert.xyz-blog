@@ -62,7 +62,7 @@ disqusShortname = "libertschmidt" # Enable or disable Disqus
     name = "Twitter"
     icon = "fab fa-twitter fa-2x"
     weight = 2
-    url = "https://twitter.com/rschmidt_z"
+    url = "https://twitter.com/libert_xyz"
 [[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin fa-2x"
