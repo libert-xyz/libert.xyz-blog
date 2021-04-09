@@ -1,5 +1,6 @@
 +++
 date = 2019-06-05T14:53:00-04:00
+lastmod = 2021-04-08T14:53:00-04:00
 title = "Kubernetes Services insights"
 slug = "pod-services"
 tags = ["kubernetes","docker"]
@@ -7,6 +8,12 @@ series = ["kubernetes","networking"]
 +++
 ***
 
+Services introduction
+---
+
+A Kubernetes service provides a static endpoint (IP) to access pods.
+The IP is static and never changes while the service exists.
+Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.
 
 Kubernetes Services
 ---
@@ -47,4 +54,57 @@ to pod B directly instead of through the service.
  "Services/iptables"
 
 
+### Services discovery
+
+How does a client or pod know what is the IP and port of a given service?
+
+
+**Environment variables**
+
+When a *pod* is first started Kubernetes creates a set of environment variables pointing to services that exist at the moment (if you create the service before the pods)
+
+
+```bash
+$ kubectl exec pod-example env
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+HOSTNAME=pod-example
+KUBERNETES_SERVICE_HOST=10.12.100.1
+KUBERNETES_SERVICE_PORT=443
+...
+EXAMPLE_SERVICE_HOST=10.12.100.16
+EXAMPLE_SERVICE_PORT=80
+```
+
+
+**kube-dns**
+
+Is a pod that runs a DNS server in the *kube-sytem* namespace. It configures a DNS entry (**/etc/resolv.conf**) on every pod launched in the cluster.
+
+Each service gets an entry in the internal DNS server and the pods can access them by their Fully Qualified Domain Name (FQDN):
+
+```
+service-example.default.svc.cluster.local
+```
+
+### Services Endpoints
+
+
+When a pod selector is defined in the service spec is not used when redirecting traffic from the service to the pods. Instead, the selector creates IPs and ports that are added to the *endpoint* resource.
+When a client sends a request to the service, the service proxy selects one of the IPs and ports of the endpoint.
+
+
+```yaml
+$ kubectl describe svc example-service
+Name:                example-service
+Selector:            app=myApp
+Type:                ClusterIP
+IP:                  10.12.249.153
+Port:                <unset> 80/TCP
+Endpoints:           10.111.1.4:8080,10.111.2.5:8080,10.111.2.6:8080
+```
+
+Notice that if you create a service without a pod selector no endpoints will be added to the service.
+
 ***
+
+*** References - [Kubernetes in Action](https://www.manning.com/books/kubernetes-in-action )

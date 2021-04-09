@@ -70,7 +70,7 @@ The same happens when we make a change in the cluster like adding a new pod `kub
 
 ### The API Server talks with everyone
 
-It is basically a *CRUD* system (create, read, update, delete) with a RESTful API endpoint and his database is the *etcd* service.
+It is basically a *CRUD* system (create, read, update, delete) with a RESTful API endpoint and its database is the *etcd* service.
 
 It also validates the objects before storing to *etcd*. It uses *Optimistic Locking* to ensure that two clients don't update objects at the same time.
 

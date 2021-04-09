@@ -9,7 +9,7 @@
   
   <url>
     <loc>https://libert.xyz/</loc>
-    <lastmod>2020-12-29T12:18:58-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -20,19 +20,19 @@
   
   <url>
     <loc>https://libert.xyz/posts/</loc>
-    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/series/</loc>
-    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/tags/</loc>
-    <lastmod>2019-09-25T12:16:40-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -61,13 +61,13 @@
   
   <url>
     <loc>https://libert.xyz/tags/kubernetes/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://libert.xyz/series/kubernetes/</loc>
-    <lastmod>2019-08-28T16:06:55-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -78,7 +78,7 @@
   
   <url>
     <loc>https://libert.xyz/tags/docker/</loc>
-    <lastmod>2019-08-27T18:47:59-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   
@@ -105,12 +105,12 @@
   
   <url>
     <loc>https://libert.xyz/posts/pod-services/</loc>
-    <lastmod>2019-06-05T14:53:00-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
   </url>
   
   <url>
     <loc>https://libert.xyz/series/networking/</loc>
-    <lastmod>2019-06-05T14:53:00-04:00</lastmod>
+    <lastmod>2021-04-08T14:53:00-04:00</lastmod>
     <priority>0</priority>
   </url>
   

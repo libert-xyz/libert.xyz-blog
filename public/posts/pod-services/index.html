@@ -11,18 +11,18 @@
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Kubernetes Services insights"/>
-<meta name="twitter:description" content="Kubernetes Services The kube-proxy manages everything related to services.
-In summary, a service has the following characteristics
- Each service gets its own stable IP address and port. Clients and pods connect to the service ip address and port. The IP address is virtual The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node."/>
+<meta name="twitter:description" content="Services introduction A Kubernetes service provides a static endpoint (IP) to access pods. The IP is static and never changes while the service exists. Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.
+Kubernetes Services The kube-proxy manages everything related to services.
+In summary, a service has the following characteristics"/>
 
     <meta property="og:title" content="Kubernetes Services insights" />
-<meta property="og:description" content="Kubernetes Services The kube-proxy manages everything related to services.
-In summary, a service has the following characteristics
- Each service gets its own stable IP address and port. Clients and pods connect to the service ip address and port. The IP address is virtual The IP address in not assigned to any network interface and is not listed as source or destination IP address in a network packet when the packet leaves the node." />
+<meta property="og:description" content="Services introduction A Kubernetes service provides a static endpoint (IP) to access pods. The IP is static and never changes while the service exists. Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.
+Kubernetes Services The kube-proxy manages everything related to services.
+In summary, a service has the following characteristics" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://libert.xyz/posts/pod-services/" />
 <meta property="article:published_time" content="2019-06-05T14:53:00-04:00"/>
-<meta property="article:modified_time" content="2019-06-05T14:53:00-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
+<meta property="article:modified_time" content="2021-04-08T14:53:00-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
 <meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/" />
 
 
@@ -111,7 +111,7 @@ In summary, a service has the following characteristics
             </span>
             <span class="reading-time">
               <i class="fas fa-clock"></i>
-              2 minutes read
+              3 minutes read
             </span>
           </div>
           
@@ -128,6 +128,12 @@ In summary, a service has the following characteristics
         
 
 <hr />
+
+<h2 id="services-introduction">Services introduction</h2>
+
+<p>A Kubernetes service provides a static endpoint (IP) to access pods.
+The IP is static and never changes while the service exists.
+Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.</p>
 
 <h2 id="kubernetes-services">Kubernetes Services</h2>
 
@@ -166,7 +172,43 @@ to pod B directly instead of through the service.</li>
 
 <p><img src="https://libert.xyz/images/k8-services-1.png" alt="k8-services-1" title="Services/iptables" /></p>
 
+<h3 id="services-discovery">Services discovery</h3>
+
+<p>How does a client or pod know what is the IP and port of a given service?</p>
+
+<p><strong>Environment variables</strong></p>
+
+<p>When a <em>pod</em> is first started Kubernetes creates a set of environment variables pointing to services that exist at the moment (if you create the service before the pods)</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl <span style="color:#007020">exec</span> pod-example env
+<span style="color:#bb60d5">PATH</span><span style="color:#666">=</span>/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+<span style="color:#bb60d5">HOSTNAME</span><span style="color:#666">=</span>pod-example
+<span style="color:#bb60d5">KUBERNETES_SERVICE_HOST</span><span style="color:#666">=</span><span style="color:#40a070">10</span>.12.100.1
+<span style="color:#bb60d5">KUBERNETES_SERVICE_PORT</span><span style="color:#666">=</span><span style="color:#40a070">443</span>
+...
+<span style="color:#bb60d5">EXAMPLE_SERVICE_HOST</span><span style="color:#666">=</span><span style="color:#40a070">10</span>.12.100.16
+<span style="color:#bb60d5">EXAMPLE_SERVICE_PORT</span><span style="color:#666">=</span><span style="color:#40a070">80</span></code></pre></div>
+<p><strong>kube-dns</strong></p>
+
+<p>Is a pod that runs a DNS server in the <em>kube-sytem</em> namespace. It configures a DNS entry (<strong>/etc/resolv.conf</strong>) on every pod launched in the cluster.</p>
+
+<p>Each service gets an entry in the internal DNS server and the pods can access them by their Fully Qualified Domain Name (FQDN):</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4">service-example.default.svc.cluster.local</pre></div>
+<h3 id="services-endpoints">Services Endpoints</h3>
+
+<p>When a pod selector is defined in the service spec is not used when redirecting traffic from the service to the pods. Instead, the selector creates IPs and ports that are added to the <em>endpoint</em> resource.
+When a client sends a request to the service, the service proxy selects one of the IPs and ports of the endpoint.</p>
+<div class="highlight"><pre style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">$<span style="color:#bbb"> </span>kubectl<span style="color:#bbb"> </span>describe<span style="color:#bbb"> </span>svc<span style="color:#bbb"> </span>example-service<span style="color:#bbb">
+</span><span style="color:#bbb"></span>Name:<span style="color:#bbb">                </span>example-service<span style="color:#bbb">
+</span><span style="color:#bbb"></span>Selector:<span style="color:#bbb">            </span>app=myApp<span style="color:#bbb">                                          </span>❶<span style="color:#bbb">
+</span><span style="color:#bbb"></span>Type:<span style="color:#bbb">                </span>ClusterIP<span style="color:#bbb">
+</span><span style="color:#bbb"></span>IP:<span style="color:#bbb">                  </span><span style="color:#40a070">10.12</span>.<span style="color:#40a070">249.153</span><span style="color:#bbb">
+</span><span style="color:#bbb"></span>Port:<span style="color:#bbb">                </span>&lt;unset&gt;<span style="color:#bbb"> </span><span style="color:#40a070">80</span>/TCP<span style="color:#bbb">
+</span><span style="color:#bbb"></span>Endpoints:<span style="color:#bbb">           </span><span style="color:#40a070">10.111</span>.<span style="color:#40a070">1.4</span>:<span style="color:#40a070">8080</span>,<span style="color:#40a070">10.111</span>.<span style="color:#40a070">2.5</span>:<span style="color:#40a070">8080</span>,<span style="color:#40a070">10.111</span>.<span style="color:#40a070">2.6</span>:<span style="color:#40a070">8080</span></code></pre></div>
+<p>Notice that if you create a service without a pod selector no endpoints will be added to the service.</p>
+
 <hr />
+
+<p>*** References - <a href="https://www.manning.com/books/kubernetes-in-action">Kubernetes in Action</a></p>
 
       </div>
 
@@ -242,26 +284,7 @@ to pod B directly instead of through the service.</li>
 </section>
 
 
-        <div id="disqus_thread"></div>
-<script type="application/javascript">
-    var disqus_config = function () {
-    
-    
-    
-    };
-    (function() {
-        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
-            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
-            return;
-        }
-        var d = document, s = d.createElement('script'); s.async = true;
-        s.src = '//' + "libertschmidt" + '.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-    })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        
       </footer>
     </article>
 

@@ -10,9 +10,6 @@ pygmentsstyle = "friendly" # Color-theme or style for syntax highlighting.
 pygmentscodefences = true # Enable code fence background highlighting.
 pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
 
-disqusShortname = "libertschmidt" # Enable or disable Disqus
-
-
 [params] # theme parameters
     author = "Libert Schmidt" # Author's name.
     info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
