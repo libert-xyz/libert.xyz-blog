@@ -6,21 +6,10 @@
     <description>Recent content in networking on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Jun 2019 14:53:00 -0400</lastBuildDate>
+    <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/series/networking/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Kubernetes Services insights</title>
-      <link>https://libert.xyz/posts/pod-services/</link>
-      <pubDate>Wed, 05 Jun 2019 14:53:00 -0400</pubDate>
-      
-      <guid>https://libert.xyz/posts/pod-services/</guid>
-      <description>Services introduction A Kubernetes service provides a static endpoint (IP) to access pods. The IP is static and never changes while the service exists. Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.
-Kubernetes Services The kube-proxy manages everything related to services.
-In summary, a service has the following characteristics</description>
-    </item>
     
     <item>
       <title>Diving deeper into pod networking</title>

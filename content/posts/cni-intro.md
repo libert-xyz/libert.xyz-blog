@@ -4,7 +4,7 @@ lastmod = 2021-04-08T14:53:00-04:00
 title = "Kubernetes Services insights"
 slug = "pod-services"
 tags = ["kubernetes","docker"]
-series = ["kubernetes","networking"]
+series = ["kubernetes","services"]
 +++
 ***
 

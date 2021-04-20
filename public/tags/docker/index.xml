@@ -6,10 +6,22 @@
     <description>Recent content in docker on libert.xyz</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 27 Aug 2019 18:47:59 -0400</lastBuildDate>
+    <lastBuildDate>Fri, 09 Apr 2021 13:23:38 -0400</lastBuildDate>
     
 	<atom:link href="https://libert.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Kubernetes Services insights Pt2</title>
+      <link>https://libert.xyz/posts/pod-services-pt2/</link>
+      <pubDate>Fri, 09 Apr 2021 13:23:38 -0400</pubDate>
+      
+      <guid>https://libert.xyz/posts/pod-services-pt2/</guid>
+      <description>In the first part we discussed pods communication through Kubernetes services, all of this internally in the cluster, but what if we need to expose the service to the internet?
+Exposing services to the internet Node Port
+The service type NodePort creates a unique port in every node of the cluster and forwards the requests to the pods that are part of that service.
+apiVersion:v1kind:Servicemetadata:name:example-nodeportspec:type:NodePort❶ports:-port:80❷targetPort:80❸nodePort:30021❹selector:app:example ❶ Set the service type to NodePort.</description>
+    </item>
     
     <item>
       <title>PODS QoS</title>
