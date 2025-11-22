@@ -1,232 +1,305 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Libert Schmidt">
-    <meta name="description" content="libert personal website">
-    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Kubernetes Internals Deep Dive Summary Pt1"/>
-<meta name="twitter:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
-Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
-K8 Architecture Summary In a nutshell, k8 has two components
-1. Control Plane (master node)
- API Server Scheduler Control Manager etcd (key-value storage)  2."/>
-
-    <meta property="og:title" content="Kubernetes Internals Deep Dive Summary Pt1" />
-<meta property="og:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
-Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
-K8 Architecture Summary In a nutshell, k8 has two components
-1. Control Plane (master node)
- API Server Scheduler Control Manager etcd (key-value storage)  2." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://libert.xyz/posts/kubernetes-internals-p1/" />
-<meta property="article:published_time" content="2019-05-12T13:34:45-04:00"/>
-<meta property="article:modified_time" content="2019-05-12T13:34:45-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/pod-services-pt2/" /><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" />
-
-
-
-    
-      <base href="https://libert.xyz/posts/kubernetes-internals-p1/">
-    
-    <title>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
   Kubernetes Internals Deep Dive Summary Pt1 · libert.xyz
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
-    
-      <link rel="canonical" href="https://libert.xyz/posts/kubernetes-internals-p1/">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
+<meta name="author" content="Libert Schmidt">
+<meta name="description" content="
+Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans,  Kubernetes Documentation and this awesome book called Kubernetes in Action
 
+  K8 Architecture Summary
+  
     
+    Link to heading
+  
 
-    
+In a nutshell, k8 has two components
+1. Control Plane (master node)">
+<meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
 
-    
-    
-    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.55.6" />
-  </head>
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Kubernetes Internals Deep Dive Summary Pt1">
+  <meta name="twitter:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary Link to heading In a nutshell, k8 has two components
+1. Control Plane (master node)">
+
+<meta property="og:url" content="http://localhost:1313/posts/kubernetes-internals-p1/">
+  <meta property="og:site_name" content="libert.xyz">
+  <meta property="og:title" content="Kubernetes Internals Deep Dive Summary Pt1">
+  <meta property="og:description" content="Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
+Most of the references come from blogs like Julia Evans, Kubernetes Documentation and this awesome book called Kubernetes in Action
+K8 Architecture Summary Link to heading In a nutshell, k8 has two components
+1. Control Plane (master node)">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-05-12T13:34:45-04:00">
+    <meta property="article:modified_time" content="2019-05-12T13:34:45-04:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Docker">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services-pt2/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/namespaces-quotas/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-qos/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-requests-limits/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/kubernetes-ha/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-networking/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/kubernetes-internals-p1/">
+
+
+<link rel="preload" href="http://localhost:1313/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/images/apple-touch-icon.png">
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="mask-icon" href="http://localhost:1313/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://libert.xyz">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
       libert.xyz
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/open-source/">Open Source Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/about/">About</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/open-source/">Open Source Projects</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">Kubernetes Internals Deep Dive Summary Pt1</h1>
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/kubernetes-internals-p1/">
+              Kubernetes Internals Deep Dive Summary Pt1
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-05-12T13:34:45-04:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2019-05-12T13:34:45-04:00">
                 May 12, 2019
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              5 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              5-minute read
             </span>
           </div>
           
+          
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://libert.xyz/tags/docker/">docker</a></div>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/docker/">Docker</a>
+    </span></div>
 
         </div>
       </header>
 
-      <div>
+      <div class="post-content">
         
-
-<hr />
-
+        <hr>
 <p>Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.</p>
-
-<p>Most of the references come from blogs like <a href="https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/">Julia Evans</a>,  Kubernetes Documentation and this awesome book called <a href="https://www.manning.com/books/kubernetes-in-action">Kubernetes in Action</a></p>
-
-<h2 id="k8-architecture-summary">K8 Architecture Summary</h2>
-
+<p>Most of the references come from blogs like <a href="https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/"  class="external-link" target="_blank" rel="noopener">Julia Evans</a>,  Kubernetes Documentation and this awesome book called <a href="https://www.manning.com/books/kubernetes-in-action"  class="external-link" target="_blank" rel="noopener">Kubernetes in Action</a></p>
+<h2 id="k8-architecture-summary">
+  K8 Architecture Summary
+  <a class="heading-link" href="#k8-architecture-summary">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h2>
 <p>In a nutshell, k8 has two components</p>
-
 <p><strong>1. Control Plane (master node)</strong></p>
-
 <ul>
 <li>API Server</li>
 <li>Scheduler</li>
 <li>Control Manager</li>
 <li>etcd (key-value storage)</li>
 </ul>
-
 <p><strong>2. The (worker) Nodes</strong></p>
-
 <ul>
 <li>Kubelet</li>
 <li>Kube Proxy</li>
 <li>Container Runtime (docker or others)</li>
 <li>add-ons</li>
 </ul>
-
-<p><img src="https://libert.xyz/images/1k8.png" alt="1k8" title="k8 architecture" /></p>
-
-<h3 id="how-these-components-communicate">How these components communicate?</h3>
-
+<p><img src="https://libert.xyz/images/1k8.png" alt="1k8" title="k8 architecture"></p>
+<h3 id="how-these-components-communicate">
+  How these components communicate?
+  <a class="heading-link" href="#how-these-components-communicate">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>To summarize:</p>
-
 <ul>
 <li>All components communicate with the <em>API server</em>.</li>
 <li>They don&rsquo;t talk to each other directly.</li>
 <li>Only the API server communicates with etcd.</li>
 <li>Communication between the API server and the other components are initiated by the components, except when we run <code>kubectl</code> to get logs , <code>kubectl attach</code>  to connect to a running container. In those cases the API Server connects to the kubelet.</li>
 </ul>
-
-<h3 id="how-components-are-run">How components are run</h3>
-
+<h3 id="how-components-are-run">
+  How components are run
+  <a class="heading-link" href="#how-components-are-run">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>The <em>kubelet</em> is one of the most interesting components of the system because is the only one that <strong>always</strong> runs as a regular system processes.
 All the other components in the Control plane and Worker nodes can run as pods or system process.
 The <em>kubelet</em> is also deployed to the Master node to run the Control Plane components as pods.</p>
-
-<h3 id="etcd-knows-everything-about-your-cluster">etcd knows everything about your cluster</h3>
-
+<h3 id="etcd-knows-everything-about-your-cluster">
+  etcd knows everything about your cluster
+  <a class="heading-link" href="#etcd-knows-everything-about-your-cluster">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>All objects configurations are stored in <strong>etcd</strong>.
 For instance, all the operations for retrieving information about the cluster such as <code>kubectl get nodes</code>, <code>kubectl get pods</code>, etc. starts with a call to the <em>API Server</em> and then the <em>API Server</em> reads the information from <em>etcd</em>.</p>
-
 <p>The same happens when we make a change in the cluster like adding a new pod <code>kubectl create -f new-pod.yaml</code>. The <em>API Server</em> is called and this interacts with <em>etcd</em> to write the new state of the cluster.</p>
-
-<h3 id="the-api-server-talks-with-everyone">The API Server talks with everyone</h3>
-
+<h3 id="the-api-server-talks-with-everyone">
+  The API Server talks with everyone
+  <a class="heading-link" href="#the-api-server-talks-with-everyone">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>It is basically a <em>CRUD</em> system (create, read, update, delete) with a RESTful API endpoint and its database is the <em>etcd</em> service.</p>
-
 <p>It also validates the objects before storing to <em>etcd</em>. It uses <em>Optimistic Locking</em> to ensure that two clients don&rsquo;t update objects at the same time.</p>
-
 <p>The API Server uses <em>Authentication plugins</em> to authenticate the user, after the plugin identifies the user, extracts the userid and group, this data is used by the <em>Authorization Plugin</em> to identify if the user can perform the action on the requested resource. After the plugin says that the user can perform the action a request is sent to the <em>Admision Control Plugin</em>.
 In Summary:</p>
-
 <p><em>Authentication Plugin</em> &ndash;&gt; <em>Authorization Plugin</em> &ndash;&gt; <em>Adminision Control Plugin</em></p>
-
 <p>After all this process the <em>API Server</em> validates the object and stores the state in <em>etcd</em> and returns a response to the client.</p>
-
-<h3 id="the-scheduler-is-always-watching-the-api-server">The Scheduler is always watching the API Server</h3>
-
+<h3 id="the-scheduler-is-always-watching-the-api-server">
+  The Scheduler is always watching the API Server
+  <a class="heading-link" href="#the-scheduler-is-always-watching-the-api-server">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>The Scheduler has a watch mechanism and waits for newly created pods through the <em>API Server</em>, then assign the new pod to a node.
 The Scheduler does not communicate with the node server or <em>kubelet</em>, all the <em>Scheduler</em> does is update the pod definition  through the <em>API Server</em>.</p>
-
 <p>So far seems like a simple task if the Scheduler just picks a random node to schedule the <em>pod</em> but actually, the Scheduler uses algorithms to pick the best node.</p>
-
 <p>Algorithm flow:</p>
-
 <ul>
 <li>Filter nodes to obtain the acceptable nodes.</li>
 <li>Chose the best one based on the highest score, if all have the same score, round-robin is used.</li>
 </ul>
-
 <p>Acceptable Nodes Questions:</p>
-
 <ul>
 <li>Can the Node fulfill the pod request for Hardware resources?</li>
 <li>If the pod request to run in a particular node, is this the node?</li>
 <li>If the pod request to mount a volume, can this volume be mounted in this node?</li>
 <li>Does the pod tolerate the taints of the node?</li>
 </ul>
-
 <p>Pods belonging to the same <em>Service</em> or <em>ReplicaSet</em> are spread across multiple nodes by default, but this is not guaranteed.  We can force the pods to be spread across the cluster or kept together by defining <em>pod affinity</em> rules.</p>
-
-<h3 id="the-control-manager-has-multiple-controllers">The Control Manager has multiple controllers</h3>
-
+<h3 id="the-control-manager-has-multiple-controllers">
+  The Control Manager has multiple controllers
+  <a class="heading-link" href="#the-control-manager-has-multiple-controllers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>There is a controller for almost every resource you can create.
 The list of these controllers include:</p>
-
 <ul>
 <li>Replication manager</li>
 <li>ReplicaSet, DaemonSet and Job controllers</li>
@@ -238,52 +311,54 @@ The list of these controllers include:</p>
 <li>PersistentVolume controller</li>
 <li>Others</li>
 </ul>
-
 <p><em>What they do and how they do it?</em></p>
-
 <p>Controllers watch the <em>API Server</em> for changes in resources (Deployments, Services, etc) and perform operations for each change.
 They don&rsquo;t communicate with the <em>kubelet</em> directly or issue any instructions to them, <strong>they just update a resource in the API Server</strong></p>
-
-<p><img src="https://libert.xyz/images/2k8.png" alt="2k8" title="Controllers" /></p>
-
-<h3 id="the-kubelet-is-not-a-pod-but-creates-multiple-ones">The Kubelet is not a pod but creates multiple ones</h3>
-
+<p><img src="https://libert.xyz/images/2k8.png" alt="2k8" title="Controllers"></p>
+<h3 id="the-kubelet-is-not-a-pod-but-creates-multiple-ones">
+  The Kubelet is not a pod but creates multiple ones
+  <a class="heading-link" href="#the-kubelet-is-not-a-pod-but-creates-multiple-ones">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <ul>
 <li>Its initial job is to register the node where is running by creating a Job Resource in the <em>API Server</em>.</li>
 <li>Then monitor the <em>API Server</em> for Pods that have been scheduled in the node, and start the pod container (container runtime).</li>
 <li>Constantly monitors running containers and report their status to the <em>API Server</em></li>
 </ul>
-
 <p><em>Running static pods</em> without talking to the <em>API Server</em> is also possible. Actually, this is how the master nodes run the control plane pods.
 in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API Server</em> and a local file directory (Kubelet manifest Directory).</p>
-
-<p><img src="https://libert.xyz/images/3k8.png" alt="3k8" title="Kubelet" /></p>
-
-<h3 id="kube-proxy-does-networking">Kube-Proxy does Networking</h3>
-
+<p><img src="https://libert.xyz/images/3k8.png" alt="3k8" title="Kubelet"></p>
+<h3 id="kube-proxy-does-networking">
+  Kube-Proxy does Networking
+  <a class="heading-link" href="#kube-proxy-does-networking">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>The kube-proxy makes sure connections to the service IP and ports are routed to the right pod. When the service has multiple pods, <em>kube-proxy</em> performs load balancing across those pods.</p>
-
 <p>Two proxy modes:</p>
-
 <ul>
 <li><em>userspace</em> proxy mode</li>
 </ul>
-
-<p><img src="https://libert.xyz/images/4k8.png" alt="4k8" title="Proxy Mode" /></p>
-
+<p><img src="https://libert.xyz/images/4k8.png" alt="4k8" title="Proxy Mode"></p>
 <ul>
 <li><em>iptables</em> proxy mode (better performance)</li>
 </ul>
-
-<p><img src="https://libert.xyz/images/5k8.png" alt="5k8" title="Proxy Mode" /></p>
-
-<h3 id="and-finally-we-have-the-add-ons">And finally, we have the add-ons</h3>
-
+<p><img src="https://libert.xyz/images/5k8.png" alt="5k8" title="Proxy Mode"></p>
+<h3 id="and-finally-we-have-the-add-ons">
+  And finally, we have the add-ons
+  <a class="heading-link" href="#and-finally-we-have-the-add-ons">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>Extra features like the Kubernetes Dashboard and DNS lookup for Services.</p>
-
-<hr />
+<hr>
 
       </div>
+
 
       <footer>
         
@@ -293,44 +368,50 @@ in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API 
     
     
     
-      <h3>See also in kubernetes</h3>
+      <h3 id="see-also-in-kubernetes">
+        See also in kubernetes
+        <a class="heading-link" href="#see-also-in-kubernetes">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
       <nav>
         <ul>
         
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
+              <a href="http://localhost:1313/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+              <a href="http://localhost:1313/posts/namespaces-quotas/">Namespaces resources quotas</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-qos/">PODS QoS</a>
+              <a href="http://localhost:1313/posts/pods-qos/">PODS QoS</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
+              <a href="http://localhost:1313/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/kubernetes-ha/">Highly Available Kubernetes Cluster</a>
+              <a href="http://localhost:1313/posts/kubernetes-ha/">Highly Available Kubernetes Cluster</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
+              <a href="http://localhost:1313/posts/pod-services/">Kubernetes Services insights</a>
             </li>
           
         
@@ -342,27 +423,95 @@ in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API 
 
 
         
+        
+        
+        
+        
+        
+        
       </footer>
     </article>
 
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
+    ©
     
+    2025
+     Libert Schmidt 
+    ·
     
-    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
     
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
+  
 
-  </body>
+  
+  
+  <script src="http://localhost:1313/js/coder.js"></script>
+  
 
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 </html>

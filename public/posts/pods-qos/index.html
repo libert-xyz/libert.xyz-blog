@@ -1,282 +1,347 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="author" content="Libert Schmidt">
-    <meta name="description" content="libert personal website">
-    <meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
-
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="PODS QoS"/>
-<meta name="twitter:description" content="There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
-QoS Classes  BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don&rsquo;t)  Looking at QoS at the POD level is confusing because a POD can have one or multiple containers."/>
-
-    <meta property="og:title" content="PODS QoS" />
-<meta property="og:description" content="There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
-QoS Classes  BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don&rsquo;t)  Looking at QoS at the POD level is confusing because a POD can have one or multiple containers." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://libert.xyz/posts/pods-qos/" />
-<meta property="article:published_time" content="2019-08-27T18:47:59-04:00"/>
-<meta property="article:modified_time" content="2019-08-27T18:47:59-04:00"/><meta property="og:see_also" content="https://libert.xyz/posts/pod-services-pt2/" /><meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/" /><meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/" /><meta property="og:see_also" content="https://libert.xyz/posts/kubernetes-ha/" /><meta property="og:see_also" content="https://libert.xyz/posts/pod-services/" />
-
-
-
-
-    
-      <base href="https://libert.xyz/posts/pods-qos/">
-    
-    <title>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <title>
   PODS QoS · libert.xyz
 </title>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light dark">
 
-    
-      <link rel="canonical" href="https://libert.xyz/posts/pods-qos/">
-    
 
-    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700" rel="stylesheet">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
 
-    
-      
-      
-      <link rel="stylesheet" href="https://libert.xyz/css/coder.min.28d751104f30c16da1aa1bb04015cbe662cacfe0d1b01af4f2240ad58580069c.css" integrity="sha256-KNdREE8wwW2hqhuwQBXL5mLKz&#43;DRsBr08iQK1YWABpw=" crossorigin="anonymous" media="screen" />
-    
 
-    
+<meta name="author" content="Libert Schmidt">
+<meta name="description" content="
+There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits
+give us the ability to define Quality of service.
 
+  QoS Classes
+  
     
+    Link to heading
+  
 
-    
 
-    
-    
-    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+BestEffort class (no request and limits set)
+Guaranteed class (requests are equal to limits)
+Burstable class (one container has limit set but another don&rsquo;t)
 
-    <meta name="generator" content="Hugo 0.55.6" />
-  </head>
 
-  <body class=" ">
-    <main class="wrapper">
-      <nav class="navigation">
+Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.">
+<meta name="keywords" content="blog,devops,libert,aws,python,linux,bash">
+
+
+
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="PODS QoS">
+  <meta name="twitter:description" content="There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
+QoS Classes Link to heading BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don’t) Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.">
+
+<meta property="og:url" content="http://localhost:1313/posts/pods-qos/">
+  <meta property="og:site_name" content="libert.xyz">
+  <meta property="og:title" content="PODS QoS">
+  <meta property="og:description" content="There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits give us the ability to define Quality of service.
+QoS Classes Link to heading BestEffort class (no request and limits set) Guaranteed class (requests are equal to limits) Burstable class (one container has limit set but another don’t) Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2019-08-27T18:47:59-04:00">
+    <meta property="article:modified_time" content="2019-08-27T18:47:59-04:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Docker">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services-pt2/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/namespaces-quotas/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-requests-limits/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/kubernetes-ha/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-networking/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/namespaces-quotas/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-requests-limits/">
+
+
+
+
+<link rel="canonical" href="http://localhost:1313/posts/pods-qos/">
+
+
+<link rel="preload" href="http://localhost:1313/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+
+
+  
+  
+  <link rel="stylesheet" href="http://localhost:1313/css/coder.css" media="screen">
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-16x16.png" sizes="16x16">
+
+<link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/images/apple-touch-icon.png">
+
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="mask-icon" href="http://localhost:1313/images/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+
+
+
+
+
+</head>
+
+
+
+
+<body class="preload-transitions colorscheme-light">
+  
+<div class="float-container">
+    <a id="dark-mode-toggle" class="colorscheme-toggle">
+        <i class="fa-solid fa-adjust fa-fw" aria-hidden="true"></i>
+    </a>
+</div>
+
+
+  <main class="wrapper">
+    <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://libert.xyz">
+    
+    <a class="navigation-title" href="http://localhost:1313/">
       libert.xyz
     </a>
-    <input type="checkbox" id="menu-toggle" />
-    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
-    <ul class="navigation-list">
-      
+    
+    
+      <input type="checkbox" id="menu-toggle" />
+      <label class="menu-button float-right" for="menu-toggle">
+        <i class="fa-solid fa-bars fa-fw" aria-hidden="true"></i>
+      </label>
+      <ul class="navigation-list">
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/posts/">Blog</a>
-          </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/posts/">Blog</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/open-source/">Open Source Projects</a>
+            </li>
+          
+            <li class="navigation-item">
+              <a class="navigation-link " href="http://localhost:1313/about/">About</a>
+            </li>
+          
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/open-source/">Open Source Projects</a>
-          </li>
         
-          <li class="navigation-item">
-            <a class="navigation-link" href="https://libert.xyz/about/">About</a>
-          </li>
-        
-      
-      
-    </ul>
+      </ul>
+    
   </section>
 </nav>
 
 
-      <div class="content">
-        
+    <div class="content">
+      
   <section class="container post">
     <article>
       <header>
         <div class="post-title">
-          <h1 class="title">PODS QoS</h1>
+          <h1 class="title">
+            <a class="title-link" href="http://localhost:1313/posts/pods-qos/">
+              PODS QoS
+            </a>
+          </h1>
         </div>
         <div class="post-meta">
           <div class="date">
             <span class="posted-on">
-              <i class="fas fa-calendar"></i>
-              <time datetime='2019-08-27T18:47:59-04:00'>
+              <i class="fa-solid fa-calendar" aria-hidden="true"></i>
+              <time datetime="2019-08-27T18:47:59-04:00">
                 August 27, 2019
               </time>
             </span>
             <span class="reading-time">
-              <i class="fas fa-clock"></i>
-              2 minutes read
+              <i class="fa-solid fa-clock" aria-hidden="true"></i>
+              2-minute read
             </span>
           </div>
           
+          
           <div class="tags">
-  <i class="fas fa-tag"></i>
-    <a href="https://libert.xyz/tags/kubernetes/">kubernetes</a>
+  <i class="fa-solid fa-tag" aria-hidden="true"></i>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a>
+    </span>
       <span class="separator">•</span>
-    <a href="https://libert.xyz/tags/docker/">docker</a></div>
+    <span class="tag">
+      <a href="http://localhost:1313/tags/docker/">Docker</a>
+    </span></div>
 
         </div>
       </header>
 
-      <div>
+      <div class="post-content">
         
-
-<hr />
-
+        <hr>
 <p>There is no option or field to assign Quality of service to a pod but a combination between <strong>Requests</strong> and <strong>Limits</strong>
 give us the ability to define Quality of service.</p>
-
-<h3 id="qos-classes">QoS Classes</h3>
-
+<h3 id="qos-classes">
+  QoS Classes
+  <a class="heading-link" href="#qos-classes">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <ul>
 <li><em>BestEffort</em> class (no request and limits set)</li>
 <li><em>Guaranteed</em> class (requests are equal to limits)</li>
 <li><em>Burstable</em> class (one container has limit set but another don&rsquo;t)</li>
 </ul>
-
-<p><img src="https://libert.xyz/images/qos1.png" alt="k8-p2-1" title="Classes" /></p>
-
+<p><img src="https://libert.xyz/images/qos1.png" alt="k8-p2-1" title="Classes"></p>
 <p>Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.</p>
-
-<h3 id="qos-class-of-a-single-container-pod">QoS class of a single container POD</h3>
-
+<h3 id="qos-class-of-a-single-container-pod">
+  QoS class of a single container POD
+  <a class="heading-link" href="#qos-class-of-a-single-container-pod">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <table>
-<thead>
-<tr>
-<th align="center">CPU requests / limits</th>
-<th align="center">Memory requests / limits</th>
-<th align="center">Container QoS class</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">None set</td>
-<td align="center">None set</td>
-<td align="center">BestEffort</td>
-</tr>
-
-<tr>
-<td align="center">None set</td>
-<td align="center">Requests &lt; Limits</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">None set</td>
-<td align="center">Requests = Limits</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Requests &lt; Limits</td>
-<td align="center">None set</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Requests &lt; Limits</td>
-<td align="center">Requests &lt; Limits</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Requests &lt; Limits</td>
-<td align="center">Requests = Limits</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Requests = Limits</td>
-<td align="center">Requests = Limits</td>
-<td align="center">Guaranteed</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">CPU requests / limits</th>
+          <th style="text-align: center">Memory requests / limits</th>
+          <th style="text-align: center">Container QoS class</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">None set</td>
+          <td style="text-align: center">None set</td>
+          <td style="text-align: center">BestEffort</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">None set</td>
+          <td style="text-align: center">Requests &lt; Limits</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">None set</td>
+          <td style="text-align: center">Requests = Limits</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Requests &lt; Limits</td>
+          <td style="text-align: center">None set</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Requests &lt; Limits</td>
+          <td style="text-align: center">Requests &lt; Limits</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Requests &lt; Limits</td>
+          <td style="text-align: center">Requests = Limits</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Requests = Limits</td>
+          <td style="text-align: center">Requests = Limits</td>
+          <td style="text-align: center">Guaranteed</td>
+      </tr>
+  </tbody>
 </table>
-
 <p><em>If only requests are set, but not limits, refer to the table rows where
 requests are less than the limits. If only limits are set, requests default to the
 limits, so refer to the rows where requests equal limits.</em></p>
-
-<h3 id="qos-class-of-a-pod-with-multiple-containers">QoS class of a POD with multiple containers</h3>
-
+<h3 id="qos-class-of-a-pod-with-multiple-containers">
+  QoS class of a POD with multiple containers
+  <a class="heading-link" href="#qos-class-of-a-pod-with-multiple-containers">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>For multi-container pods, if all the containers have the same QoS class, that’s also the pod’s QoS class.
 If at least one container has a different class, the pod’s QoS class is <em>Burstable</em>.</p>
-
 <table>
-<thead>
-<tr>
-<th align="center">Container 1 QoS class</th>
-<th align="center">Container 2 QoS class</th>
-<th align="center">POD&rsquo;s QoS class</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td align="center">BestEffort</td>
-<td align="center">BestEffort</td>
-<td align="center">BestEffort</td>
-</tr>
-
-<tr>
-<td align="center">BestEffort</td>
-<td align="center">Burstable</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">BestEffort</td>
-<td align="center">Guaranteed</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Burstable</td>
-<td align="center">Burstable</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Burstable</td>
-<td align="center">Guaranteed</td>
-<td align="center">Burstable</td>
-</tr>
-
-<tr>
-<td align="center">Guaranteed</td>
-<td align="center">Guaranteed</td>
-<td align="center">Guaranteed</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Container 1 QoS class</th>
+          <th style="text-align: center">Container 2 QoS class</th>
+          <th style="text-align: center">POD&rsquo;s QoS class</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">BestEffort</td>
+          <td style="text-align: center">BestEffort</td>
+          <td style="text-align: center">BestEffort</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">BestEffort</td>
+          <td style="text-align: center">Burstable</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">BestEffort</td>
+          <td style="text-align: center">Guaranteed</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Burstable</td>
+          <td style="text-align: center">Burstable</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Burstable</td>
+          <td style="text-align: center">Guaranteed</td>
+          <td style="text-align: center">Burstable</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">Guaranteed</td>
+          <td style="text-align: center">Guaranteed</td>
+          <td style="text-align: center">Guaranteed</td>
+      </tr>
+  </tbody>
 </table>
-
-<h3 id="which-process-gets-killed-when-memory-is-low">Which process gets killed when memory is low?</h3>
-
+<h3 id="which-process-gets-killed-when-memory-is-low">
+  Which process gets killed when memory is low?
+  <a class="heading-link" href="#which-process-gets-killed-when-memory-is-low">
+    <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+    <span class="sr-only">Link to heading</span>
+  </a>
+</h3>
 <p>The QoS classes determine which container gets killed first.
 Killing order by QoS class:</p>
-
 <ol>
 <li><em>BestEffort</em></li>
 <li><em>Burstable</em></li>
 <li><em>Guaranteed</em></li>
 </ol>
-
 <p>When the node’s memory is already maxed out and one of the processes on the node tries to allocate more memory, the system will need to kill one of the processes.</p>
-
-<p><img src="https://libert.xyz/images/qos2.png" alt="k8-p2-2" title="Killing Order" /></p>
-
+<p><img src="https://libert.xyz/images/qos2.png" alt="k8-p2-2" title="Killing Order"></p>
 <p>Sources:</p>
-
-<p><a href="https://www.manning.com/books/kubernetes-in-action">https://www.manning.com/books/kubernetes-in-action</a></p>
-
-<hr />
+<p><a href="https://www.manning.com/books/kubernetes-in-action"  class="external-link" target="_blank" rel="noopener">https://www.manning.com/books/kubernetes-in-action</a></p>
+<hr>
 
       </div>
+
 
       <footer>
         
@@ -286,20 +351,26 @@ Killing order by QoS class:</p>
     
     
     
-      <h3>See also in kubernetes</h3>
+      <h3 id="see-also-in-kubernetes">
+        See also in kubernetes
+        <a class="heading-link" href="#see-also-in-kubernetes">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
       <nav>
         <ul>
         
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
+              <a href="http://localhost:1313/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+              <a href="http://localhost:1313/posts/namespaces-quotas/">Namespaces resources quotas</a>
             </li>
           
         
@@ -307,19 +378,19 @@ Killing order by QoS class:</p>
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
+              <a href="http://localhost:1313/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/kubernetes-ha/">Highly Available Kubernetes Cluster</a>
+              <a href="http://localhost:1313/posts/kubernetes-ha/">Highly Available Kubernetes Cluster</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
+              <a href="http://localhost:1313/posts/pod-services/">Kubernetes Services insights</a>
             </li>
           
         
@@ -330,14 +401,20 @@ Killing order by QoS class:</p>
     
     
     
-      <h3>See also in QoS</h3>
+      <h3 id="see-also-in-qos">
+        See also in QoS
+        <a class="heading-link" href="#see-also-in-qos">
+          <i class="fa-solid fa-link" aria-hidden="true" title="Link to heading"></i>
+          <span class="sr-only">Link to heading</span>
+        </a>
+      </h3>
       <nav>
         <ul>
         
         
           
             <li>
-              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+              <a href="http://localhost:1313/posts/namespaces-quotas/">Namespaces resources quotas</a>
             </li>
           
         
@@ -345,7 +422,7 @@ Killing order by QoS class:</p>
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
+              <a href="http://localhost:1313/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
             </li>
           
         
@@ -357,27 +434,95 @@ Killing order by QoS class:</p>
 
 
         
+        
+        
+        
+        
+        
+        
       </footer>
     </article>
 
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.css"
+    integrity="sha384-vKruj+a13U8yHIkAyGgK1J3ArTLzrFGBbBc0tDp4ad/EyewESeXE/Iv67Aj8gKZ0" crossorigin="anonymous">
+  
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/katex.min.js"
+    integrity="sha384-PwRUT/YqbnEjkZO0zZxNqcxACrXe+j766U2amXcgMg5457rve2Y7I6ZJSm2A0mS4" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.4/dist/contrib/auto-render.min.js"
+    integrity="sha384-+VBxd3r6XgURycqtZ117nYw44OOcIax56Z4dCRWbxyPt0Koah1uHoK0o4+/RRE05" crossorigin="anonymous"
+    onload="renderMathInElement(document.body,
+      {
+        delimiters: [
+          {left: '$$', right: '$$', display:true},
+          {left: '$', right: '$', display:false},
+          {left: '\\(', right: '\\)', display: false},
+          {left: '\\[', right: '\\]', display: true}
+        ]
+      }
+    );"></script>
   </section>
 
-      </div>
+    </div>
 
-      <footer class="footer">
+    <footer class="footer">
   <section class="container">
+    ©
     
+    2025
+     Libert Schmidt 
+    ·
     
-    
+    Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/" target="_blank" rel="noopener">Coder</a>.
     
   </section>
 </footer>
 
-    </main>
+  </main>
 
-    
+  
 
-  </body>
+  
+  
+  <script src="http://localhost:1313/js/coder.js"></script>
+  
 
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+</body>
 </html>

@@ -1,9 +1,9 @@
 baseurl = "https://libert.xyz" # Hostname (and path) to the root.
 title = "libert.xyz" # Site title.
-theme = "coder" # Set the theme.
+theme = "coder-25" # Set the theme.
 languagecode = "en" # The site’s language code.
 
-paginate = 20 # Default number of pages per page in pagination.
+#paginate = 20 # Default number of pages per page in pagination.
 canonifyurls = true # Enable to turn relative URLs into absolute.
 
 pygmentsstyle = "friendly" # Color-theme or style for syntax highlighting.
