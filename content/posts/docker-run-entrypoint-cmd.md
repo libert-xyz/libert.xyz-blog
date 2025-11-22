@@ -42,7 +42,7 @@ All three instructions can be specified in *shell* or *exec* form.
 
 **Examples**
 
-```
+```bash
 RUN apt-get install python3
 CMD echo "Hello world"
 ENTRYPOINT echo "Hello world"
@@ -51,7 +51,7 @@ ENTRYPOINT echo "Hello world"
 
 When executed it runs as `/bin/sh -c <command>` as a normal shell command.
 For example the following Dockerfile
-```
+```bash
 ENV name Foo Bar
 ENTRYPOINT echo "Hello, $name"
 ```
@@ -68,7 +68,7 @@ Prefered for **CMD** and **ENTRYPOINT**
 
 **Examples**
 
-```
+```bash
 RUN ["apt-get", "install", "python3"]
 CMD ["/bin/echo", "Hello world"]
 ENTRYPOINT ["/bin/echo", "Hello world"]
@@ -77,7 +77,7 @@ ENTRYPOINT ["/bin/echo", "Hello world"]
 When is executed in exec form it calls executable directly, and shell processing does not happen.
 For example, the following Dockerfile
 
-```
+```bash
 ENV name Foo Bar
 ENTRYPOINT ["/bin/echo", "Hello, $name"]
 ```
@@ -114,7 +114,7 @@ RUN has two forms:
 
 **Example**
 
-```
+```dockerfile
 FROM alpine:3.10.1
 
 RUN apk add --update /
@@ -145,7 +145,7 @@ The second form sets default parameters that will be added after *ENTRYPOINT* pa
 
 **Example**
 
-```
+```dockerfile
 FROM alpine:3.10.1
 
 RUN apk add --update \
@@ -197,7 +197,7 @@ ENTRYPOINT has two forms.
 Exec form of *ENTRYPOINT* allows us to set command and parameters and then use either form of *CMD* to set additional parameters.
 *ENTRYPOINT* arguments are always used while *CMD* arguments can be overwritten by command line arguments.
 
-```
+```dockerfile
 FROM alpine:3.10.1
 
 RUN apk add --update /
@@ -207,7 +207,6 @@ RUN apk add --update /
 
 ENTRYPOINT ["echo"]
 CMD ["from CMD"]
-
 ```
 
 Let's build and tag the Dockerfile

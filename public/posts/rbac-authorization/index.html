@@ -10,6 +10,9 @@
 <meta name="color-scheme" content="light dark">
 
 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.youtube.com; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; connect-src 'self' https://www.google-analytics.com;">
+
+
 
 
 <meta name="author" content="Libert Schmidt">
@@ -78,6 +81,12 @@ Users Link to heading Kind of clients connecting the API Server:">
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/coder-dark.css" media="screen">
+  
+
 
 
  
@@ -108,7 +117,9 @@ Users Link to heading Kind of clients connecting the API Server:">
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-auto">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -246,7 +257,7 @@ the user is authorized to perform an action or not.</p>
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl create serviceaccount foo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl create serviceaccount foo
 </span></span></code></pre></div><p><img src="https://libert.xyz/images/ser2.png" alt="k8-p2-2" title="create ServiceAcct"></p>
 <p>A custom token Secret has been created and associated with the
 ServiceAccount.

@@ -10,6 +10,9 @@
 <meta name="color-scheme" content="light dark">
 
 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.youtube.com; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; connect-src 'self' https://www.google-analytics.com;">
+
+
 
 
 <meta name="author" content="Libert Schmidt">
@@ -71,6 +74,12 @@ In the following example we write a Dockerfile in the /root directory
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/coder-dark.css" media="screen">
+  
+
 
 
  
@@ -101,7 +110,9 @@ In the following example we write a Dockerfile in the /root directory
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-auto">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -190,21 +201,21 @@ In the following example we write a Dockerfile in the /root directory
         
         <p>We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.</p>
 <p>In the following example we write a Dockerfile in the /root directory</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">## Dockerfile that modifies centos:latest</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e">## Dockerfile that modifies centos:latest</span>
 </span></span><span style="display:flex;"><span> FROM centos:latest
 </span></span><span style="display:flex;"><span> MAINTAINER User Name &lt;username@domain.com&gt;
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">## Update the server OS</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Update the server OS</span>
 </span></span><span style="display:flex;"><span> RUN yum -y upgrade
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">## Install Apache Web Server</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Install Apache Web Server</span>
 </span></span><span style="display:flex;"><span> RUN yum -y install httpd
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">## Install OpenSSH-Server</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Install OpenSSH-Server</span>
 </span></span><span style="display:flex;"><span> RUN yum -y install openssh-server
-</span></span><span style="display:flex;"><span><span style="color:#60a0b0;font-style:italic">## Expose the SSH and Web Ports for attachment</span>
-</span></span><span style="display:flex;"><span> EXPOSE <span style="color:#40a070">22</span> <span style="color:#40a070">80</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## Expose the SSH and Web Ports for attachment</span>
+</span></span><span style="display:flex;"><span> EXPOSE <span style="color:#ae81ff">22</span> <span style="color:#ae81ff">80</span>
 </span></span></code></pre></div><p>Now we execute the build command</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t mycustomimg/withservices:v1 /root
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker build -t mycustomimg/withservices:v1 /root
 </span></span></code></pre></div><p>Once the image is build we verify that the image is in our list.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker images
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker images
 </span></span></code></pre></div>
       </div>
 

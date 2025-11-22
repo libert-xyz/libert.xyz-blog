@@ -10,6 +10,9 @@
 <meta name="color-scheme" content="light dark">
 
 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; block-all-mixed-content; default-src 'self'; child-src 'self'; font-src 'self' https://fonts.gstatic.com https://cdn.jsdelivr.net/; form-action 'self'; frame-src 'self' https://www.youtube.com; img-src 'self'; object-src 'none'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com/ https://cdn.jsdelivr.net/; script-src 'self' 'unsafe-inline' https://www.google-analytics.com https://cdn.jsdelivr.net/; connect-src 'self' https://www.google-analytics.com;">
+
+
 
 
 <meta name="author" content="Libert Schmidt">
@@ -75,6 +78,12 @@ CMD sets default command and/or parameters, can be overwritten from the command 
 
 
 
+  
+    
+    
+    <link rel="stylesheet" href="http://localhost:1313/css/coder-dark.css" media="screen">
+  
+
 
 
  
@@ -105,7 +114,9 @@ CMD sets default command and/or parameters, can be overwritten from the command 
 
 
 
-<body class="preload-transitions colorscheme-light">
+
+
+<body class="preload-transitions colorscheme-auto">
   
 <div class="float-container">
     <a id="dark-mode-toggle" class="colorscheme-toggle">
@@ -236,13 +247,13 @@ Often used to install packages and dependencies.</p>
 </h4>
 <p><code>&lt;instruction&gt; &lt;command&gt;</code></p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>RUN apt-get install python3
-</span></span><span style="display:flex;"><span>CMD echo &#34;Hello world&#34;
-</span></span><span style="display:flex;"><span>ENTRYPOINT echo &#34;Hello world&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>RUN apt-get install python3
+</span></span><span style="display:flex;"><span>CMD echo <span style="color:#e6db74">&#34;Hello world&#34;</span>
+</span></span><span style="display:flex;"><span>ENTRYPOINT echo <span style="color:#e6db74">&#34;Hello world&#34;</span>
 </span></span></code></pre></div><p>When executed it runs as <code>/bin/sh -c &lt;command&gt;</code> as a normal shell command.
 For example the following Dockerfile</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ENV name Foo Bar
-</span></span><span style="display:flex;"><span>ENTRYPOINT echo &#34;Hello, $name&#34;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ENV name Foo Bar
+</span></span><span style="display:flex;"><span>ENTRYPOINT echo <span style="color:#e6db74">&#34;Hello, </span>$name<span style="color:#e6db74">&#34;</span>
 </span></span></code></pre></div><p>when container runs as <code>docker run -it &lt;image&gt;</code> will produce output</p>
 <p><code>Hello, Foo Bar</code></p>
 <h4 id="exec-form">
@@ -255,18 +266,18 @@ For example the following Dockerfile</p>
 <p>Prefered for <strong>CMD</strong> and <strong>ENTRYPOINT</strong></p>
 <p><code>&lt;instruction&gt; [&quot;executable&quot;, &quot;param1&quot;, &quot;param2&quot;, ...]</code></p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>RUN [&#34;apt-get&#34;, &#34;install&#34;, &#34;python3&#34;]
-</span></span><span style="display:flex;"><span>CMD [&#34;/bin/echo&#34;, &#34;Hello world&#34;]
-</span></span><span style="display:flex;"><span>ENTRYPOINT [&#34;/bin/echo&#34;, &#34;Hello world&#34;]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>RUN <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;apt-get&#34;</span>, <span style="color:#e6db74">&#34;install&#34;</span>, <span style="color:#e6db74">&#34;python3&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>CMD <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/bin/echo&#34;</span>, <span style="color:#e6db74">&#34;Hello world&#34;</span><span style="color:#f92672">]</span>
+</span></span><span style="display:flex;"><span>ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/bin/echo&#34;</span>, <span style="color:#e6db74">&#34;Hello world&#34;</span><span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>When is executed in exec form it calls executable directly, and shell processing does not happen.
 For example, the following Dockerfile</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ENV name Foo Bar
-</span></span><span style="display:flex;"><span>ENTRYPOINT [&#34;/bin/echo&#34;, &#34;Hello, $name&#34;]
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ENV name Foo Bar
+</span></span><span style="display:flex;"><span>ENTRYPOINT <span style="color:#f92672">[</span><span style="color:#e6db74">&#34;/bin/echo&#34;</span>, <span style="color:#e6db74">&#34;Hello, </span>$name<span style="color:#e6db74">&#34;</span><span style="color:#f92672">]</span>
 </span></span></code></pre></div><p>when the container runs as <code>docker run -it &lt;image&gt;</code> will produce output</p>
 <p><code>Hello, $name</code></p>
 <p>If you need to run bash or sh, use <em>exec</em> form with <code>/bin/bash</code> as executable.</p>
 <p>For example, the following Dockerfile</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ENV name Foo Bar
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>ENV name Foo Bar
 </span></span><span style="display:flex;"><span>ENTRYPOINT [&#34;/bin/bash&#34;, &#34;-c&#34;, &#34;echo Hello, $name&#34;]
 </span></span></code></pre></div><p>when the container runs as <code>docker run -it &lt;image&gt;</code> will produce output</p>
 <p><code>Hello, Foo Bar</code></p>
@@ -286,13 +297,13 @@ It is usual to have more than one <em>RUN</em> instruction in a <em>Dockerifle</
 <li><code>RUN [&quot;executable&quot;,&quot;param1&quot;,&quot;param2&quot;]</code> (exec form)</li>
 </ul>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FROM alpine:3.10.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --update /
-</span></span><span style="display:flex;"><span>    python3 /
-</span></span><span style="display:flex;"><span>    py-pip /
-</span></span><span style="display:flex;"><span>    curl
-</span></span></code></pre></div><p>All the commands above run in a single layer</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">alpine:3.10.1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk add --update /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    python3 /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    py-pip /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    curl<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>All the commands above run in a single layer</p>
 <p>The default shell for the <em>shell form</em>* is <code>/bin/sh -c</code>. If you need to use a different shell like <code>/bin/bash</code> use the <em>exec form</em> instead.</p>
 <p><code>RUN [&quot;/bin/bash&quot;, &quot;-c&quot;, &quot;echo hello&quot;]</code></p>
 <h3 id="cmd">
@@ -312,15 +323,15 @@ It is usual to have more than one <em>RUN</em> instruction in a <em>Dockerifle</
 </ul>
 <p>The second form sets default parameters that will be added after <em>ENTRYPOINT</em> parameters if container runs without command line arguments.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FROM alpine:3.10.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --update \
-</span></span><span style="display:flex;"><span>    python3 \
-</span></span><span style="display:flex;"><span>    py-pip \
-</span></span><span style="display:flex;"><span>    curl
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>CMD [&#34;python3&#34;,&#34;--version&#34;]
-</span></span></code></pre></div><p>Let&rsquo;s build and tag the Dockerfile</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">alpine:3.10.1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk add --update <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    python3 <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    py-pip <span style="color:#ae81ff">\
+</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>    curl<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;python3&#34;</span>,<span style="color:#e6db74">&#34;--version&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Let&rsquo;s build and tag the Dockerfile</p>
 <p><code>docker build . -t alpine:ex3</code></p>
 <p>and run it</p>
 <p><code>docker run alpine:ex3</code></p>
@@ -330,7 +341,7 @@ It is usual to have more than one <em>RUN</em> instruction in a <em>Dockerifle</
 <p><code>docker run alpine:ex3 cat /etc/issue</code></p>
 <p>the <em>CMD</em> is ignored and <code>cat /etc/issue</code> runs instead.
 Output:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Welcome to Alpine Linux 3.10
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>Welcome to Alpine Linux 3.10
 </span></span><span style="display:flex;"><span>Kernel \r on an \m (\l)
 </span></span></code></pre></div><h3 id="entrypoint">
   ENTRYPOINT
@@ -350,16 +361,16 @@ Output:</p>
 <p><strong>Example Exec Form</strong></p>
 <p>Exec form of <em>ENTRYPOINT</em> allows us to set command and parameters and then use either form of <em>CMD</em> to set additional parameters.
 <em>ENTRYPOINT</em> arguments are always used while <em>CMD</em> arguments can be overwritten by command line arguments.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f0f0f0;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>FROM alpine:3.10.1
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>RUN apk add --update /
-</span></span><span style="display:flex;"><span>    python3 /
-</span></span><span style="display:flex;"><span>    py-pip /
-</span></span><span style="display:flex;"><span>    curl
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>ENTRYPOINT [&#34;echo&#34;]
-</span></span><span style="display:flex;"><span>CMD [&#34;from CMD&#34;]
-</span></span></code></pre></div><p>Let&rsquo;s build and tag the Dockerfile</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-dockerfile" data-lang="dockerfile"><span style="display:flex;"><span><span style="color:#66d9ef">FROM</span> <span style="color:#e6db74">alpine:3.10.1</span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">RUN</span> apk add --update /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    python3 /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    py-pip /<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span>    curl<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">ENTRYPOINT</span> [<span style="color:#e6db74">&#34;echo&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span><span style="display:flex;"><span><span style="color:#960050;background-color:#1e0010"></span><span style="color:#66d9ef">CMD</span> [<span style="color:#e6db74">&#34;from CMD&#34;</span>]<span style="color:#960050;background-color:#1e0010">
+</span></span></span></code></pre></div><p>Let&rsquo;s build and tag the Dockerfile</p>
 <p><code>docker build . -t alpine:ex5</code></p>
 <p>and run it:</p>
 <p><code>docker run alpine:ex5</code></p>
