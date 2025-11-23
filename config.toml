@@ -1,4 +1,4 @@
-baseURL = "https://sand.libert.xyz" # Hostname (and path) to the root.
+baseURL = "https://libert.xyz" # Hostname (and path) to the root.
 title = "libert.xyz" # Site title.
 theme = "coder-custom" # Set the theme.
 languagecode = "en" # The site’s language code.
