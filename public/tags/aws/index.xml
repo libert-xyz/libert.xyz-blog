@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Aws on libert.xyz</title>
-    <link>https://libert.xyz/tags/aws/</link>
+    <link>http://localhost:1313/tags/aws/</link>
     <description>Recent content in Aws on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Mon, 10 Oct 2016 14:43:55 -0400</lastBuildDate>
-    <atom:link href="https://libert.xyz/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AWS/Amazon Global Network - Re:Invent 2016</title>
-      <link>https://libert.xyz/posts/aws-vpc-deep/</link>
+      <link>http://localhost:1313/posts/aws-vpc-deep/</link>
       <pubDate>Mon, 10 Oct 2016 14:43:55 -0400</pubDate>
-      <guid>https://libert.xyz/posts/aws-vpc-deep/</guid>
+      <guid>http://localhost:1313/posts/aws-vpc-deep/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;AWS rarely gives us insights about how they manage their data centers, there is no too much information about what kind of hardware they use and how they can scale quickly.&lt;/p&gt;&#xA;&lt;p&gt;This is because I found the  talk &lt;strong&gt;AWS re:Invent 2016&lt;/strong&gt; called &lt;a href=&#34;https://youtu.be/uj7Ting6Ckk&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Amazon Global Network Overview&lt;/strong&gt;&lt;/a&gt; really enjoyable.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;James Hamilton&lt;/strong&gt; (Vice President and Distinguished Engineer) gives us an amazing overview of how the magic happens behind AWS datacenters.&lt;/p&gt;&#xA;&lt;p&gt;With 14 regions across the world.&lt;/p&gt;</description>
     </item>
   </channel>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <title>
   Highly Available Kubernetes Cluster · libert.xyz
 </title>
@@ -37,7 +37,7 @@ In this post, we are going to explore the best ways to achieve HA in Kubernetes.
   <meta name="twitter:description" content="HA Kubernetes Link to heading One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.
 Out of the box, Kubernetes and all the components are ready meant to be HA. In this post, we are going to explore the best ways to achieve HA in Kubernetes.">
 
-<meta property="og:url" content="https://libert.xyz/posts/kubernetes-ha/">
+<meta property="og:url" content="http://localhost:1313/posts/kubernetes-ha/">
   <meta property="og:site_name" content="libert.xyz">
   <meta property="og:title" content="Highly Available Kubernetes Cluster">
   <meta property="og:description" content="HA Kubernetes Link to heading One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.
@@ -48,27 +48,27 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
     <meta property="article:published_time" content="2019-06-10T14:43:55-04:00">
     <meta property="article:modified_time" content="2019-06-10T14:43:55-04:00">
     <meta property="article:tag" content="Kubernetes">
-      <meta property="og:see_also" content="https://libert.xyz/posts/pod-services-pt2/">
-      <meta property="og:see_also" content="https://libert.xyz/posts/namespaces-quotas/">
-      <meta property="og:see_also" content="https://libert.xyz/posts/pods-qos/">
-      <meta property="og:see_also" content="https://libert.xyz/posts/pods-requests-limits/">
-      <meta property="og:see_also" content="https://libert.xyz/posts/pod-services/">
-      <meta property="og:see_also" content="https://libert.xyz/posts/pod-networking/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services-pt2/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/namespaces-quotas/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-qos/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pods-requests-limits/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-services/">
+      <meta property="og:see_also" content="http://localhost:1313/posts/pod-networking/">
 
 
 
 
-<link rel="canonical" href="https://libert.xyz/posts/kubernetes-ha/">
+<link rel="canonical" href="http://localhost:1313/posts/kubernetes-ha/">
 
 
-<link rel="preload" href="https://libert.xyz/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://libert.xyz/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="https://libert.xyz/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="http://localhost:1313/fonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
 
 
   
   
-  <link rel="stylesheet" href="https://libert.xyz/css/coder.min.4b392a85107b91dbdabc528edf014a6ab1a30cd44cafcd5325c8efe796794fca.css" integrity="sha256-SzkqhRB7kdvavFKO3wFKarGjDNRMr81TJcjv55Z5T8o=" crossorigin="anonymous" media="screen" />
+  <link rel="stylesheet" href="http://localhost:1313/css/coder.css" media="screen">
 
 
 
@@ -78,7 +78,7 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
   
     
     
-    <link rel="stylesheet" href="https://libert.xyz/css/coder-dark.min.a00e6364bacbc8266ad1cc81230774a1397198f8cfb7bcba29b7d6fcb54ce57f.css" integrity="sha256-oA5jZLrLyCZq0cyBIwd0oTlxmPjPt7y6KbfW/LVM5X8=" crossorigin="anonymous" media="screen" />
+    <link rel="stylesheet" href="http://localhost:1313/css/coder-dark.css" media="screen">
   
 
 
@@ -88,15 +88,15 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
 
 
 
-<link rel="icon" type="image/svg+xml" href="https://libert.xyz/images/favicon.svg" sizes="any">
-<link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-32x32.png" sizes="32x32">
-<link rel="icon" type="image/png" href="https://libert.xyz/images/favicon-16x16.png" sizes="16x16">
+<link rel="icon" type="image/svg+xml" href="http://localhost:1313/images/favicon.svg" sizes="any">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-16x16.png" sizes="16x16">
 
-<link rel="apple-touch-icon" href="https://libert.xyz/images/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="180x180" href="https://libert.xyz/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" href="http://localhost:1313/images/apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313/images/apple-touch-icon.png">
 
-<link rel="manifest" href="https://libert.xyz/site.webmanifest">
-<link rel="mask-icon" href="https://libert.xyz/images/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="manifest" href="http://localhost:1313/site.webmanifest">
+<link rel="mask-icon" href="http://localhost:1313/images/safari-pinned-tab.svg" color="#5bbad5">
 
 
 
@@ -126,7 +126,7 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
     <nav class="navigation">
   <section class="container">
     
-    <a class="navigation-title" href="https://libert.xyz/">
+    <a class="navigation-title" href="http://localhost:1313/">
       libert.xyz
     </a>
     
@@ -139,15 +139,15 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
         
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://libert.xyz/posts/">Blog</a>
+              <a class="navigation-link " href="http://localhost:1313/posts/">Blog</a>
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://libert.xyz/open-source/">Open Source Projects</a>
+              <a class="navigation-link " href="http://localhost:1313/open-source/">Open Source Projects</a>
             </li>
           
             <li class="navigation-item">
-              <a class="navigation-link " href="https://libert.xyz/about/">About</a>
+              <a class="navigation-link " href="http://localhost:1313/about/">About</a>
             </li>
           
         
@@ -165,7 +165,7 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
       <header>
         <div class="post-title">
           <h1 class="title">
-            <a class="title-link" href="https://libert.xyz/posts/kubernetes-ha/">
+            <a class="title-link" href="http://localhost:1313/posts/kubernetes-ha/">
               Highly Available Kubernetes Cluster
             </a>
           </h1>
@@ -188,7 +188,7 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
           <div class="tags">
   <i class="fa-solid fa-tag" aria-hidden="true"></i>
     <span class="tag">
-      <a href="https://libert.xyz/tags/kubernetes/">Kubernetes</a>
+      <a href="http://localhost:1313/tags/kubernetes/">Kubernetes</a>
     </span></div>
 
         </div>
@@ -337,25 +337,25 @@ This is solved by choosing a <em>leader</em>  and <em>stand-by</em> solution.</p
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
+              <a href="http://localhost:1313/posts/pod-services-pt2/">Kubernetes Services insights Pt2</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/namespaces-quotas/">Namespaces resources quotas</a>
+              <a href="http://localhost:1313/posts/namespaces-quotas/">Namespaces resources quotas</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-qos/">PODS QoS</a>
+              <a href="http://localhost:1313/posts/pods-qos/">PODS QoS</a>
             </li>
           
         
           
             <li>
-              <a href="https://libert.xyz/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
+              <a href="http://localhost:1313/posts/pods-requests-limits/">PODS Requests &amp; Limits</a>
             </li>
           
         
@@ -363,7 +363,7 @@ This is solved by choosing a <em>leader</em>  and <em>stand-by</em> solution.</p
         
           
             <li>
-              <a href="https://libert.xyz/posts/pod-services/">Kubernetes Services insights</a>
+              <a href="http://localhost:1313/posts/pod-services/">Kubernetes Services insights</a>
             </li>
           
         
@@ -411,7 +411,7 @@ This is solved by choosing a <em>leader</em>  and <em>stand-by</em> solution.</p
 
   
   
-  <script src="https://libert.xyz/js/coder.min.6ae284be93d2d19dad1f02b0039508d9aab3180a12a06dcc71b0b0ef7825a317.js" integrity="sha256-auKEvpPS0Z2tHwKwA5UI2aqzGAoSoG3McbCw73gloxc="></script>
+  <script src="http://localhost:1313/js/coder.js"></script>
   
 
   

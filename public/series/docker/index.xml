@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on libert.xyz</title>
-    <link>https://libert.xyz/series/docker/</link>
+    <link>http://localhost:1313/series/docker/</link>
     <description>Recent content in Docker on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 12 Jun 2019 15:12:45 -0400</lastBuildDate>
-    <atom:link href="https://libert.xyz/series/docker/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/series/docker/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>RUN or CMD or ENTRYPOINT</title>
-      <link>https://libert.xyz/posts/run-cmd-entrypoint/</link>
+      <link>http://localhost:1313/posts/run-cmd-entrypoint/</link>
       <pubDate>Wed, 12 Jun 2019 15:12:45 -0400</pubDate>
-      <guid>https://libert.xyz/posts/run-cmd-entrypoint/</guid>
-      <description>&lt;hr&gt;&#xA;&lt;p&gt;One of the most confusing parts of a &lt;em&gt;Dockerfile&lt;/em&gt; for me it has always been the part where&#xA;we execute or initiate the application.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/Docker_docs.jpeg&#34; alt=&#34;docker-1&#34; title=&#34;Containers&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;in-summary&#34;&gt;&#xA;  In Summary&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#in-summary&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;RUN&lt;/strong&gt; executes command(s) in a new layer on top of the current image.&#xA;Often used to install packages and dependencies.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CMD&lt;/strong&gt; sets default command and/or parameters, can be     overwritten from the command line when docker container runs.&lt;/p&gt;</description>
+      <guid>http://localhost:1313/posts/run-cmd-entrypoint/</guid>
+      <description>&lt;hr&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Image_fx.png&#34; alt=&#34;targets&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;One of the most confusing parts of a &lt;em&gt;Dockerfile&lt;/em&gt; for me it has always been the part where&#xA;we execute or initiate the application.&lt;/p&gt;&#xA;&lt;h3 id=&#34;in-summary&#34;&gt;&#xA;  In Summary&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#in-summary&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;RUN&lt;/strong&gt; executes command(s) in a new layer on top of the current image.&#xA;Often used to install packages and dependencies.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CMD&lt;/strong&gt; sets default command and/or parameters, can be     overwritten from the command line when docker container runs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Containers &amp; Docker Images</title>
-      <link>https://libert.xyz/posts/containers-docker/</link>
+      <link>http://localhost:1313/posts/containers-docker/</link>
       <pubDate>Sat, 10 Nov 2018 14:53:00 -0400</pubDate>
-      <guid>https://libert.xyz/posts/containers-docker/</guid>
+      <guid>http://localhost:1313/posts/containers-docker/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Containers are getting more popular year by year and more companies are adopting containers as their default development environment.&lt;/p&gt;&#xA;&lt;p&gt;One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host.  Another reason is the mass adoption of &lt;em&gt;Microservices Architectures&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/docker-1.png&#34; alt=&#34;docker-1&#34; title=&#34;Containers&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;a-hello-world-container&#34;&gt;&#xA;  A Hello World container&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#a-hello-world-container&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;em&gt;busybox&lt;/em&gt; images contain the basic &lt;em&gt;UNIX&lt;/em&gt; tools like &lt;code&gt;echo&lt;/code&gt;, &lt;code&gt;ls&lt;/code&gt; and so on.&lt;/p&gt;</description>
     </item>
   </channel>

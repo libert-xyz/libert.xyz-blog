@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Security on libert.xyz</title>
-    <link>https://libert.xyz/series/security/</link>
+    <link>http://localhost:1313/series/security/</link>
     <description>Recent content in Security on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sat, 13 Apr 2019 15:25:21 -0400</lastBuildDate>
-    <atom:link href="https://libert.xyz/series/security/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/series/security/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Service accounts &amp; RBAC Authorization</title>
-      <link>https://libert.xyz/posts/rbac-authorization/</link>
+      <link>http://localhost:1313/posts/rbac-authorization/</link>
       <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
-      <guid>https://libert.xyz/posts/rbac-authorization/</guid>
+      <guid>http://localhost:1313/posts/rbac-authorization/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When a request is received by the &lt;em&gt;API Server&lt;/em&gt; (kubectl) it goes through a list of&#xA;authentication plugins.&#xA;The plugins examine the request and determine who is sending the request.&lt;/p&gt;&#xA;&lt;p&gt;An authentication plugin returns the username and group of the authenticated&#xA;user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether&#xA;the user is authorized to perform an action or not.&lt;/p&gt;&#xA;&lt;h3 id=&#34;users&#34;&gt;&#xA;  Users&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#users&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Kind of clients connecting the &lt;em&gt;API Server&lt;/em&gt;:&lt;/p&gt;</description>
     </item>
   </channel>

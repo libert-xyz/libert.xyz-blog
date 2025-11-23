@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Ci/Cd on libert.xyz</title>
-    <link>https://libert.xyz/series/ci/cd/</link>
+    <link>http://localhost:1313/series/ci/cd/</link>
     <description>Recent content in Ci/Cd on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Sep 2019 12:16:40 -0400</lastBuildDate>
-    <atom:link href="https://libert.xyz/series/ci/cd/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/series/ci/cd/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deployment Types</title>
-      <link>https://libert.xyz/posts/deployment-types/</link>
+      <link>http://localhost:1313/posts/deployment-types/</link>
       <pubDate>Wed, 25 Sep 2019 12:16:40 -0400</pubDate>
-      <guid>https://libert.xyz/posts/deployment-types/</guid>
+      <guid>http://localhost:1313/posts/deployment-types/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.&lt;/p&gt;&#xA;&lt;p&gt;Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.&lt;/p&gt;&#xA;&lt;h3 id=&#34;manual-deployment-copy-and-paste&#34;&gt;&#xA;  Manual Deployment (copy and paste)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#manual-deployment-copy-and-paste&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/deploymentpost.png&#34; alt=&#34;k8-p1-1&#34; title=&#34;manual&#34;&gt;&lt;/p&gt;</description>
     </item>
   </channel>

@@ -7,14 +7,11 @@ series = ["docker"]
 +++
 ***
 
+ ![targets](/images/docker.png)
+
 One of the most confusing parts of a *Dockerfile* for me it has always been the part where
 we execute or initiate the application.
-
-![docker-1]
-
-[docker-1]: https://libert.xyz/images/Docker_docs.jpeg
- "Containers"
-
+ 
 ### In Summary
 
 * **RUN** executes command(s) in a new layer on top of the current image.
