@@ -48,10 +48,7 @@ In the following figure, we can see a pod try to reach another pod backing up by
 to pod B directly instead of through the service.
 
 
-![k8-services-1]
-
-[k8-services-1]: https://libert.xyz/images/k8-services-1.png
- "Services/iptables"
+![targets](/images/k8-services-1.png)
 
 
 ### Services discovery

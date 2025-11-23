@@ -10,10 +10,8 @@ series = ["kubernetes"]
 ### HA Kubernetes
 
 
-![ha-1]
+![targets](/images/ha-1.png)
 
-[ha-1]: https://libert.xyz/images/ha-1.png
- "HA"
 
 One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.
 
@@ -37,10 +35,8 @@ The way to have an HA cluster is obvious, having multiple servers running the Co
 * *Controller Manager*
 * *Scheduler*
 
-![ha-2]
 
-[ha-2]: https://libert.xyz/images/ha-2.png
- "HA"
+![targets](/images/ha-2.png)
 
 
 #### HA etcd
@@ -84,13 +80,8 @@ By having multiple *API Servers* we need to have a load balancer in front of the
 This is harder than HA *API Server* because these controllers continuously watch the cluster state and act when it changes, possibly modifying the cluster state. We don't want multiple or unintended modifications to the state of the cluster.
 This is solved by choosing a *leader*  and *stand-by* solution.
 
-![ha-3]
 
-[ha-3]: https://libert.xyz/images/ha-3.png
- "Leaders & Stand-by"
-
-
-
+![targets](/images/ha-3.png)
 
 
 ***

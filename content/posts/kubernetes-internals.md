@@ -35,12 +35,7 @@ In a nutshell, k8 has two components
 * add-ons
 
 
-![1k8]
-
-[1k8]: https://libert.xyz/images/1k8.png
- "k8 architecture"
-
-
+![targets](/images/1k8.png)
 
 
 ### How these components communicate?
@@ -125,10 +120,8 @@ Controllers watch the *API Server* for changes in resources (Deployments, Servic
 They don't communicate with the *kubelet* directly or issue any instructions to them, **they just update a resource in the API Server**
 
 
-![2k8]
+![targets](/images/2k8.png)
 
-[2k8]: https://libert.xyz/images/2k8.png
- "Controllers"
 
 ### The Kubelet is not a pod but creates multiple ones
 
@@ -139,10 +132,9 @@ They don't communicate with the *kubelet* directly or issue any instructions to 
 *Running static pods* without talking to the *API Server* is also possible. Actually, this is how the master nodes run the control plane pods.
 in summary, the *kubelet* runs pods based on pods specs from the *API Server* and a local file directory (Kubelet manifest Directory).
 
-![3k8]
 
-[3k8]: https://libert.xyz/images/3k8.png
- "Kubelet"
+
+![targets](/images/3k8.png)
 
 
 ### Kube-Proxy does Networking
@@ -153,18 +145,14 @@ Two proxy modes:
 
 * *userspace* proxy mode
 
-![4k8]
-
-[4k8]: https://libert.xyz/images/4k8.png
- "Proxy Mode"
+ 
+![targets](/images/4k8.png)
 
 
 * *iptables* proxy mode (better performance)
 
-![5k8]
 
-[5k8]: https://libert.xyz/images/5k8.png
- "Proxy Mode"
+![targets](/images/5k8.png)
 
 
 ### And finally, we have the add-ons

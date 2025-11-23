@@ -67,12 +67,9 @@ curl http://35.203.63.213:30021
 The `LoadBalancer` service type is an extension of the `NodePort` type service.  Is only supported in Kubernetes clusters running in Cloud Service providers like AWS and GCP.
 
 If the Kubernetes cluster does not support the `LoadBalancer` service type then a `NodePort` service will be created instead.
+ 
+ ![targets](/images/k8-servces-pt2-1.png)
 
-
-![elb]
-
-[elb]: https://libert.xyz/images/k8-servces-pt2-1.png
- "LoadBalancer"
 
 **Ingress Resource**
 

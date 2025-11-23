@@ -11,10 +11,9 @@ series = ["devops"]
 
 It gets more confusing when looking for **DevOps Engineers** job descriptions, you don't know if they are looking for a System Administrator or a Full-Stack Engineer.
 
-![dev-p1-1]
+ 
+![targets](/images/dev1.png)
 
-[dev-p1-1]: https://libert.xyz/images/dev1.png
- "devandops"
 
 Developers like to build software and test things quickly, whereas System Administrators focus on stability and reliability. In my experience merging both roles in a single one is what a *DevOps Engineer* is.
 
@@ -36,10 +35,9 @@ The Agile methodology brings together a collaboration between business users and
 System operators include database administrators, network engineers, infrastructure architects, and security teams.
 Agile software development provides business agility, *DevOps* provides IT agility.
 
-![dev-p1-2]
 
-[dev-p1-2]: https://libert.xyz/images/dev2.png
- "devandagile"
+
+![targets](/images/dev2.png)
 
 
 ### DevOps Tasks

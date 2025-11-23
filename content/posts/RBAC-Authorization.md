@@ -44,10 +44,8 @@ A *POD* authenticates with the *API Server* by sending the file `var/run/secrets
 
 Each pod is associated with a single ServiceAccount in the pod’s namespace.
 
-![k8-p2-1]
 
-[k8-p2-1]: https://libert.xyz/images/ser1.png
- "ServiceAcct"
+![targets](/images/ser1.png)
 
 
 ### Create service ServiceAccounts
@@ -55,11 +53,8 @@ Each pod is associated with a single ServiceAccount in the pod’s namespace.
 ```bash
 $ kubectl create serviceaccount foo
 ```
-
-![k8-p2-2]
-
-[k8-p2-2]: https://libert.xyz/images/ser2.png
- "create ServiceAcct"
+ 
+![targets](/images/ser2.png)
 
  A custom token Secret has been created and associated with the
  ServiceAccount.
@@ -89,20 +84,16 @@ requests to the server. Users authenticate themselves by including credentials i
 
 Roles define what can be done, while bindings define who can do it
 
-![k8-p2-3]
+ 
+ ![targets](/images/ser3.png)
 
-[k8-p2-3]: https://libert.xyz/images/ser3.png
- "roles"
 
 The difference between Role and a ClusterRole, or between a RoleBinding and a
 ClusterRoleBinding, is that the Role and RoleBinding are namespaced resources,
 whereas the ClusterRole and ClusterRoleBinding are cluster-level resources
 
-![k8-p2-4]
 
-[k8-p2-4]: https://libert.xyz/images/ser4.png
- "roles and cluster differences"
-
+![targets](/images/ser4.png)
 
 
 |  For accessing 	|   Role type to use	|   Binding type to use	|

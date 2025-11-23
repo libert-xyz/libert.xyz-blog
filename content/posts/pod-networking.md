@@ -27,10 +27,7 @@ Anyone can develop their own *CNI* plugin, the only conditions are the ones list
 
 ### No NAT
 
-![k8-net-1]
-
-[k8-net-1]: https://libert.xyz/images/k8-net-1.png
- "No Nat"
+![targets](/images/k8-net-1.png)
 
 
 In the image above *pod A* sends a network package to *pod B*, the package sent by *pod A* must reach *pod B* with source and destination address unchanged.
@@ -51,10 +48,8 @@ Pods on a node are connected to the same bridge through virtual Ethernet interfa
 If you run `ifconfig` in a node you will see a `vethxxx` listed.
 The interface in the container namespace is renamed to `eth0`
 
-![k8-net-2]
-
-[k8-net-2]: https://libert.xyz/images/k8-net-2.png
- "Virtual Ethernet"
+ 
+![targets](/images/k8-net-2.png)
 
 
 1. The interface in the host's network namespace is attached to a networking bridge.
@@ -73,11 +68,7 @@ The node physical network needs to be connected with the virtual bridge as well.
 Routing tables on node A need to be added to all packets destined for `10.1.2.0/24` are routed to node B, and node B routing tables need to be added so packets sent to `10.1.1.0/24` are routed to node A.
 
 
-![k8-net-3]
-
-[k8-net-3]: https://libert.xyz/images/k8-net-3.png
- "Different nodes pods"
-
+![targets](/images/k8-net-3.png)
 
 
 ***

@@ -1,31 +1,27 @@
-baseurl = "https://libert.xyz" # Hostname (and path) to the root.
+baseURL = "https://sand.libert.xyz" # Hostname (and path) to the root.
 title = "libert.xyz" # Site title.
-theme = "coder" # Set the theme.
+theme = "coder-custom" # Set the theme.
 languagecode = "en" # The site’s language code.
+enableEmoji = true
 
-paginate = 20 # Default number of pages per page in pagination.
+
 canonifyurls = true # Enable to turn relative URLs into absolute.
 
-pygmentsstyle = "friendly" # Color-theme or style for syntax highlighting.
+#pygmentsstyle = "friendly" # Color-theme or style for syntax highlighting.
 pygmentscodefences = true # Enable code fence background highlighting.
 pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences without specified language.
 
+[pagination]
+pagerSize = 6
+
 [params] # theme parameters
-    author = "Libert Schmidt" # Author's name.
+    author = "Libert" # Author's name.
     info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
     description = "libert personal website" # Site description.
     keywords = "blog,devops,libert,aws,python,linux,bash" # Site keywords.
 
     ##avatarurl = "images/avatar.jpg"
-
-    #footercontent = "Enter a text here."
-
     dateformat = "January 2, 2006"
-
-    # Whether you want to hide copyright and credits in the footer.
-    hideCredits = true
-    hideCopyright = true
-
 
     # Use inverted colors
     inverted = false
@@ -34,9 +30,45 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
     maxSeeAlsoItems = 5
 
     # Custom CSS
-	  custom_css = []
+	 custom_css = []
     rtl = false
     math = true
+
+    # Specify light/dark colorscheme
+    # Supported values:
+    # "auto" (use preference set by browser)
+    # "dark" (dark background, light foreground)
+    # "light" (light background, dark foreground) (default)
+    colorScheme = "auto"
+
+    # Hide the toggle button, along with the associated vertical divider
+    hideColorSchemeToggle = false
+
+
+    #Content-Security-Policy section
+    [params.csp]
+    childsrc = ["'self'"]
+    fontsrc = ["'self'", "https://fonts.gstatic.com", "https://cdn.jsdelivr.net/"]
+    formaction = ["'self'"]
+    framesrc = ["'self'", "https://www.youtube.com"]
+    imgsrc = ["'self'"]
+    objectsrc = ["'none'"]
+    stylesrc = [
+      "'self'",
+       "'unsafe-inline'",
+       "https://fonts.googleapis.com/",
+       "https://cdn.jsdelivr.net/",
+     ]
+    scriptsrc = [
+       "'self'",
+       "'unsafe-inline'",
+       "https://www.google-analytics.com",
+       "https://cdn.jsdelivr.net/",
+     ]
+    prefetchsrc = ["'self'"]
+    # # connect-src directive – defines valid targets for to XMLHttpRequest (AJAX), WebSockets or EventSource
+    connectsrc = ["'self'", "https://www.google-analytics.com"]
+
 
 [taxonomies]
   category = "categories"
@@ -50,16 +82,7 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
     icon = "fab fa-github fa-2x"
     weight = 1
     url = "https://github.com/libert-xyz"
-[[params.social]]
-    name = "Gitlab"
-    icon = "fab fa-gitlab fa-2x"
-    weight = 1
-    url = "https://gitlab.com/rschmidtz"
-[[params.social]]
-    name = "Twitter"
-    icon = "fab fa-twitter fa-2x"
-    weight = 2
-    url = "https://twitter.com/libert_xyz"
+
 [[params.social]]
     name = "LinkedIn"
     icon = "fab fa-linkedin fa-2x"
