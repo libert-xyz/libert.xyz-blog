@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.
 Most of the references come from blogs like Julia Evans,  Kubernetes Documentation and this awesome book called Kubernetes in Action
@@ -231,7 +231,7 @@ K8 Architecture Summary Link to heading In a nutshell, k8 has two components
 <li>Container Runtime (docker or others)</li>
 <li>add-ons</li>
 </ul>
-<p><img src="https://libert.xyz/images/1k8.png" alt="1k8" title="k8 architecture"></p>
+<p><img src="http://localhost:1313/images/1k8.png" alt="targets"></p>
 <h3 id="how-these-components-communicate">
   How these components communicate?
   <a class="heading-link" href="#how-these-components-communicate">
@@ -325,7 +325,7 @@ The list of these controllers include:</p>
 <p><em>What they do and how they do it?</em></p>
 <p>Controllers watch the <em>API Server</em> for changes in resources (Deployments, Services, etc) and perform operations for each change.
 They don&rsquo;t communicate with the <em>kubelet</em> directly or issue any instructions to them, <strong>they just update a resource in the API Server</strong></p>
-<p><img src="https://libert.xyz/images/2k8.png" alt="2k8" title="Controllers"></p>
+<p><img src="http://localhost:1313/images/2k8.png" alt="targets"></p>
 <h3 id="the-kubelet-is-not-a-pod-but-creates-multiple-ones">
   The Kubelet is not a pod but creates multiple ones
   <a class="heading-link" href="#the-kubelet-is-not-a-pod-but-creates-multiple-ones">
@@ -340,7 +340,7 @@ They don&rsquo;t communicate with the <em>kubelet</em> directly or issue any ins
 </ul>
 <p><em>Running static pods</em> without talking to the <em>API Server</em> is also possible. Actually, this is how the master nodes run the control plane pods.
 in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API Server</em> and a local file directory (Kubelet manifest Directory).</p>
-<p><img src="https://libert.xyz/images/3k8.png" alt="3k8" title="Kubelet"></p>
+<p><img src="http://localhost:1313/images/3k8.png" alt="targets"></p>
 <h3 id="kube-proxy-does-networking">
   Kube-Proxy does Networking
   <a class="heading-link" href="#kube-proxy-does-networking">
@@ -353,11 +353,11 @@ in summary, the <em>kubelet</em> runs pods based on pods specs from the <em>API 
 <ul>
 <li><em>userspace</em> proxy mode</li>
 </ul>
-<p><img src="https://libert.xyz/images/4k8.png" alt="4k8" title="Proxy Mode"></p>
+<p><img src="http://localhost:1313/images/4k8.png" alt="targets"></p>
 <ul>
 <li><em>iptables</em> proxy mode (better performance)</li>
 </ul>
-<p><img src="https://libert.xyz/images/5k8.png" alt="5k8" title="Proxy Mode"></p>
+<p><img src="http://localhost:1313/images/5k8.png" alt="targets"></p>
 <h3 id="and-finally-we-have-the-add-ons">
   And finally, we have the add-ons
   <a class="heading-link" href="#and-finally-we-have-the-add-ons">

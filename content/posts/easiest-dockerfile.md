@@ -9,7 +9,7 @@ We use a Dockerfile to build a Docker Images, we can write specific instructions
 
 In the following example we write a Dockerfile in the /root directory
 
-``` bash
+```bash
 ## Dockerfile that modifies centos:latest
  FROM centos:latest
  MAINTAINER User Name <username@domain.com>

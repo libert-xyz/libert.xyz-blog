@@ -12,10 +12,9 @@ If a POD has more than one container requests and limits are specified individua
 
 **E.g.**
 
-![k8-p2-1]
 
-[k8-p2-1]: https://libert.xyz/images/1req.png
- "Requests"
+
+![targets](/images/1req.png)
 
 
 If you don't specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you.
@@ -52,10 +51,8 @@ In summary, the Scheduler only cares about requests, not actual usage.
 
 **E.g.**
 
-![k8-p2-2]
 
-[k8-p2-2]: https://libert.xyz/images/2req.png
- "Requests"
+![targets](/images/2req.png)
 
 
 ### Resource Limits

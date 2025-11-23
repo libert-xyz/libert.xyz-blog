@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="In the first part we discussed pods communication through Kubernetes services, all of this internally in the cluster, but what if we need to expose the service to the internet?
 
   Exposing services to the internet
@@ -243,7 +243,7 @@ Let&rsquo;s assume that the public IP address of one of our nodes is <code>35.20
 </span></span></code></pre></div><p><strong>LoadBalancer</strong></p>
 <p>The <code>LoadBalancer</code> service type is an extension of the <code>NodePort</code> type service.  Is only supported in Kubernetes clusters running in Cloud Service providers like AWS and GCP.</p>
 <p>If the Kubernetes cluster does not support the <code>LoadBalancer</code> service type then a <code>NodePort</code> service will be created instead.</p>
-<p><img src="https://libert.xyz/images/k8-servces-pt2-1.png" alt="elb" title="LoadBalancer"></p>
+<p><img src="http://localhost:1313/images/k8-servces-pt2-1.png" alt="targets"></p>
 <p><strong>Ingress Resource</strong></p>
 <p>The <code>Ingress</code> resource is a controller that runs in the cluster.
 It operates at the layer 7 (application) level offering different options to route traffic to one or more services using a single endpoint.</p>

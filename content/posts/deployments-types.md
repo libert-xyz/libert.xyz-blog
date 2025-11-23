@@ -14,11 +14,9 @@ Luckily we have many deployment strategies from where we can choose, picking the
 
 ### Manual Deployment (copy and paste)
 
+ 
+![targets](/images/deploymentpost.png)
 
-![k8-p1-1]
-
-[k8-p1-1]: https://libert.xyz/images/deploymentpost.png
- "manual"
 
 This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server.
 
@@ -43,10 +41,8 @@ If something goes wrong or a bug is introduced in the application users will exp
 
 Three servers deployed *all at once*
 
-![k8-p2-2]
+![targets](/images/dep2.1.png)
 
-[k8-p2-2]: https://libert.xyz/images/dep2.1.png
- "all"
 
 ### Rolling Deployment
 
@@ -58,11 +54,8 @@ During the deployment the new and old versions coexist without affecting functio
 
 The following diagram shows three servers where blue represents a server with the current version of the code while green represents a server with the new version of the code.
 
-![k8-p2-3]
 
-[k8-p2-3]: https://libert.xyz/images/dep3.1.png
- "rolling"
-
+![targets](/images/dep3.1.png)
 
 ### Blue/Green Deployment
 
@@ -88,10 +81,9 @@ To succeed with this approach we need to rely heavily on automation.
 
 **E.g.**
 
-![k8-p2-4]
 
-[k8-p2-4]: https://libert.xyz/images/dep4.png
- "bluegreen"
+![targets](/images/dep4.png)
+
 
 ### Canary Deployment
 
@@ -113,11 +105,8 @@ All the benefits of Blue/Green plus:
 
 **E.g.**
 
-
-![k8-p2-5]
-
-[k8-p2-5]: https://libert.xyz/images/dep5.png
- "canary"
+ 
+ ![targets](/images/dep5.png)
 
 
 ***

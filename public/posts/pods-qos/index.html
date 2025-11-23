@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 There is no option or field to assign Quality of service to a pod but a combination between Requests and Limits
 give us the ability to define Quality of service.
@@ -223,7 +223,7 @@ give us the ability to define Quality of service.</p>
 <li><em>Guaranteed</em> class (requests are equal to limits)</li>
 <li><em>Burstable</em> class (one container has limit set but another don&rsquo;t)</li>
 </ul>
-<p><img src="https://libert.xyz/images/qos1.png" alt="k8-p2-1" title="Classes"></p>
+<p><img src="http://localhost:1313/images/qos1.png" alt="targets"></p>
 <p>Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.</p>
 <h3 id="qos-class-of-a-single-container-pod">
   QoS class of a single container POD
@@ -346,7 +346,7 @@ Killing order by QoS class:</p>
 <li><em>Guaranteed</em></li>
 </ol>
 <p>When the node’s memory is already maxed out and one of the processes on the node tries to allocate more memory, the system will need to kill one of the processes.</p>
-<p><img src="https://libert.xyz/images/qos2.png" alt="k8-p2-2" title="Killing Order"></p>
+<p><img src="http://localhost:1313/images/qos2.png" alt="targets"></p>
 <p>Sources:</p>
 <p><a href="https://www.manning.com/books/kubernetes-in-action"  class="external-link" target="_blank" rel="noopener">https://www.manning.com/books/kubernetes-in-action</a></p>
 <hr>

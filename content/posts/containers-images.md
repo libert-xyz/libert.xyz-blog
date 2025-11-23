@@ -11,10 +11,8 @@ Containers are getting more popular year by year and more companies are adopting
 
 One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host.  Another reason is the mass adoption of *Microservices Architectures*.
 
-![docker-1]
 
-[docker-1]: https://libert.xyz/images/docker-1.png
- "Containers"
+![targets](/images/docker-1.png)
 
 
 ### A Hello World container
@@ -22,10 +20,8 @@ One of the primary reasons for the rapid adoption are the flexibility to package
 
 The *busybox* images contain the basic *UNIX* tools like `echo`, `ls` and so on.
 
-![docker-2]
 
-[docker-2]: https://libert.xyz/images/docker-2.png
- "busybox"
+![targets](/images/docker-2.png)
 
 
 #### Behind the scenes
@@ -36,10 +32,8 @@ The *busybox* images contain the basic *UNIX* tools like `echo`, `ls` and so on.
 * The echo command sends the text to *STDOUT*, the process terminated and the container stopped.
 
 
-![docker-3]
+![targets](/images/docker-3.png)
 
-[docker-3]: https://libert.xyz/images/docker-3.png
- "Docker Hub"
 
 #### Creating a python server
 
@@ -74,21 +68,14 @@ ENTRYPOINT ["python","server.py"]
 
 #### Building the container image
 
-
-![docker-4]
-
-[docker-4]: https://libert.xyz/images/docker-4.png
- "docker build"
+ 
+ ![targets](/images/docker-4.png)
 
 
 *Build Process*
 
 
-![docker-5]
-
-[docker-5]: https://libert.xyz/images/docker-5.png
- "docker build"
-
+![targets](/images/docker-5.png)
 
 
 #### How  the image is built?

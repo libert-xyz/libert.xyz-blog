@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 The Limits and Requests are set for each container, what about
 if we want to apply Limits to namespaces?
@@ -219,7 +219,7 @@ if we want to apply Limits to namespaces?</p>
   </a>
 </h3>
 <p>The <em>LimitRange</em> resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.</p>
-<p><img src="https://libert.xyz/images/lim1.png" alt="k8-p2-1" title="limitrange"></p>
+<p><img src="http://localhost:1313/images/lim1.png" alt="targets"></p>
 <h3 id="limitrange-use-case">
   <em>LimitRange</em> use case
   <a class="heading-link" href="#limitrange-use-case">
@@ -228,7 +228,7 @@ if we want to apply Limits to namespaces?</p>
   </a>
 </h3>
 <p>A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&rsquo;s resources in the cluster. Without LimitRange the <em>API Server</em> will accept the pod but never schedule it.</p>
-<p><img src="https://libert.xyz/images/lim2.png" alt="k8-p2-2" title="object"></p>
+<p><img src="http://localhost:1313/images/lim2.png" alt="targets"></p>
 <h3 id="limiting-total-resources-in-a-namespace">
   Limiting total resources in a namespace
   <a class="heading-link" href="#limiting-total-resources-in-a-namespace">
@@ -237,12 +237,12 @@ if we want to apply Limits to namespaces?</p>
   </a>
 </h3>
 <p><em>LimitRange</em> only apply to individual pods, we can limit total resources by namespace with the object <em>ResourceQuota</em>.</p>
-<p><img src="https://libert.xyz/images/lim3.png" alt="k8-p2-3" title="resource quota"></p>
+<p><img src="http://localhost:1313/images/lim3.png" alt="targets"></p>
 <p><em>ResourceQuota</em> sets the maximum amount of CPU pods in the namespace
 can request to 400 millicores. The maximum total CPU limits in the namespace are
 set to 600 millicores. For memory, the maximum total requests are set to 200 MiB,
 whereas the limits are set to 500 MiB.</p>
-<p><img src="https://libert.xyz/images/lim4.png" alt="k8-p2-4" title="resource quota and limitrange"></p>
+<p><img src="http://localhost:1313/images/lim4.png" alt="targets"></p>
 <h3 id="creating-limitrange-along-with-resourcequota">
   Creating LimitRange along with ResourceQuota
   <a class="heading-link" href="#creating-limitrange-along-with-resourcequota">
@@ -261,7 +261,7 @@ limit), pods need to have the request or limit (respectively) set for that same 
   </a>
 </h3>
 <p><em>ResourceQuota</em> can also be configured to limit objects in a namespaces</p>
-<p><img src="https://libert.xyz/images/lim5.png" alt="k8-p2-5" title="quota objects"></p>
+<p><img src="http://localhost:1313/images/lim5.png" alt="targets"></p>
 <p>The ResourceQuota in this listing allows users to create at most 10 Pods in the namespace, regardless if they’re created manually or by a ReplicationController, ReplicaSet or DaemonSet.</p>
 <hr>
 

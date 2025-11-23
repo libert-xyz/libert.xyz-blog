@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 AWS rarely gives us insights about how they manage their data centers, there is no too much information about what kind of hardware they use and how they can scale quickly.
 This is because I found the  talk AWS re:Invent 2016 called Amazon Global Network Overview really enjoyable.
@@ -199,7 +199,7 @@ With 14 regions across the world.">
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://libert.xyz/images/vpc-1.png" alt="vpc-1" title="Region Links"></p>
+<p><img src="http://localhost:1313/images/vpc-1.png" alt="targets"></p>
 <p>AWS owns and manages all the fiber connections between regions and as <strong>James Hamilton</strong> mentions in the talks they don&rsquo;t trust and depend of any third party provider.</p>
 <h3 id="aws-regions">
   AWS regions
@@ -208,7 +208,7 @@ With 14 regions across the world.">
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://libert.xyz/images/vpc-2.png" alt="vpc-2" title="Regions"></p>
+<p><img src="http://localhost:1313/images/vpc-2.png" alt="targets"></p>
 <p>Each region is composed of at least two availability zones but all new Amazon regions are built with at least three AZs and some have as many as five.</p>
 <h4 id="transit-centers">
   Transit Centers
@@ -228,7 +228,7 @@ Every Region has two transit centers.</p>
 </h4>
 <p>AWS Regions and AZs are connected with Metro Fiber.</p>
 <p>Within an AZ there are intra-AZ fiber connections within the data centers, inter-AZ fiber connections between data centers that make up the AZ and fiber connections between each of the data centers and one of two transit stations each AZ has that connect to the outside world.</p>
-<p><img src="https://libert.xyz/images/vpc-3.png" alt="vpc-3" title="Metro Fiber"></p>
+<p><img src="http://localhost:1313/images/vpc-3.png" alt="targets"></p>
 <h4 id="azs">
   AZs
   <a class="heading-link" href="#azs">
@@ -239,7 +239,7 @@ Every Region has two transit centers.</p>
 <p>Each AZ has at least one data center, although some have as many as eight.</p>
 <p>Also is misconception to think that AZs are servers hosted in the same datacenter as other AZs but in different racks, actually AZs are independent building separated miles away within a Region.
 Several AZ&rsquo;s over 300k servers</p>
-<p><img src="https://libert.xyz/images/vpc-7.png" alt="vpc-7" title="AZs"></p>
+<p><img src="http://localhost:1313/images/vpc-7.png" alt="targets"></p>
 <p>Miles away from a distance perspective, close from a latency perspective (1 millisecond)</p>
 <h4 id="datacenters">
   Datacenters
@@ -251,7 +251,7 @@ Several AZ&rsquo;s over 300k servers</p>
 <p>Inside the data center, AWS runs its own custom-built hardware, including network routers.</p>
 <p>AWS runs around 50k to 80k bare metal servers in each datacenter.</p>
 <p>If data centers are any larger, then there are only modest gains in efficiency related to its scale. On the other hand, there are negative consequences to building larger data centers: If one fails, it will bring down more capacity compared to if a smaller facility goes down. Keeping data centers in relatively modest sizes costs a little bit more.</p>
-<p><img src="https://libert.xyz/images/vpc-8.png" alt="vpc-8" title="Datacenters-2"></p>
+<p><img src="http://localhost:1313/images/vpc-8.png" alt="targets"></p>
 <h4 id="aws-custom-routers">
   AWS Custom Routers
   <a class="heading-link" href="#aws-custom-routers">
@@ -263,7 +263,7 @@ Several AZ&rsquo;s over 300k servers</p>
 <p>Hamilton showed one from Broadcom - that has 78 transistors and can support up to 128 ports of 25Gb Ethernet each.</p>
 <p>AWS runs mostly 25GbE inside its data centers, despite most industry standards running 40 Gigabit Ethernet.
 25G Ethernet, creating a 50G Ethernet connection, is less expensive and high bandwidth than a single 40G Ethernet.</p>
-<p><img src="https://libert.xyz/images/vpc-5.png" alt="vpc-5" title="Routers"></p>
+<p><img src="http://localhost:1313/images/vpc-5.png" alt="targets"></p>
 <h4 id="software-defined-networking">
   Software Defined Networking
   <a class="heading-link" href="#software-defined-networking">
@@ -279,7 +279,7 @@ The package has to go from the</p>
 application &ndash;&gt; GuestOS &gt; Hypervisor &gt;  NIC = Milliseconds
 NIC to NIC -&gt; Microseconds
 Packet crossing the fiber = Nanoseconds</p>
-<p><img src="https://libert.xyz/images/vpc-9.png" alt="vpc-9" title="Servers"></p>
+<p><img src="http://localhost:1313/images/vpc-9.png" alt="targets"></p>
 <hr>
 
       </div>

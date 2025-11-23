@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.
 Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.
@@ -201,7 +201,7 @@ Manual Deployment (copy and paste) Link to heading">
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://libert.xyz/images/deploymentpost.png" alt="k8-p1-1" title="manual"></p>
+<p><img src="http://localhost:1313/images/deploymentpost.png" alt="targets"></p>
 <p>This is the most simple way of deployment which consists in fetching the source code from a repository (manually) to the server.</p>
 <p>A typical workflow is:</p>
 <ul>
@@ -223,7 +223,7 @@ There is usually a tool that automates the deployment process but we are still l
 If something goes wrong or a bug is introduced in the application users will experience downtime. Not recommended in a production environment but is a common way of deployment in a development environment where developers need to see code changes fast.</p>
 <p><strong>E.g.</strong></p>
 <p>Three servers deployed <em>all at once</em></p>
-<p><img src="https://libert.xyz/images/dep2.1.png" alt="k8-p2-2" title="all"></p>
+<p><img src="http://localhost:1313/images/dep2.1.png" alt="targets"></p>
 <h3 id="rolling-deployment">
   Rolling Deployment
   <a class="heading-link" href="#rolling-deployment">
@@ -235,7 +235,7 @@ If something goes wrong or a bug is introduced in the application users will exp
 During the deployment the new and old versions coexist without affecting functionality or user experience. This process makes it easier to roll back if something is not quite right.</p>
 <p><strong>E.g.</strong></p>
 <p>The following diagram shows three servers where blue represents a server with the current version of the code while green represents a server with the new version of the code.</p>
-<p><img src="https://libert.xyz/images/dep3.1.png" alt="k8-p2-3" title="rolling"></p>
+<p><img src="http://localhost:1313/images/dep3.1.png" alt="targets"></p>
 <h3 id="bluegreen-deployment">
   Blue/Green Deployment
   <a class="heading-link" href="#bluegreen-deployment">
@@ -273,7 +273,7 @@ To succeed with this approach we need to rely heavily on automation.</p>
 <li>Hard to implement if the green environment needs to write to the Database</li>
 </ul>
 <p><strong>E.g.</strong></p>
-<p><img src="https://libert.xyz/images/dep4.png" alt="k8-p2-4" title="bluegreen"></p>
+<p><img src="http://localhost:1313/images/dep4.png" alt="targets"></p>
 <h3 id="canary-deployment">
   Canary Deployment
   <a class="heading-link" href="#canary-deployment">
@@ -306,7 +306,7 @@ To succeed with this approach we need to rely heavily on automation.</p>
 <li>Expensive if we leave both environments running for a long time.</li>
 </ul>
 <p><strong>E.g.</strong></p>
-<p><img src="https://libert.xyz/images/dep5.png" alt="k8-p2-5" title="canary"></p>
+<p><img src="http://localhost:1313/images/dep5.png" alt="targets"></p>
 <hr>
 
       </div>

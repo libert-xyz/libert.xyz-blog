@@ -15,13 +15,12 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
 pagerSize = 6
 
 [params] # theme parameters
-    author = "Libert (lih-BERT)" # Author's name.
+    author = "Libert" # Author's name.
     info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
     description = "libert personal website" # Site description.
     keywords = "blog,devops,libert,aws,python,linux,bash" # Site keywords.
 
     ##avatarurl = "images/avatar.jpg"
-    #footercontent = "Enter a text here."
     dateformat = "January 2, 2006"
 
     # Use inverted colors
@@ -31,7 +30,7 @@ pagerSize = 6
     maxSeeAlsoItems = 5
 
     # Custom CSS
-	  custom_css = []
+	 custom_css = []
     rtl = false
     math = true
 

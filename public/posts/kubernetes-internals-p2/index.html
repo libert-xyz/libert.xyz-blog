@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 
   If you haven&rsquo;t yet, check the first part here
@@ -234,7 +234,7 @@ Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo
   </a>
 </h3>
 <p>Before any event, the <em>Controler Manager</em>, <em>Scheduler</em> and the <em>Kubelet</em> are in &ldquo;watching mode&rdquo; waiting for a new event for their respective resources types in the <em>API Server</em></p>
-<p><img src="https://libert.xyz/images/k8-p2-1.png" alt="k8-p2-1" title="Watching Mode"></p>
+<p><img src="http://localhost:1313/images/k8-p2-1.png" alt="targets"></p>
 <h3 id="deployment-manifest-created">
   Deployment manifest created
   <a class="heading-link" href="#deployment-manifest-created">
@@ -250,7 +250,7 @@ Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo
 <li>Returns a response to <code>kubectl</code></li>
 </ol>
 <p>After the following chain of events takes place</p>
-<p><img src="https://libert.xyz/images/k8-p2-2.png" alt="k8-p2-2" title="Events"></p>
+<p><img src="http://localhost:1313/images/k8-p2-2.png" alt="targets"></p>
 <h3 id="what-a-running-pod-is">
   What a running pod is?
   <a class="heading-link" href="#what-a-running-pod-is">
@@ -263,7 +263,7 @@ Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo
 <li>Nginx container Running</li>
 <li>Pod Infrastructure Container (<em>pause container</em>) running</li>
 </ol>
-<p><img src="https://libert.xyz/images/k8-p2-3.png" alt="k8-p2-3" title="Pause Container"></p>
+<p><img src="http://localhost:1313/images/k8-p2-3.png" alt="targets"></p>
 <h4 id="the-pause-container">
   <em>The Pause Container</em>
   <a class="heading-link" href="#the-pause-container">
@@ -273,7 +273,7 @@ Before any event, the Controler Manager, Scheduler and the Kubelet are in &ldquo
 </h4>
 <p>The <em>pause container</em> is the container that holds all containers in the pod together.
 All containers in the pod share the same network and Linux namespaces, the <em>Pod Infrastructure Container</em> holds all these namespaces.</p>
-<p><img src="https://libert.xyz/images/k8-p2-4.png" alt="k8-p2-4" title="Pod Infrastructure Container"></p>
+<p><img src="http://localhost:1313/images/k8-p2-4.png" alt="targets"></p>
 <hr>
 
       </div>

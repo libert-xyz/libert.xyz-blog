@@ -20,20 +20,18 @@ With 14 regions across the world.
 
 ### Trans-Oceanic cables to interconnect AWS Regions
 
-![vpc-1]
+ 
+![targets](/images/vpc-1.png)
 
-[vpc-1]: https://libert.xyz/images/vpc-1.png
- "Region Links"
 
 AWS owns and manages all the fiber connections between regions and as **James Hamilton** mentions in the talks they don't trust and depend of any third party provider.
 
 
 ### AWS regions
 
-![vpc-2]
+ 
+![targets](/images/vpc-2.png)
 
-[vpc-2]: https://libert.xyz/images/vpc-2.png
- "Regions"
 
 Each region is composed of at least two availability zones but all new Amazon regions are built with at least three AZs and some have as many as five.
 
@@ -52,10 +50,7 @@ AWS Regions and AZs are connected with Metro Fiber.
 
 Within an AZ there are intra-AZ fiber connections within the data centers, inter-AZ fiber connections between data centers that make up the AZ and fiber connections between each of the data centers and one of two transit stations each AZ has that connect to the outside world.
 
-![vpc-3]
-
-[vpc-3]: https://libert.xyz/images/vpc-3.png
- "Metro Fiber"
+![targets](/images/vpc-3.png)
 
 
 #### AZs
@@ -66,10 +61,7 @@ Also is misconception to think that AZs are servers hosted in the same datacente
 Several AZ's over 300k servers
 
 
- ![vpc-7]
-
- [vpc-7]: https://libert.xyz/images/vpc-7.png
-  "AZs"
+![targets](/images/vpc-7.png)
 
 
 Miles away from a distance perspective, close from a latency perspective (1 millisecond)
@@ -84,11 +76,7 @@ AWS runs around 50k to 80k bare metal servers in each datacenter.
  If data centers are any larger, then there are only modest gains in efficiency related to its scale. On the other hand, there are negative consequences to building larger data centers: If one fails, it will bring down more capacity compared to if a smaller facility goes down. Keeping data centers in relatively modest sizes costs a little bit more.
 
 
-
- ![vpc-8]
-
- [vpc-8]: https://libert.xyz/images/vpc-8.png
-  "Datacenters-2"
+![targets](/images/vpc-8.png)
 
 
 
@@ -103,12 +91,7 @@ AWS runs mostly 25GbE inside its data centers, despite most industry standards r
 25G Ethernet, creating a 50G Ethernet connection, is less expensive and high bandwidth than a single 40G Ethernet.
 
 
-![vpc-5]
-
-[vpc-5]: https://libert.xyz/images/vpc-5.png
- "Routers"
-
-
+![targets](/images/vpc-5.png)
 
 #### Software Defined Networking
 
@@ -124,11 +107,7 @@ application --> GuestOS > Hypervisor >  NIC = Milliseconds
 NIC to NIC -> Microseconds
 Packet crossing the fiber = Nanoseconds
 
-
-![vpc-9]
-
-[vpc-9]: https://libert.xyz/images/vpc-9.png
- "Servers"
+![targets](/images/vpc-9.png)
 
 
 ***

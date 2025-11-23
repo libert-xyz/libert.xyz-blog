@@ -19,10 +19,8 @@ give us the ability to define Quality of service.
 * *Burstable* class (one container has limit set but another don't)
 
 
-![k8-p2-1]
+![targets](/images/qos1.png)
 
-[k8-p2-1]: https://libert.xyz/images/qos1.png
- "Classes"
 
 Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.
 
@@ -77,12 +75,7 @@ Killing order by QoS class:
 When the node’s memory is already maxed out and one of the processes on the node tries to allocate more memory, the system will need to kill one of the processes.
 
 
-![k8-p2-2]
-
-[k8-p2-2]: https://libert.xyz/images/qos2.png
- "Killing Order"
-
-
+![targets](/images/qos2.png)
 
 Sources:
 

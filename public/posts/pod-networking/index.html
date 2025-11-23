@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 
   Inter-pod networking
@@ -244,7 +244,7 @@ Each pod gets its own unique IP address. Each pod can communicate with all other
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://libert.xyz/images/k8-net-1.png" alt="k8-net-1" title="No Nat"></p>
+<p><img src="http://localhost:1313/images/k8-net-1.png" alt="targets"></p>
 <p>In the image above <em>pod A</em> sends a network package to <em>pod B</em>, the package sent by <em>pod A</em> must reach <em>pod B</em> with source and destination address unchanged.</p>
 <p>By doing this, applications running in <em>pods</em> think that they are connected in the same plain network connected to the same network switch.</p>
 <p>The only case when the <em>pod</em> source ip is changed is when it communicates with services on the internet, in this case, the source IP is changed to the host worker node IP address.</p>
@@ -266,7 +266,7 @@ Each pod gets its own unique IP address. Each pod can communicate with all other
 <p>Pods on a node are connected to the same bridge through virtual Ethernet interfaces.
 If you run <code>ifconfig</code> in a node you will see a <code>vethxxx</code> listed.
 The interface in the container namespace is renamed to <code>eth0</code></p>
-<p><img src="https://libert.xyz/images/k8-net-2.png" alt="k8-net-2" title="Virtual Ethernet"></p>
+<p><img src="http://localhost:1313/images/k8-net-2.png" alt="targets"></p>
 <ol>
 <li>The interface in the host&rsquo;s network namespace is attached to a networking bridge.</li>
 <li>the <em>eth0</em> interface in the container is assigned an IP from the bridge IP range.</li>
@@ -282,7 +282,7 @@ The interface in the container namespace is renamed to <code>eth0</code></p>
 <p>To enable communication between containers in different nodes, the birdges on those nodes need to be connected.</p>
 <p>The node physical network needs to be connected with the virtual bridge as well.</p>
 <p>Routing tables on node A need to be added to all packets destined for <code>10.1.2.0/24</code> are routed to node B, and node B routing tables need to be added so packets sent to <code>10.1.1.0/24</code> are routed to node A.</p>
-<p><img src="https://libert.xyz/images/k8-net-3.png" alt="k8-net-3" title="Different nodes pods"></p>
+<p><img src="http://localhost:1313/images/k8-net-3.png" alt="targets"></p>
 <hr>
 
       </div>

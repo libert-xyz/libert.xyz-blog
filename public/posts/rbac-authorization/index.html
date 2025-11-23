@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 When a request is received by the API Server (kubectl) it goes through a list of
 authentication plugins.
@@ -249,7 +249,7 @@ the user is authorized to perform an action or not.</p>
 </h3>
 <p><em>ServiceAccount</em> is yet another object in Kubernetes like Pods, ConfigMaps and so on, is also associated with namespaces.</p>
 <p>Each pod is associated with a single ServiceAccount in the pod’s namespace.</p>
-<p><img src="https://libert.xyz/images/ser1.png" alt="k8-p2-1" title="ServiceAcct"></p>
+<p><img src="http://localhost:1313/images/ser1.png" alt="targets"></p>
 <h3 id="create-service-serviceaccounts">
   Create service ServiceAccounts
   <a class="heading-link" href="#create-service-serviceaccounts">
@@ -258,7 +258,7 @@ the user is authorized to perform an action or not.</p>
   </a>
 </h3>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl create serviceaccount foo
-</span></span></code></pre></div><p><img src="https://libert.xyz/images/ser2.png" alt="k8-p2-2" title="create ServiceAcct"></p>
+</span></span></code></pre></div><p><img src="http://localhost:1313/images/ser2.png" alt="targets"></p>
 <p>A custom token Secret has been created and associated with the
 ServiceAccount.
 The authentication tokens used in ServiceAccounts are JWT (JSON Web Tokens)</p>
@@ -320,11 +320,11 @@ requests to the server. Users authenticate themselves by including credentials i
 <li>RoleBindings and ClusterRoleBindings</li>
 </ul>
 <p>Roles define what can be done, while bindings define who can do it</p>
-<p><img src="https://libert.xyz/images/ser3.png" alt="k8-p2-3" title="roles"></p>
+<p><img src="http://localhost:1313/images/ser3.png" alt="targets"></p>
 <p>The difference between Role and a ClusterRole, or between a RoleBinding and a
 ClusterRoleBinding, is that the Role and RoleBinding are namespaced resources,
 whereas the ClusterRole and ClusterRoleBinding are cluster-level resources</p>
-<p><img src="https://libert.xyz/images/ser4.png" alt="k8-p2-4" title="roles and cluster differences"></p>
+<p><img src="http://localhost:1313/images/ser4.png" alt="targets"></p>
 <table>
   <thead>
       <tr>

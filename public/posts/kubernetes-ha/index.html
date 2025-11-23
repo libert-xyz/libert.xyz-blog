@@ -15,7 +15,7 @@
 
 
 
-<meta name="author" content="Libert (lih-BERT)">
+<meta name="author" content="Libert">
 <meta name="description" content="
 
   HA Kubernetes
@@ -204,7 +204,7 @@ Out of the box, Kubernetes and all the components are ready meant to be HA. In t
     <span class="sr-only">Link to heading</span>
   </a>
 </h3>
-<p><img src="https://libert.xyz/images/ha-1.png" alt="ha-1" title="HA"></p>
+<p><img src="http://localhost:1313/images/ha-1.png" alt="targets"></p>
 <p>One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.</p>
 <p>Out of the box, <em>Kubernetes</em> and all the components are ready meant to be HA.
 In this post, we are going to explore the best ways to achieve HA in Kubernetes.</p>
@@ -232,7 +232,7 @@ the servers running <em>Kubernetes</em> going down.</p>
 <li><em>Controller Manager</em></li>
 <li><em>Scheduler</em></li>
 </ul>
-<p><img src="https://libert.xyz/images/ha-2.png" alt="ha-2" title="HA"></p>
+<p><img src="http://localhost:1313/images/ha-2.png" alt="targets"></p>
 <h4 id="ha-etcd">
   HA etcd
   <a class="heading-link" href="#ha-etcd">
@@ -310,7 +310,7 @@ By having multiple <em>API Servers</em> we need to have a load balancer in front
 </h4>
 <p>This is harder than HA <em>API Server</em> because these controllers continuously watch the cluster state and act when it changes, possibly modifying the cluster state. We don&rsquo;t want multiple or unintended modifications to the state of the cluster.
 This is solved by choosing a <em>leader</em>  and <em>stand-by</em> solution.</p>
-<p><img src="https://libert.xyz/images/ha-3.png" alt="ha-3" title="Leaders &amp; Stand-by"></p>
+<p><img src="http://localhost:1313/images/ha-3.png" alt="targets"></p>
 <hr>
 
       </div>
