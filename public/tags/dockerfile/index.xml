@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dockerfile on libert.xyz</title>
-    <link>http://localhost:1313/tags/dockerfile/</link>
+    <link>https://libert.xyz/tags/dockerfile/</link>
     <description>Recent content in Dockerfile on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Tue, 01 Sep 2015 11:59:37 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/dockerfile/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/tags/dockerfile/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Easiest dockerfile</title>
-      <link>http://localhost:1313/posts/easiest-dockerfile/</link>
+      <link>https://libert.xyz/posts/easiest-dockerfile/</link>
       <pubDate>Tue, 01 Sep 2015 11:59:37 -0400</pubDate>
-      <guid>http://localhost:1313/posts/easiest-dockerfile/</guid>
+      <guid>https://libert.xyz/posts/easiest-dockerfile/</guid>
       <description>&lt;p&gt;We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.&lt;/p&gt;&#xA;&lt;p&gt;In the following example we write a Dockerfile in the /root directory&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Dockerfile that modifies centos:latest&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; FROM centos:latest&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; MAINTAINER User Name &amp;lt;username@domain.com&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Update the server OS&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y upgrade&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Install Apache Web Server&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y install httpd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Install OpenSSH-Server&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y install openssh-server&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Expose the SSH and Web Ports for attachment&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; EXPOSE &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we execute the build command&lt;/p&gt;</description>
     </item>
   </channel>

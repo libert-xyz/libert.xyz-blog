@@ -2,80 +2,80 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Kubernetes on libert.xyz</title>
-    <link>http://localhost:1313/series/kubernetes/</link>
+    <link>https://libert.xyz/series/kubernetes/</link>
     <description>Recent content in Kubernetes on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Apr 2021 13:23:38 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/series/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Services insights Pt2</title>
-      <link>http://localhost:1313/posts/pod-services-pt2/</link>
+      <link>https://libert.xyz/posts/pod-services-pt2/</link>
       <pubDate>Fri, 09 Apr 2021 13:23:38 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-services-pt2/</guid>
+      <guid>https://libert.xyz/posts/pod-services-pt2/</guid>
       <description>&lt;p&gt;In the first &lt;a href=&#34;https://libert.xyz/posts/pod-services/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;part&lt;/a&gt; we discussed pods communication through Kubernetes services, all of this internally in the cluster, but what if we need to expose the service to the internet?&lt;/p&gt;&#xA;&lt;h3 id=&#34;exposing-services-to-the-internet&#34;&gt;&#xA;  Exposing services to the internet&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#exposing-services-to-the-internet&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Node Port&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The service type &lt;code&gt;NodePort&lt;/code&gt; creates a  unique port in every node of the cluster and forwards the requests to the pods that are part of that service.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Namespaces resources quotas</title>
-      <link>http://localhost:1313/posts/namespaces-quotas/</link>
+      <link>https://libert.xyz/posts/namespaces-quotas/</link>
       <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/namespaces-quotas/</guid>
+      <guid>https://libert.xyz/posts/namespaces-quotas/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Limits&lt;/strong&gt; and &lt;strong&gt;Requests&lt;/strong&gt; are set for each container, what about&#xA;if we want to apply Limits to namespaces?&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-object&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; Object&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-object&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;em&gt;LimitRange&lt;/em&gt; resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/lim1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;limitrange&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-use-case&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; use case&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-use-case&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&amp;rsquo;s resources in the cluster. Without LimitRange the &lt;em&gt;API Server&lt;/em&gt; will accept the pod but never schedule it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS QoS</title>
-      <link>http://localhost:1313/posts/pods-qos/</link>
+      <link>https://libert.xyz/posts/pods-qos/</link>
       <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-qos/</guid>
+      <guid>https://libert.xyz/posts/pods-qos/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;There is no option or field to assign Quality of service to a pod but a combination between &lt;strong&gt;Requests&lt;/strong&gt; and &lt;strong&gt;Limits&lt;/strong&gt;&#xA;give us the ability to define Quality of service.&lt;/p&gt;&#xA;&lt;h3 id=&#34;qos-classes&#34;&gt;&#xA;  QoS Classes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#qos-classes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;BestEffort&lt;/em&gt; class (no request and limits set)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Guaranteed&lt;/em&gt; class (requests are equal to limits)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Burstable&lt;/em&gt; class (one container has limit set but another don&amp;rsquo;t)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/qos1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Classes&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS Requests &amp; Limits</title>
-      <link>http://localhost:1313/posts/pods-requests-limits/</link>
+      <link>https://libert.xyz/posts/pods-requests-limits/</link>
       <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-requests-limits/</guid>
+      <guid>https://libert.xyz/posts/pods-requests-limits/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When creating a pod we can specify the amount of CPU and memory that a container needs.&#xA;If a POD has more than one container requests and limits are specified individually for each container.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;E.g.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/1req.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Requests&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you.&#xA;In the worst-case scenario, the container may not get any CPU at all.&lt;/p&gt;&#xA;&lt;h3 id=&#34;understanding-cpu-units&#34;&gt;&#xA;  Understanding CPU Units&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#understanding-cpu-units&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The CPU resource is measured in CPU units. One CPU unit in Kubernetes is equivalent to:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Highly Available Kubernetes Cluster</title>
-      <link>http://localhost:1313/posts/kubernetes-ha/</link>
+      <link>https://libert.xyz/posts/kubernetes-ha/</link>
       <pubDate>Mon, 10 Jun 2019 14:43:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-ha/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-ha/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;ha-kubernetes&#34;&gt;&#xA;  HA Kubernetes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ha-kubernetes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/ha-1.png&#34; alt=&#34;ha-1&#34; title=&#34;HA&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.&lt;/p&gt;&#xA;&lt;p&gt;Out of the box, &lt;em&gt;Kubernetes&lt;/em&gt; and all the components are ready meant to be HA.&#xA;In this post, we are going to explore the best ways to achieve HA in Kubernetes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Services insights</title>
-      <link>http://localhost:1313/posts/pod-services/</link>
+      <link>https://libert.xyz/posts/pod-services/</link>
       <pubDate>Wed, 05 Jun 2019 14:53:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-services/</guid>
+      <guid>https://libert.xyz/posts/pod-services/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;services-introduction&#34;&gt;&#xA;  Services introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#services-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A Kubernetes service provides a static endpoint (IP) to access pods.&#xA;The IP is static and never changes while the service exists.&#xA;Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kubernetes-services&#34;&gt;&#xA;  Kubernetes Services&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#kubernetes-services&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;em&gt;kube-proxy&lt;/em&gt; manages everything related to services.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Diving deeper into pod networking</title>
-      <link>http://localhost:1313/posts/pod-networking/</link>
+      <link>https://libert.xyz/posts/pod-networking/</link>
       <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-networking/</guid>
+      <guid>https://libert.xyz/posts/pod-networking/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;inter-pod-networking&#34;&gt;&#xA;  Inter-pod networking&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#inter-pod-networking&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Networking is one of the most complex pieces in Kubernetes, let&amp;rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Each pod gets its own unique IP address.&lt;/li&gt;&#xA;&lt;li&gt;Each pod can communicate with all other pods through a flat, NATless network.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;how-kubernetes-does-it&#34;&gt;&#xA;  How Kubernetes does it?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#how-kubernetes-does-it&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The networking is set up by the System Administrator or by a &lt;em&gt;Container Network Interace (CNI)&lt;/em&gt; plugin.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Internals Deep Dive Summary Pt2</title>
-      <link>http://localhost:1313/posts/kubernetes-internals-p2/</link>
+      <link>https://libert.xyz/posts/kubernetes-internals-p2/</link>
       <pubDate>Fri, 24 May 2019 17:17:33 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-internals-p2/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-internals-p2/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h5 id=&#34;if-you-havent-yet-check-the-first-part-here&#34;&gt;&#xA;  If you haven&amp;rsquo;t yet, check the first part &lt;a href=&#34;https://libert.xyz/posts/kubernetes-internals/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#if-you-havent-yet-check-the-first-part-here&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;h2 id=&#34;k8-architecture-summary-pt2&#34;&gt;&#xA;  K8 Architecture Summary Pt2&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#k8-architecture-summary-pt2&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;what-happens-when-we-submit-a-pod-manifest-to-the-api-server&#34;&gt;&#xA;  What happens when we submit a pod manifest to the API server?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-happens-when-we-submit-a-pod-manifest-to-the-api-server&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Before any event, the &lt;em&gt;Controler Manager&lt;/em&gt;, &lt;em&gt;Scheduler&lt;/em&gt; and the &lt;em&gt;Kubelet&lt;/em&gt; are in &amp;ldquo;watching mode&amp;rdquo; waiting for a new event for their respective resources types in the &lt;em&gt;API Server&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Internals Deep Dive Summary Pt1</title>
-      <link>http://localhost:1313/posts/kubernetes-internals-p1/</link>
+      <link>https://libert.xyz/posts/kubernetes-internals-p1/</link>
       <pubDate>Sun, 12 May 2019 13:34:45 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-internals-p1/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-internals-p1/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.&lt;/p&gt;&#xA;&lt;p&gt;Most of the references come from blogs like &lt;a href=&#34;https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Julia Evans&lt;/a&gt;,  Kubernetes Documentation and this awesome book called &lt;a href=&#34;https://www.manning.com/books/kubernetes-in-action&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kubernetes in Action&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;k8-architecture-summary&#34;&gt;&#xA;  K8 Architecture Summary&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#k8-architecture-summary&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In a nutshell, k8 has two components&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. Control Plane (master node)&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Service accounts &amp; RBAC Authorization</title>
-      <link>http://localhost:1313/posts/rbac-authorization/</link>
+      <link>https://libert.xyz/posts/rbac-authorization/</link>
       <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
-      <guid>http://localhost:1313/posts/rbac-authorization/</guid>
+      <guid>https://libert.xyz/posts/rbac-authorization/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When a request is received by the &lt;em&gt;API Server&lt;/em&gt; (kubectl) it goes through a list of&#xA;authentication plugins.&#xA;The plugins examine the request and determine who is sending the request.&lt;/p&gt;&#xA;&lt;p&gt;An authentication plugin returns the username and group of the authenticated&#xA;user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether&#xA;the user is authorized to perform an action or not.&lt;/p&gt;&#xA;&lt;h3 id=&#34;users&#34;&gt;&#xA;  Users&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#users&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Kind of clients connecting the &lt;em&gt;API Server&lt;/em&gt;:&lt;/p&gt;</description>
     </item>
   </channel>

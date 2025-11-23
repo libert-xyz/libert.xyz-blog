@@ -2,73 +2,73 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on libert.xyz</title>
-    <link>http://localhost:1313/series/</link>
+    <link>https://libert.xyz/series/</link>
     <description>Recent content in Series on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Apr 2021 13:23:38 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes</title>
-      <link>http://localhost:1313/series/kubernetes/</link>
+      <link>https://libert.xyz/series/kubernetes/</link>
       <pubDate>Fri, 09 Apr 2021 13:23:38 -0400</pubDate>
-      <guid>http://localhost:1313/series/kubernetes/</guid>
+      <guid>https://libert.xyz/series/kubernetes/</guid>
       <description></description>
     </item>
     <item>
       <title>Services</title>
-      <link>http://localhost:1313/series/services/</link>
+      <link>https://libert.xyz/series/services/</link>
       <pubDate>Fri, 09 Apr 2021 13:23:38 -0400</pubDate>
-      <guid>http://localhost:1313/series/services/</guid>
+      <guid>https://libert.xyz/series/services/</guid>
       <description></description>
     </item>
     <item>
       <title>Ci/Cd</title>
-      <link>http://localhost:1313/series/ci/cd/</link>
+      <link>https://libert.xyz/series/ci/cd/</link>
       <pubDate>Wed, 25 Sep 2019 12:16:40 -0400</pubDate>
-      <guid>http://localhost:1313/series/ci/cd/</guid>
+      <guid>https://libert.xyz/series/ci/cd/</guid>
       <description></description>
     </item>
     <item>
       <title>QoS</title>
-      <link>http://localhost:1313/series/qos/</link>
+      <link>https://libert.xyz/series/qos/</link>
       <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
-      <guid>http://localhost:1313/series/qos/</guid>
+      <guid>https://libert.xyz/series/qos/</guid>
       <description></description>
     </item>
     <item>
       <title>Docker</title>
-      <link>http://localhost:1313/series/docker/</link>
+      <link>https://libert.xyz/series/docker/</link>
       <pubDate>Wed, 12 Jun 2019 15:12:45 -0400</pubDate>
-      <guid>http://localhost:1313/series/docker/</guid>
+      <guid>https://libert.xyz/series/docker/</guid>
       <description></description>
     </item>
     <item>
       <title>Networking</title>
-      <link>http://localhost:1313/series/networking/</link>
+      <link>https://libert.xyz/series/networking/</link>
       <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
-      <guid>http://localhost:1313/series/networking/</guid>
+      <guid>https://libert.xyz/series/networking/</guid>
       <description></description>
     </item>
     <item>
       <title>Security</title>
-      <link>http://localhost:1313/series/security/</link>
+      <link>https://libert.xyz/series/security/</link>
       <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
-      <guid>http://localhost:1313/series/security/</guid>
+      <guid>https://libert.xyz/series/security/</guid>
       <description></description>
     </item>
     <item>
       <title>Devops</title>
-      <link>http://localhost:1313/series/devops/</link>
+      <link>https://libert.xyz/series/devops/</link>
       <pubDate>Mon, 04 Feb 2019 14:59:35 -0400</pubDate>
-      <guid>http://localhost:1313/series/devops/</guid>
+      <guid>https://libert.xyz/series/devops/</guid>
       <description></description>
     </item>
     <item>
       <title>Aws</title>
-      <link>http://localhost:1313/series/aws/</link>
+      <link>https://libert.xyz/series/aws/</link>
       <pubDate>Mon, 10 Oct 2016 14:43:55 -0400</pubDate>
-      <guid>http://localhost:1313/series/aws/</guid>
+      <guid>https://libert.xyz/series/aws/</guid>
       <description></description>
     </item>
   </channel>

@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>QoS on libert.xyz</title>
-    <link>http://localhost:1313/series/qos/</link>
+    <link>https://libert.xyz/series/qos/</link>
     <description>Recent content in QoS on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 28 Aug 2019 16:06:55 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/series/qos/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/series/qos/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Namespaces resources quotas</title>
-      <link>http://localhost:1313/posts/namespaces-quotas/</link>
+      <link>https://libert.xyz/posts/namespaces-quotas/</link>
       <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/namespaces-quotas/</guid>
+      <guid>https://libert.xyz/posts/namespaces-quotas/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Limits&lt;/strong&gt; and &lt;strong&gt;Requests&lt;/strong&gt; are set for each container, what about&#xA;if we want to apply Limits to namespaces?&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-object&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; Object&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-object&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;em&gt;LimitRange&lt;/em&gt; resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/lim1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;limitrange&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-use-case&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; use case&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-use-case&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&amp;rsquo;s resources in the cluster. Without LimitRange the &lt;em&gt;API Server&lt;/em&gt; will accept the pod but never schedule it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS QoS</title>
-      <link>http://localhost:1313/posts/pods-qos/</link>
+      <link>https://libert.xyz/posts/pods-qos/</link>
       <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-qos/</guid>
+      <guid>https://libert.xyz/posts/pods-qos/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;There is no option or field to assign Quality of service to a pod but a combination between &lt;strong&gt;Requests&lt;/strong&gt; and &lt;strong&gt;Limits&lt;/strong&gt;&#xA;give us the ability to define Quality of service.&lt;/p&gt;&#xA;&lt;h3 id=&#34;qos-classes&#34;&gt;&#xA;  QoS Classes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#qos-classes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;BestEffort&lt;/em&gt; class (no request and limits set)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Guaranteed&lt;/em&gt; class (requests are equal to limits)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Burstable&lt;/em&gt; class (one container has limit set but another don&amp;rsquo;t)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/qos1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Classes&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS Requests &amp; Limits</title>
-      <link>http://localhost:1313/posts/pods-requests-limits/</link>
+      <link>https://libert.xyz/posts/pods-requests-limits/</link>
       <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-requests-limits/</guid>
+      <guid>https://libert.xyz/posts/pods-requests-limits/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When creating a pod we can specify the amount of CPU and memory that a container needs.&#xA;If a POD has more than one container requests and limits are specified individually for each container.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;E.g.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/1req.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Requests&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you.&#xA;In the worst-case scenario, the container may not get any CPU at all.&lt;/p&gt;&#xA;&lt;h3 id=&#34;understanding-cpu-units&#34;&gt;&#xA;  Understanding CPU Units&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#understanding-cpu-units&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The CPU resource is measured in CPU units. One CPU unit in Kubernetes is equivalent to:&lt;/p&gt;</description>
     </item>
   </channel>

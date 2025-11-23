@@ -2,143 +2,136 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>libert.xyz</title>
-    <link>http://localhost:1313/</link>
+    <link>https://libert.xyz/</link>
     <description>Recent content on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Fri, 09 Apr 2021 13:23:38 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Kubernetes Services insights Pt2</title>
-      <link>http://localhost:1313/posts/pod-services-pt2/</link>
+      <link>https://libert.xyz/posts/pod-services-pt2/</link>
       <pubDate>Fri, 09 Apr 2021 13:23:38 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-services-pt2/</guid>
+      <guid>https://libert.xyz/posts/pod-services-pt2/</guid>
       <description>&lt;p&gt;In the first &lt;a href=&#34;https://libert.xyz/posts/pod-services/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;part&lt;/a&gt; we discussed pods communication through Kubernetes services, all of this internally in the cluster, but what if we need to expose the service to the internet?&lt;/p&gt;&#xA;&lt;h3 id=&#34;exposing-services-to-the-internet&#34;&gt;&#xA;  Exposing services to the internet&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#exposing-services-to-the-internet&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;strong&gt;Node Port&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;The service type &lt;code&gt;NodePort&lt;/code&gt; creates a  unique port in every node of the cluster and forwards the requests to the pods that are part of that service.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Open Source Projects</title>
-      <link>http://localhost:1313/open-source/</link>
+      <link>https://libert.xyz/open-source/</link>
       <pubDate>Tue, 29 Dec 2020 12:18:58 -0400</pubDate>
-      <guid>http://localhost:1313/open-source/</guid>
+      <guid>https://libert.xyz/open-source/</guid>
       <description>&lt;h2 id=&#34;ansible&#34;&gt;&#xA;  Ansible&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ansible&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h4 id=&#34;container-images-for-ansible-testing&#34;&gt;&#xA;  Container Images for Ansible Testing&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#container-images-for-ansible-testing&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h4&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;Name&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;Github Actions&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: right&#34;&gt;Circle CI&lt;/th&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;Repository&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;docker-ansible-amazonlinux2&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-amazonlinux2/actions?query=workflow%3ABuild&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/libert-xyz/docker-ansible-amazonlinux2/workflows/Build/badge.svg?branch=master&amp;amp;event=push&#34; alt=&#34;CI&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;a href=&#34;https://travis-ci.com/libert-xyz/docker-ansible-amazonlinux2&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://travis-ci.com/libert-xyz/docker-ansible-amazonlinux2.svg?branch=master&#34; alt=&#34;Build Status&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-amazonlinux2&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;docker-ansible-ubuntu20&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu20/actions?query=workflow%3ABuild&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu20/workflows/Build/badge.svg?branch=master&amp;amp;event=push&#34; alt=&#34;CI&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;a href=&#34;https://travis-ci.com/libert-xyz/docker-ansible-ubuntu20&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://travis-ci.com/libert-xyz/docker-ansible-ubuntu20.svg?branch=master&#34; alt=&#34;Build Status&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu20&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;docker-ansible-ubuntu18&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu18/actions?query=workflow%3ABuild&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu18/workflows/Build/badge.svg?branch=master&amp;amp;event=push&#34; alt=&#34;CI&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;a href=&#34;https://travis-ci.com/libert-xyz/docker-ansible-ubuntu18&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://travis-ci.com/libert-xyz/docker-ansible-ubuntu18.svg?branch=master&#34; alt=&#34;Build Status&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-ubuntu18&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;docker-ansible-centos8&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-centos8/actions?query=workflow%3ABuild&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/libert-xyz/docker-ansible-centos8/workflows/Build/badge.svg?branch=master&amp;amp;event=push&#34; alt=&#34;CI&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;a href=&#34;https://travis-ci.com/libert-xyz/docker-ansible-centos8&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://travis-ci.com/libert-xyz/docker-ansible-centos8.svg?branch=master&#34; alt=&#34;Build Status&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-centos8&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;docker-ansible-centos7&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-centos7/actions?query=workflow%3ABuild&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://github.com/libert-xyz/docker-ansible-centos7/workflows/Build/badge.svg?branch=master&amp;amp;event=push&#34; alt=&#34;CI&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: right&#34;&gt;&lt;a href=&#34;https://travis-ci.com/libert-xyz/docker-ansible-centos7&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;img src=&#34;https://travis-ci.com/libert-xyz/docker-ansible-centos7.svg?branch=master&#34; alt=&#34;Build Status&#34;&gt;&lt;/a&gt;&lt;/td&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;&lt;a href=&#34;https://github.com/libert-xyz/docker-ansible-centos7&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Github&lt;/a&gt;&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;</description>
     </item>
     <item>
       <title>Deployment Types</title>
-      <link>http://localhost:1313/posts/deployment-types/</link>
+      <link>https://libert.xyz/posts/deployment-types/</link>
       <pubDate>Wed, 25 Sep 2019 12:16:40 -0400</pubDate>
-      <guid>http://localhost:1313/posts/deployment-types/</guid>
+      <guid>https://libert.xyz/posts/deployment-types/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.&lt;/p&gt;&#xA;&lt;p&gt;Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.&lt;/p&gt;&#xA;&lt;h3 id=&#34;manual-deployment-copy-and-paste&#34;&gt;&#xA;  Manual Deployment (copy and paste)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#manual-deployment-copy-and-paste&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/deploymentpost.png&#34; alt=&#34;k8-p1-1&#34; title=&#34;manual&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Namespaces resources quotas</title>
-      <link>http://localhost:1313/posts/namespaces-quotas/</link>
+      <link>https://libert.xyz/posts/namespaces-quotas/</link>
       <pubDate>Wed, 28 Aug 2019 16:06:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/namespaces-quotas/</guid>
+      <guid>https://libert.xyz/posts/namespaces-quotas/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;The &lt;strong&gt;Limits&lt;/strong&gt; and &lt;strong&gt;Requests&lt;/strong&gt; are set for each container, what about&#xA;if we want to apply Limits to namespaces?&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-object&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; Object&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-object&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;em&gt;LimitRange&lt;/em&gt; resource. It allows you to specify (for each namespace) not only the minimum and maximum limit you can set on a container for each resource but also the default requests for containers that don’t specify requests.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/lim1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;limitrange&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;limitrange-use-case&#34;&gt;&#xA;  &lt;em&gt;LimitRange&lt;/em&gt; use case&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#limitrange-use-case&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;A great use case for LimitRange is to prevent users from creating pods that are bigger than the node&amp;rsquo;s resources in the cluster. Without LimitRange the &lt;em&gt;API Server&lt;/em&gt; will accept the pod but never schedule it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS QoS</title>
-      <link>http://localhost:1313/posts/pods-qos/</link>
+      <link>https://libert.xyz/posts/pods-qos/</link>
       <pubDate>Tue, 27 Aug 2019 18:47:59 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-qos/</guid>
+      <guid>https://libert.xyz/posts/pods-qos/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;There is no option or field to assign Quality of service to a pod but a combination between &lt;strong&gt;Requests&lt;/strong&gt; and &lt;strong&gt;Limits&lt;/strong&gt;&#xA;give us the ability to define Quality of service.&lt;/p&gt;&#xA;&lt;h3 id=&#34;qos-classes&#34;&gt;&#xA;  QoS Classes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#qos-classes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;em&gt;BestEffort&lt;/em&gt; class (no request and limits set)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Guaranteed&lt;/em&gt; class (requests are equal to limits)&lt;/li&gt;&#xA;&lt;li&gt;&lt;em&gt;Burstable&lt;/em&gt; class (one container has limit set but another don&amp;rsquo;t)&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/qos1.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Classes&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Looking at QoS at the POD level is confusing because a POD can have one or multiple containers.&lt;/p&gt;</description>
     </item>
     <item>
       <title>PODS Requests &amp; Limits</title>
-      <link>http://localhost:1313/posts/pods-requests-limits/</link>
+      <link>https://libert.xyz/posts/pods-requests-limits/</link>
       <pubDate>Mon, 26 Aug 2019 13:15:19 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pods-requests-limits/</guid>
+      <guid>https://libert.xyz/posts/pods-requests-limits/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When creating a pod we can specify the amount of CPU and memory that a container needs.&#xA;If a POD has more than one container requests and limits are specified individually for each container.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;E.g.&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/1req.png&#34; alt=&#34;k8-p2-1&#34; title=&#34;Requests&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;If you don&amp;rsquo;t specify a CPU request the Kubernetes Scheduler will take the decisions of resource allocations for you.&#xA;In the worst-case scenario, the container may not get any CPU at all.&lt;/p&gt;&#xA;&lt;h3 id=&#34;understanding-cpu-units&#34;&gt;&#xA;  Understanding CPU Units&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#understanding-cpu-units&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The CPU resource is measured in CPU units. One CPU unit in Kubernetes is equivalent to:&lt;/p&gt;</description>
     </item>
     <item>
       <title>RUN or CMD or ENTRYPOINT</title>
-      <link>http://localhost:1313/posts/run-cmd-entrypoint/</link>
+      <link>https://libert.xyz/posts/run-cmd-entrypoint/</link>
       <pubDate>Wed, 12 Jun 2019 15:12:45 -0400</pubDate>
-      <guid>http://localhost:1313/posts/run-cmd-entrypoint/</guid>
+      <guid>https://libert.xyz/posts/run-cmd-entrypoint/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;One of the most confusing parts of a &lt;em&gt;Dockerfile&lt;/em&gt; for me it has always been the part where&#xA;we execute or initiate the application.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/Docker_docs.jpeg&#34; alt=&#34;docker-1&#34; title=&#34;Containers&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;in-summary&#34;&gt;&#xA;  In Summary&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#in-summary&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;RUN&lt;/strong&gt; executes command(s) in a new layer on top of the current image.&#xA;Often used to install packages and dependencies.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;CMD&lt;/strong&gt; sets default command and/or parameters, can be     overwritten from the command line when docker container runs.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Highly Available Kubernetes Cluster</title>
-      <link>http://localhost:1313/posts/kubernetes-ha/</link>
+      <link>https://libert.xyz/posts/kubernetes-ha/</link>
       <pubDate>Mon, 10 Jun 2019 14:43:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-ha/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-ha/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h3 id=&#34;ha-kubernetes&#34;&gt;&#xA;  HA Kubernetes&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#ha-kubernetes&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/ha-1.png&#34; alt=&#34;ha-1&#34; title=&#34;HA&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;One of the reasons for using Kubernetes in the first place is to have a high available, fully scalable application so the users can experience a smoothly interaction with the application.&lt;/p&gt;&#xA;&lt;p&gt;Out of the box, &lt;em&gt;Kubernetes&lt;/em&gt; and all the components are ready meant to be HA.&#xA;In this post, we are going to explore the best ways to achieve HA in Kubernetes.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Services insights</title>
-      <link>http://localhost:1313/posts/pod-services/</link>
+      <link>https://libert.xyz/posts/pod-services/</link>
       <pubDate>Wed, 05 Jun 2019 14:53:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-services/</guid>
+      <guid>https://libert.xyz/posts/pod-services/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;services-introduction&#34;&gt;&#xA;  Services introduction&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#services-introduction&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;A Kubernetes service provides a static endpoint (IP) to access pods.&#xA;The IP is static and never changes while the service exists.&#xA;Services can have multiple pods in different nodes, in every request the service routes the traffic to a random backed pod even if the request comes from the same client.&lt;/p&gt;&#xA;&lt;h2 id=&#34;kubernetes-services&#34;&gt;&#xA;  Kubernetes Services&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#kubernetes-services&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;The &lt;em&gt;kube-proxy&lt;/em&gt; manages everything related to services.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Diving deeper into pod networking</title>
-      <link>http://localhost:1313/posts/pod-networking/</link>
+      <link>https://libert.xyz/posts/pod-networking/</link>
       <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-networking/</guid>
+      <guid>https://libert.xyz/posts/pod-networking/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;inter-pod-networking&#34;&gt;&#xA;  Inter-pod networking&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#inter-pod-networking&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Networking is one of the most complex pieces in Kubernetes, let&amp;rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Each pod gets its own unique IP address.&lt;/li&gt;&#xA;&lt;li&gt;Each pod can communicate with all other pods through a flat, NATless network.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;how-kubernetes-does-it&#34;&gt;&#xA;  How Kubernetes does it?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#how-kubernetes-does-it&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The networking is set up by the System Administrator or by a &lt;em&gt;Container Network Interace (CNI)&lt;/em&gt; plugin.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Internals Deep Dive Summary Pt2</title>
-      <link>http://localhost:1313/posts/kubernetes-internals-p2/</link>
+      <link>https://libert.xyz/posts/kubernetes-internals-p2/</link>
       <pubDate>Fri, 24 May 2019 17:17:33 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-internals-p2/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-internals-p2/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h5 id=&#34;if-you-havent-yet-check-the-first-part-here&#34;&gt;&#xA;  If you haven&amp;rsquo;t yet, check the first part &lt;a href=&#34;https://libert.xyz/posts/kubernetes-internals/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#if-you-havent-yet-check-the-first-part-here&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;h2 id=&#34;k8-architecture-summary-pt2&#34;&gt;&#xA;  K8 Architecture Summary Pt2&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#k8-architecture-summary-pt2&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;h3 id=&#34;what-happens-when-we-submit-a-pod-manifest-to-the-api-server&#34;&gt;&#xA;  What happens when we submit a pod manifest to the API server?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#what-happens-when-we-submit-a-pod-manifest-to-the-api-server&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Before any event, the &lt;em&gt;Controler Manager&lt;/em&gt;, &lt;em&gt;Scheduler&lt;/em&gt; and the &lt;em&gt;Kubelet&lt;/em&gt; are in &amp;ldquo;watching mode&amp;rdquo; waiting for a new event for their respective resources types in the &lt;em&gt;API Server&lt;/em&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Kubernetes Internals Deep Dive Summary Pt1</title>
-      <link>http://localhost:1313/posts/kubernetes-internals-p1/</link>
+      <link>https://libert.xyz/posts/kubernetes-internals-p1/</link>
       <pubDate>Sun, 12 May 2019 13:34:45 -0400</pubDate>
-      <guid>http://localhost:1313/posts/kubernetes-internals-p1/</guid>
+      <guid>https://libert.xyz/posts/kubernetes-internals-p1/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Learning Kubernetes (k8 for short) is already complex, to make it even funnier I decided to go one level below and learn (or try) how this container orchestrator works behind scenes.&lt;/p&gt;&#xA;&lt;p&gt;Most of the references come from blogs like &lt;a href=&#34;https://jvns.ca/blog/2017/06/04/learning-about-kubernetes/&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Julia Evans&lt;/a&gt;,  Kubernetes Documentation and this awesome book called &lt;a href=&#34;https://www.manning.com/books/kubernetes-in-action&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Kubernetes in Action&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;k8-architecture-summary&#34;&gt;&#xA;  K8 Architecture Summary&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#k8-architecture-summary&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;In a nutshell, k8 has two components&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;1. Control Plane (master node)&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Service accounts &amp; RBAC Authorization</title>
-      <link>http://localhost:1313/posts/rbac-authorization/</link>
+      <link>https://libert.xyz/posts/rbac-authorization/</link>
       <pubDate>Sat, 13 Apr 2019 15:25:21 -0400</pubDate>
-      <guid>http://localhost:1313/posts/rbac-authorization/</guid>
+      <guid>https://libert.xyz/posts/rbac-authorization/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;When a request is received by the &lt;em&gt;API Server&lt;/em&gt; (kubectl) it goes through a list of&#xA;authentication plugins.&#xA;The plugins examine the request and determine who is sending the request.&lt;/p&gt;&#xA;&lt;p&gt;An authentication plugin returns the username and group of the authenticated&#xA;user. Kubernetes doesn’t store that information anywhere; it uses it to verify whether&#xA;the user is authorized to perform an action or not.&lt;/p&gt;&#xA;&lt;h3 id=&#34;users&#34;&gt;&#xA;  Users&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#users&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;Kind of clients connecting the &lt;em&gt;API Server&lt;/em&gt;:&lt;/p&gt;</description>
     </item>
     <item>
       <title>What is DevOps</title>
-      <link>http://localhost:1313/posts/what-is-devops/</link>
+      <link>https://libert.xyz/posts/what-is-devops/</link>
       <pubDate>Mon, 04 Feb 2019 14:59:35 -0400</pubDate>
-      <guid>http://localhost:1313/posts/what-is-devops/</guid>
+      <guid>https://libert.xyz/posts/what-is-devops/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;DevOps&lt;/strong&gt; has many definitions and nobody seems to agree on a single term.&lt;/p&gt;&#xA;&lt;p&gt;It gets more confusing when looking for &lt;strong&gt;DevOps Engineers&lt;/strong&gt; job descriptions, you don&amp;rsquo;t know if they are looking for a System Administrator or a Full-Stack Engineer.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/dev1.png&#34; alt=&#34;dev-p1-1&#34; title=&#34;devandops&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Developers like to build software and test things quickly, whereas System Administrators focus on stability and reliability. In my experience merging both roles in a single one is what a &lt;em&gt;DevOps Engineer&lt;/em&gt; is.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Containers &amp; Docker Images</title>
-      <link>http://localhost:1313/posts/containers-docker/</link>
+      <link>https://libert.xyz/posts/containers-docker/</link>
       <pubDate>Sat, 10 Nov 2018 14:53:00 -0400</pubDate>
-      <guid>http://localhost:1313/posts/containers-docker/</guid>
+      <guid>https://libert.xyz/posts/containers-docker/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Containers are getting more popular year by year and more companies are adopting containers as their default development environment.&lt;/p&gt;&#xA;&lt;p&gt;One of the primary reasons for the rapid adoption are the flexibility to package the application code, share it and running anywhere regardless of the operating system host.  Another reason is the mass adoption of &lt;em&gt;Microservices Architectures&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/docker-1.png&#34; alt=&#34;docker-1&#34; title=&#34;Containers&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;a-hello-world-container&#34;&gt;&#xA;  A Hello World container&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#a-hello-world-container&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The &lt;em&gt;busybox&lt;/em&gt; images contain the basic &lt;em&gt;UNIX&lt;/em&gt; tools like &lt;code&gt;echo&lt;/code&gt;, &lt;code&gt;ls&lt;/code&gt; and so on.&lt;/p&gt;</description>
     </item>
     <item>
       <title>About</title>
-      <link>http://localhost:1313/about/</link>
+      <link>https://libert.xyz/about/</link>
       <pubDate>Tue, 26 Jun 2018 12:10:58 -0400</pubDate>
-      <guid>http://localhost:1313/about/</guid>
+      <guid>https://libert.xyz/about/</guid>
       <description>&lt;h5 id=&#34;hey-there-im-libert&#34;&gt;&#xA;  Hey there, I’m Libert,&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#hey-there-im-libert&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h5&gt;&#xA;&lt;p&gt;and I work as a consultant that specializes in introducing a DevOps culture in teams and building cost effective Cloud Computing solutions.&lt;/p&gt;&#xA;&lt;p&gt;I also love Software engineering (especially the server side) and I strive to be a better software engineer every day.&lt;/p&gt;&#xA;&lt;p&gt;unix motto: &amp;ldquo;do one thing and do it well&amp;rdquo;&lt;/p&gt;&#xA;&lt;h3 id=&#34;skills&#34;&gt;&#xA;  Skills&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#skills&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Programming Languages&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
-      <title>Microservices</title>
-      <link>http://localhost:1313/posts/microservices/</link>
-      <pubDate>Tue, 26 Jun 2018 10:25:28 -0400</pubDate>
-      <guid>http://localhost:1313/posts/microservices/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>AWS/Amazon Global Network - Re:Invent 2016</title>
-      <link>http://localhost:1313/posts/aws-vpc-deep/</link>
+      <link>https://libert.xyz/posts/aws-vpc-deep/</link>
       <pubDate>Mon, 10 Oct 2016 14:43:55 -0400</pubDate>
-      <guid>http://localhost:1313/posts/aws-vpc-deep/</guid>
+      <guid>https://libert.xyz/posts/aws-vpc-deep/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;AWS rarely gives us insights about how they manage their data centers, there is no too much information about what kind of hardware they use and how they can scale quickly.&lt;/p&gt;&#xA;&lt;p&gt;This is because I found the  talk &lt;strong&gt;AWS re:Invent 2016&lt;/strong&gt; called &lt;a href=&#34;https://youtu.be/uj7Ting6Ckk&#34;  class=&#34;external-link&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;&lt;strong&gt;Amazon Global Network Overview&lt;/strong&gt;&lt;/a&gt; really enjoyable.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;James Hamilton&lt;/strong&gt; (Vice President and Distinguished Engineer) gives us an amazing overview of how the magic happens behind AWS datacenters.&lt;/p&gt;&#xA;&lt;p&gt;With 14 regions across the world.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Easiest dockerfile</title>
-      <link>http://localhost:1313/posts/easiest-dockerfile/</link>
+      <link>https://libert.xyz/posts/easiest-dockerfile/</link>
       <pubDate>Tue, 01 Sep 2015 11:59:37 -0400</pubDate>
-      <guid>http://localhost:1313/posts/easiest-dockerfile/</guid>
+      <guid>https://libert.xyz/posts/easiest-dockerfile/</guid>
       <description>&lt;p&gt;We use a Dockerfile to build a Docker Images, we can write specific instructions such a install a package, update the system and define the ports that the container will be listen.&lt;/p&gt;&#xA;&lt;p&gt;In the following example we write a Dockerfile in the /root directory&lt;/p&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Dockerfile that modifies centos:latest&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; FROM centos:latest&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; MAINTAINER User Name &amp;lt;username@domain.com&amp;gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Update the server OS&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y upgrade&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Install Apache Web Server&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y install httpd&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Install OpenSSH-Server&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; RUN yum -y install openssh-server&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;## Expose the SSH and Web Ports for attachment&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt; EXPOSE &lt;span style=&#34;color:#ae81ff&#34;&gt;22&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;80&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Now we execute the build command&lt;/p&gt;</description>
     </item>
   </channel>

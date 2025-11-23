@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Networking on libert.xyz</title>
-    <link>http://localhost:1313/tags/networking/</link>
+    <link>https://libert.xyz/tags/networking/</link>
     <description>Recent content in Networking on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Jun 2019 15:37:05 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/networking/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/tags/networking/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Diving deeper into pod networking</title>
-      <link>http://localhost:1313/posts/pod-networking/</link>
+      <link>https://libert.xyz/posts/pod-networking/</link>
       <pubDate>Sun, 02 Jun 2019 15:37:05 -0400</pubDate>
-      <guid>http://localhost:1313/posts/pod-networking/</guid>
+      <guid>https://libert.xyz/posts/pod-networking/</guid>
       <description>&lt;hr&gt;&#xA;&lt;h2 id=&#34;inter-pod-networking&#34;&gt;&#xA;  Inter-pod networking&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#inter-pod-networking&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h2&gt;&#xA;&lt;p&gt;Networking is one of the most complex pieces in Kubernetes, let&amp;rsquo;s try to summarize pod networking and apply the divide and conquer paradigm.&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Each pod gets its own unique IP address.&lt;/li&gt;&#xA;&lt;li&gt;Each pod can communicate with all other pods through a flat, NATless network.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;how-kubernetes-does-it&#34;&gt;&#xA;  How Kubernetes does it?&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#how-kubernetes-does-it&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;The networking is set up by the System Administrator or by a &lt;em&gt;Container Network Interace (CNI)&lt;/em&gt; plugin.&lt;/p&gt;</description>
     </item>
   </channel>

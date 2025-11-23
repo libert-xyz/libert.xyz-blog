@@ -1,4 +1,4 @@
-baseURL = "https://libert.xyz" # Hostname (and path) to the root.
+baseURL = "https://sand.libert.xyz" # Hostname (and path) to the root.
 title = "libert.xyz" # Site title.
 theme = "coder-25" # Set the theme.
 languagecode = "en" # The site’s language code.
@@ -15,7 +15,7 @@ pygmentscodefencesguesssyntax = true # Enable syntax guessing for code fences wi
 pagerSize = 6
 
 [params] # theme parameters
-    author = "Libert Schmidt" # Author's name.
+    author = "Libert (lih-BERT)" # Author's name.
     info = "DevOps Culture / Cloud Computing / Coffee Enthusiast" # Author's job title or info.
     description = "libert personal website" # Site description.
     keywords = "blog,devops,libert,aws,python,linux,bash" # Site keywords.
@@ -23,10 +23,6 @@ pagerSize = 6
     ##avatarurl = "images/avatar.jpg"
     #footercontent = "Enter a text here."
     dateformat = "January 2, 2006"
-
-    # Whether you want to hide copyright and credits in the footer.
-    hideCredits = true
-    hideCopyright = true
 
     # Use inverted colors
     inverted = false

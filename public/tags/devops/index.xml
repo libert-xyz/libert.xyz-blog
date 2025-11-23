@@ -2,24 +2,24 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Devops on libert.xyz</title>
-    <link>http://localhost:1313/tags/devops/</link>
+    <link>https://libert.xyz/tags/devops/</link>
     <description>Recent content in Devops on libert.xyz</description>
     <generator>Hugo</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Sep 2019 12:16:40 -0400</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://libert.xyz/tags/devops/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Deployment Types</title>
-      <link>http://localhost:1313/posts/deployment-types/</link>
+      <link>https://libert.xyz/posts/deployment-types/</link>
       <pubDate>Wed, 25 Sep 2019 12:16:40 -0400</pubDate>
-      <guid>http://localhost:1313/posts/deployment-types/</guid>
+      <guid>https://libert.xyz/posts/deployment-types/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;Releasing code updates in a production service with hundreds or even thousands of users using the application and expecting zero downtime is a full-time job for many of us.&lt;/p&gt;&#xA;&lt;p&gt;Luckily we have many deployment strategies from where we can choose, picking the right one for your project is an important decision that has to be agreed upon with your development team.&lt;/p&gt;&#xA;&lt;h3 id=&#34;manual-deployment-copy-and-paste&#34;&gt;&#xA;  Manual Deployment (copy and paste)&#xA;  &lt;a class=&#34;heading-link&#34; href=&#34;#manual-deployment-copy-and-paste&#34;&gt;&#xA;    &lt;i class=&#34;fa-solid fa-link&#34; aria-hidden=&#34;true&#34; title=&#34;Link to heading&#34;&gt;&lt;/i&gt;&#xA;    &lt;span class=&#34;sr-only&#34;&gt;Link to heading&lt;/span&gt;&#xA;  &lt;/a&gt;&#xA;&lt;/h3&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/deploymentpost.png&#34; alt=&#34;k8-p1-1&#34; title=&#34;manual&#34;&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>What is DevOps</title>
-      <link>http://localhost:1313/posts/what-is-devops/</link>
+      <link>https://libert.xyz/posts/what-is-devops/</link>
       <pubDate>Mon, 04 Feb 2019 14:59:35 -0400</pubDate>
-      <guid>http://localhost:1313/posts/what-is-devops/</guid>
+      <guid>https://libert.xyz/posts/what-is-devops/</guid>
       <description>&lt;hr&gt;&#xA;&lt;p&gt;&lt;strong&gt;DevOps&lt;/strong&gt; has many definitions and nobody seems to agree on a single term.&lt;/p&gt;&#xA;&lt;p&gt;It gets more confusing when looking for &lt;strong&gt;DevOps Engineers&lt;/strong&gt; job descriptions, you don&amp;rsquo;t know if they are looking for a System Administrator or a Full-Stack Engineer.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://libert.xyz/images/dev1.png&#34; alt=&#34;dev-p1-1&#34; title=&#34;devandops&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Developers like to build software and test things quickly, whereas System Administrators focus on stability and reliability. In my experience merging both roles in a single one is what a &lt;em&gt;DevOps Engineer&lt;/em&gt; is.&lt;/p&gt;</description>
     </item>
   </channel>
